@@ -1,0 +1,13 @@
+c:\users\3nc\documents\visual studio 2010\Projects\CompilerDotNet\CompilerDotNet\bin\Debug\CompilerDotNet.exe
+c:\users\3nc\documents\visual studio 2010\Projects\CompilerDotNet\CompilerDotNet\bin\Debug\CompilerDotNet.pdb
+c:\users\3nc\documents\visual studio 2010\Projects\CompilerDotNet\CompilerDotNet\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\3nc\documents\visual studio 2010\Projects\CompilerDotNet\CompilerDotNet\obj\x86\Debug\CompilerDotNet.Form1.resources
+c:\users\3nc\documents\visual studio 2010\Projects\CompilerDotNet\CompilerDotNet\obj\x86\Debug\CompilerDotNet.Properties.Resources.resources
+c:\users\3nc\documents\visual studio 2010\Projects\CompilerDotNet\CompilerDotNet\obj\x86\Debug\GenerateResource.read.1.tlog
+c:\users\3nc\documents\visual studio 2010\Projects\CompilerDotNet\CompilerDotNet\obj\x86\Debug\GenerateResource.write.1.tlog
+c:\users\3nc\documents\visual studio 2010\Projects\CompilerDotNet\CompilerDotNet\obj\x86\Debug\CompilerDotNet.exe
+c:\users\3nc\documents\visual studio 2010\Projects\CompilerDotNet\CompilerDotNet\obj\x86\Debug\CompilerDotNet.pdb
+C:\Users\3nc\documents\visual studio 2010\Projects\CompilerDotNet\CompilerDotNet\bin\Debug\CompilerDotNet.exe.config
+D:\User\FELIX 5109100121\Kuliah\Pemrogaman .Net\TUgas 2\Compilerdotnet\CompilerDotNet\CompilerDotNet\bin\Debug\CompilerDotNet.exe.config
+D:\User\FELIX 5109100121\Kuliah\Pemrogaman .Net\TUgas 2\Compilerdotnet\CompilerDotNet\CompilerDotNet\obj\x86\Debug\CompilerDotNet.exe
+D:\User\FELIX 5109100121\Kuliah\Pemrogaman .Net\TUgas 2\Compilerdotnet\CompilerDotNet\CompilerDotNet\obj\x86\Debug\CompilerDotNet.pdb
