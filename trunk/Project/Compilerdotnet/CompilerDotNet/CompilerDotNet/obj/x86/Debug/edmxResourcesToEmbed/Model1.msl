@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="lpojModelStoreContainer" CdmEntityContainer="lpojEntities">
+    <EntitySetMapping Name="lpoj_clarification">
+      <EntityTypeMapping TypeName="lpojModel.lpoj_clarification">
+        <MappingFragment StoreEntitySet="lpoj_clarification">
+          <ScalarProperty Name="CLARIFICATION_ID" ColumnName="CLARIFICATION_ID" />
+          <ScalarProperty Name="CONTEST_ID" ColumnName="CONTEST_ID" />
+          <ScalarProperty Name="CONTESTANT_ID" ColumnName="CONTESTANT_ID" />
+          <ScalarProperty Name="CLARIFICATION_TITLE" ColumnName="CLARIFICATION_TITLE" />
+          <ScalarProperty Name="CLARIFICATION_DESCRIPTION" ColumnName="CLARIFICATION_DESCRIPTION" />
+          <ScalarProperty Name="CLARIFICATION_ANSWER" ColumnName="CLARIFICATION_ANSWER" />
+          <ScalarProperty Name="CLARIFICATION_STATUS" ColumnName="CLARIFICATION_STATUS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="lpoj_contest">
+      <EntityTypeMapping TypeName="lpojModel.lpoj_contest">
+        <MappingFragment StoreEntitySet="lpoj_contest">
+          <ScalarProperty Name="CONTEST_ID" ColumnName="CONTEST_ID" />
+          <ScalarProperty Name="CONTEST_TITLE" ColumnName="CONTEST_TITLE" />
+          <ScalarProperty Name="CONTEST_DESCRIPTION" ColumnName="CONTEST_DESCRIPTION" />
+          <ScalarProperty Name="CONTEST_CREATE" ColumnName="CONTEST_CREATE" />
+          <ScalarProperty Name="CONTEST_BEGIN" ColumnName="CONTEST_BEGIN" />
+          <ScalarProperty Name="CONTEST_END" ColumnName="CONTEST_END" />
+          <ScalarProperty Name="CONTEST_FREEZE" ColumnName="CONTEST_FREEZE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="lpoj_contestant">
+      <EntityTypeMapping TypeName="lpojModel.lpoj_contestant">
+        <MappingFragment StoreEntitySet="lpoj_contestant">
+          <ScalarProperty Name="CONTESTANT_ID" ColumnName="CONTESTANT_ID" />
+          <ScalarProperty Name="USERS_ID" ColumnName="USERS_ID" />
+          <ScalarProperty Name="CONTEST_ID" ColumnName="CONTEST_ID" />
+          <ScalarProperty Name="CONTESTANT_STATUS" ColumnName="CONTESTANT_STATUS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="lpoj_ncproblem">
+      <EntityTypeMapping TypeName="lpojModel.lpoj_ncproblem">
+        <MappingFragment StoreEntitySet="lpoj_ncproblem">
+          <ScalarProperty Name="NCPROBLEM_ID" ColumnName="NCPROBLEM_ID" />
+          <ScalarProperty Name="NCPROBLEM_TITLE" ColumnName="NCPROBLEM_TITLE" />
+          <ScalarProperty Name="NCPROBLEM_DESCRIPTION" ColumnName="NCPROBLEM_DESCRIPTION" />
+          <ScalarProperty Name="NCPROBLEM_CREATETIME" ColumnName="NCPROBLEM_CREATETIME" />
+          <ScalarProperty Name="NCPROBLEM_STATUS" ColumnName="NCPROBLEM_STATUS" />
+          <ScalarProperty Name="NCPROBLEM_TIMELIMIT" ColumnName="NCPROBLEM_TIMELIMIT" />
+          <ScalarProperty Name="NCPROBLEM_MEMORYLIMIT" ColumnName="NCPROBLEM_MEMORYLIMIT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="lpoj_ncsubmission">
+      <EntityTypeMapping TypeName="lpojModel.lpoj_ncsubmission">
+        <MappingFragment StoreEntitySet="lpoj_ncsubmission">
+          <ScalarProperty Name="NCSUBMISSION_ID" ColumnName="NCSUBMISSION_ID" />
+          <ScalarProperty Name="USERS_ID" ColumnName="USERS_ID" />
+          <ScalarProperty Name="NCPROBLEM_ID" ColumnName="NCPROBLEM_ID" />
+          <ScalarProperty Name="NCSUBMISSION_SCORE" ColumnName="NCSUBMISSION_SCORE" />
+          <ScalarProperty Name="NCSUBMISSION_TIME" ColumnName="NCSUBMISSION_TIME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="lpoj_nctestcase">
+      <EntityTypeMapping TypeName="lpojModel.lpoj_nctestcase">
+        <MappingFragment StoreEntitySet="lpoj_nctestcase">
+          <ScalarProperty Name="NCTESTCASE_ID" ColumnName="NCTESTCASE_ID" />
+          <ScalarProperty Name="NCPROBLEM_ID" ColumnName="NCPROBLEM_ID" />
+          <ScalarProperty Name="NCTESTCASE_INPUT" ColumnName="NCTESTCASE_INPUT" />
+          <ScalarProperty Name="NCTESTCASE_OUTPUT" ColumnName="NCTESTCASE_OUTPUT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="lpoj_problem">
+      <EntityTypeMapping TypeName="lpojModel.lpoj_problem">
+        <MappingFragment StoreEntitySet="lpoj_problem">
+          <ScalarProperty Name="PROBLEM_ID" ColumnName="PROBLEM_ID" />
+          <ScalarProperty Name="CONTEST_ID" ColumnName="CONTEST_ID" />
+          <ScalarProperty Name="PROBLEM_TITLE" ColumnName="PROBLEM_TITLE" />
+          <ScalarProperty Name="PROBLEM_DESCRIPTION" ColumnName="PROBLEM_DESCRIPTION" />
+          <ScalarProperty Name="PROBLEM_CREATETIME" ColumnName="PROBLEM_CREATETIME" />
+          <ScalarProperty Name="PROBLEM_STATUS" ColumnName="PROBLEM_STATUS" />
+          <ScalarProperty Name="PROBLEM_TIMELIMIT" ColumnName="PROBLEM_TIMELIMIT" />
+          <ScalarProperty Name="PROBLEM_MEMORYLIMIT" ColumnName="PROBLEM_MEMORYLIMIT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="lpoj_submission">
+      <EntityTypeMapping TypeName="lpojModel.lpoj_submission">
+        <MappingFragment StoreEntitySet="lpoj_submission">
+          <ScalarProperty Name="SUBMISSION_ID" ColumnName="SUBMISSION_ID" />
+          <ScalarProperty Name="CONTESTANT_ID" ColumnName="CONTESTANT_ID" />
+          <ScalarProperty Name="PROBLEM_ID" ColumnName="PROBLEM_ID" />
+          <ScalarProperty Name="SUBMISSION_SCORE" ColumnName="SUBMISSION_SCORE" />
+          <ScalarProperty Name="SUBMISSION_TIME" ColumnName="SUBMISSION_TIME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="lpoj_testcase">
+      <EntityTypeMapping TypeName="lpojModel.lpoj_testcase">
+        <MappingFragment StoreEntitySet="lpoj_testcase">
+          <ScalarProperty Name="TESTCASE_ID" ColumnName="TESTCASE_ID" />
+          <ScalarProperty Name="PROBLEM_ID" ColumnName="PROBLEM_ID" />
+          <ScalarProperty Name="TESTCASE_INPUT" ColumnName="TESTCASE_INPUT" />
+          <ScalarProperty Name="TESTCASE_OUTPUT" ColumnName="TESTCASE_OUTPUT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="lpoj_users">
+      <EntityTypeMapping TypeName="lpojModel.lpoj_users">
+        <MappingFragment StoreEntitySet="lpoj_users">
+          <ScalarProperty Name="USERS_ID" ColumnName="USERS_ID" />
+          <ScalarProperty Name="USERS_USERNAME" ColumnName="USERS_USERNAME" />
+          <ScalarProperty Name="USERS_PASSWORD" ColumnName="USERS_PASSWORD" />
+          <ScalarProperty Name="USERS_STATUS" ColumnName="USERS_STATUS" />
+          <ScalarProperty Name="USERS_JOIN_DATE" ColumnName="USERS_JOIN_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
