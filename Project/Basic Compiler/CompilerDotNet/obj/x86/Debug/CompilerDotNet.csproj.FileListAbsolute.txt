@@ -1,0 +1,9 @@
+C:\Users\Adrianus\Documents\LPOJ\Project\Basic Compiler\CompilerDotNet\bin\Debug\CompilerDotNet.exe.config
+C:\Users\Adrianus\Documents\LPOJ\Project\Basic Compiler\CompilerDotNet\bin\Debug\CompilerDotNet.exe
+C:\Users\Adrianus\Documents\LPOJ\Project\Basic Compiler\CompilerDotNet\bin\Debug\CompilerDotNet.pdb
+C:\Users\Adrianus\Documents\LPOJ\Project\Basic Compiler\CompilerDotNet\obj\x86\Debug\CompilerDotNet.csprojResolveAssemblyReference.cache
+C:\Users\Adrianus\Documents\LPOJ\Project\Basic Compiler\CompilerDotNet\obj\x86\Debug\CompilerDotNet.Form1.resources
+C:\Users\Adrianus\Documents\LPOJ\Project\Basic Compiler\CompilerDotNet\obj\x86\Debug\CompilerDotNet.Properties.Resources.resources
+C:\Users\Adrianus\Documents\LPOJ\Project\Basic Compiler\CompilerDotNet\obj\x86\Debug\CompilerDotNet.csproj.GenerateResource.Cache
+C:\Users\Adrianus\Documents\LPOJ\Project\Basic Compiler\CompilerDotNet\obj\x86\Debug\CompilerDotNet.exe
+C:\Users\Adrianus\Documents\LPOJ\Project\Basic Compiler\CompilerDotNet\obj\x86\Debug\CompilerDotNet.pdb
