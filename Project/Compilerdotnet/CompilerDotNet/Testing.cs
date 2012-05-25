@@ -20,7 +20,7 @@ namespace CompilerDotNet
         private bool isContest;
         private Queue<string> MessageQueue;
         private string ExtName;
-        private lpojEntities2 Entity;
+        private lpojEntities Entity;
         
         private const int WRONG_ANSWER = 1;
         private const int TIME_LIMIT = 2;
@@ -37,7 +37,7 @@ namespace CompilerDotNet
             this.MessageQueue = MessageQueue;
             this.ExtName = ExtName;
             this.problem = problem;
-            this.Entity = new lpojEntities2();
+            this.Entity = new lpojEntities();
         }
         public Testing(string filename, lpoj_nctestcase nctestcase, lpoj_ncsubmission ncsubmission, ref Queue<string> MessageQueue, string ExtName,lpoj_ncproblem ncproblem)
         {
@@ -48,7 +48,7 @@ namespace CompilerDotNet
             this.MessageQueue = MessageQueue;
             this.ExtName = ExtName;
             this.ncproblem = ncproblem;
-            this.Entity = new lpojEntities2();
+            this.Entity = new lpojEntities();
         }
         public void run()
         {

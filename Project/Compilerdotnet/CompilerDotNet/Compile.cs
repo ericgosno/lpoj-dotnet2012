@@ -18,7 +18,7 @@ namespace CompilerDotNet
         private bool isAlive;
         private lpoj_submission submission;
         private lpoj_ncsubmission ncsubmission;
-        private lpojEntities2 Entity;
+        private lpojEntities Entity;
         private lpoj_problem problem;
         private lpoj_ncproblem ncproblem;
         private lpoj_contestant contestant;
@@ -45,7 +45,7 @@ namespace CompilerDotNet
             isAlive = true;
             submission = null;
             ncsubmission = null;
-            Entity = new lpojEntities2();
+            Entity = new lpojEntities();
         }
         
         private bool Compile_Code()
@@ -197,6 +197,7 @@ namespace CompilerDotNet
             if (!Detect_Submission())
             {
                 MessageQueue.Enqueue("Error Submission " + fileName + " is Unknown\n");
+                isAlive = false;
                 return;
             }
             if (ExtName != "py")if (!Compile_Code()) return;
@@ -205,6 +206,7 @@ namespace CompilerDotNet
             if (!Testing_Code())
             {
                 MessageQueue.Enqueue("Error Submission " + fileName + " is Unknown\n");
+                isAlive = false;
                 return; 
             }
             Process_Code();
