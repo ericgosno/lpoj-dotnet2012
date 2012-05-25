@@ -59,7 +59,8 @@
             </tr>
             <tr>
                 <td> <asp:TextBox ID="problemName" runat="server" /> </td>
-                <td> <asp:Button ID="addProblem" text="Add" runat="server" /> </td>
+                <td> <asp:Button ID="addProblem" text="Add" runat="server" 
+                        onclick="addProblem_Click" /> </td>
             </tr>
             <tr>
                 <td></td>

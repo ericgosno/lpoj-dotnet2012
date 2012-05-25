@@ -26,9 +26,9 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("lpojModel", "FK_RELATIONSHIP_5", "lpoj_contestant", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CompilerDotNet.lpoj_contestant), "lpoj_submission", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CompilerDotNet.lpoj_submission), true)]
 [assembly: EdmRelationshipAttribute("lpojModel", "FK_RELATIONSHIP_8", "lpoj_ncproblem", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CompilerDotNet.lpoj_ncproblem), "lpoj_ncsubmission", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CompilerDotNet.lpoj_ncsubmission), true)]
 [assembly: EdmRelationshipAttribute("lpojModel", "FK_RELATIONSHIP_9", "lpoj_ncproblem", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CompilerDotNet.lpoj_ncproblem), "lpoj_nctestcase", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CompilerDotNet.lpoj_nctestcase), true)]
-[assembly: EdmRelationshipAttribute("lpojModel", "FK_RELATIONSHIP_15", "lpoj_ncsubmission", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CompilerDotNet.lpoj_ncsubmission), "lpoj_ncverdict", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CompilerDotNet.lpoj_ncverdict), true)]
-[assembly: EdmRelationshipAttribute("lpojModel", "FK_RELATIONSHIP_7", "lpoj_users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CompilerDotNet.lpoj_users), "lpoj_ncsubmission", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(CompilerDotNet.lpoj_ncsubmission), true)]
-[assembly: EdmRelationshipAttribute("lpojModel", "FK_RELATIONSHIP_14", "lpoj_nctestcase", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CompilerDotNet.lpoj_nctestcase), "lpoj_ncverdict", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CompilerDotNet.lpoj_ncverdict), true)]
+[assembly: EdmRelationshipAttribute("lpojModel", "FK_1", "lpoj_ncsubmission", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CompilerDotNet.lpoj_ncsubmission), "lpoj_ncverdict", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CompilerDotNet.lpoj_ncverdict), true)]
+[assembly: EdmRelationshipAttribute("lpojModel", "FK_RELATIONSHIP_7", "lpoj_users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CompilerDotNet.lpoj_users), "lpoj_ncsubmission", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CompilerDotNet.lpoj_ncsubmission), true)]
+[assembly: EdmRelationshipAttribute("lpojModel", "FK_2", "lpoj_nctestcase", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CompilerDotNet.lpoj_nctestcase), "lpoj_ncverdict", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CompilerDotNet.lpoj_ncverdict), true)]
 [assembly: EdmRelationshipAttribute("lpojModel", "FK_RELATIONSHIP_4", "lpoj_problem", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CompilerDotNet.lpoj_problem), "lpoj_submission", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CompilerDotNet.lpoj_submission), true)]
 [assembly: EdmRelationshipAttribute("lpojModel", "FK_RELATIONSHIP_6", "lpoj_problem", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CompilerDotNet.lpoj_problem), "lpoj_testcase", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CompilerDotNet.lpoj_testcase), true)]
 [assembly: EdmRelationshipAttribute("lpojModel", "FK_RELATIONSHIP_12", "lpoj_submission", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CompilerDotNet.lpoj_submission), "lpoj_verdict", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CompilerDotNet.lpoj_verdict), true)]
@@ -43,32 +43,32 @@ namespace CompilerDotNet
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    public partial class lpojEntities2 : ObjectContext
+    public partial class lpojEntities : ObjectContext
     {
         #region Constructors
     
         /// <summary>
-        /// Initializes a new lpojEntities2 object using the connection string found in the 'lpojEntities2' section of the application configuration file.
+        /// Initializes a new lpojEntities object using the connection string found in the 'lpojEntities' section of the application configuration file.
         /// </summary>
-        public lpojEntities2() : base("name=lpojEntities2", "lpojEntities2")
+        public lpojEntities() : base("name=lpojEntities", "lpojEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialize a new lpojEntities2 object.
+        /// Initialize a new lpojEntities object.
         /// </summary>
-        public lpojEntities2(string connectionString) : base(connectionString, "lpojEntities2")
+        public lpojEntities(string connectionString) : base(connectionString, "lpojEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialize a new lpojEntities2 object.
+        /// Initialize a new lpojEntities object.
         /// </summary>
-        public lpojEntities2(EntityConnection connection) : base(connection, "lpojEntities2")
+        public lpojEntities(EntityConnection connection) : base(connection, "lpojEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
@@ -688,21 +688,11 @@ namespace CompilerDotNet
         /// </summary>
         /// <param name="cONTEST_ID">Initial value of the CONTEST_ID property.</param>
         /// <param name="cONTEST_TITLE">Initial value of the CONTEST_TITLE property.</param>
-        /// <param name="cONTEST_DESCRIPTION">Initial value of the CONTEST_DESCRIPTION property.</param>
-        /// <param name="cONTEST_CREATE">Initial value of the CONTEST_CREATE property.</param>
-        /// <param name="cONTEST_BEGIN">Initial value of the CONTEST_BEGIN property.</param>
-        /// <param name="cONTEST_END">Initial value of the CONTEST_END property.</param>
-        /// <param name="cONTEST_FREEZE">Initial value of the CONTEST_FREEZE property.</param>
-        public static lpoj_contest Createlpoj_contest(global::System.Int32 cONTEST_ID, global::System.String cONTEST_TITLE, global::System.String cONTEST_DESCRIPTION, global::System.DateTime cONTEST_CREATE, global::System.DateTime cONTEST_BEGIN, global::System.DateTime cONTEST_END, global::System.DateTime cONTEST_FREEZE)
+        public static lpoj_contest Createlpoj_contest(global::System.Int32 cONTEST_ID, global::System.String cONTEST_TITLE)
         {
             lpoj_contest lpoj_contest = new lpoj_contest();
             lpoj_contest.CONTEST_ID = cONTEST_ID;
             lpoj_contest.CONTEST_TITLE = cONTEST_TITLE;
-            lpoj_contest.CONTEST_DESCRIPTION = cONTEST_DESCRIPTION;
-            lpoj_contest.CONTEST_CREATE = cONTEST_CREATE;
-            lpoj_contest.CONTEST_BEGIN = cONTEST_BEGIN;
-            lpoj_contest.CONTEST_END = cONTEST_END;
-            lpoj_contest.CONTEST_FREEZE = cONTEST_FREEZE;
             return lpoj_contest;
         }
 
@@ -763,7 +753,7 @@ namespace CompilerDotNet
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String CONTEST_DESCRIPTION
         {
@@ -775,7 +765,7 @@ namespace CompilerDotNet
             {
                 OnCONTEST_DESCRIPTIONChanging(value);
                 ReportPropertyChanging("CONTEST_DESCRIPTION");
-                _CONTEST_DESCRIPTION = StructuralObject.SetValidValue(value, false);
+                _CONTEST_DESCRIPTION = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("CONTEST_DESCRIPTION");
                 OnCONTEST_DESCRIPTIONChanged();
             }
@@ -787,9 +777,9 @@ namespace CompilerDotNet
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.DateTime CONTEST_CREATE
+        public Nullable<global::System.DateTime> CONTEST_CREATE
         {
             get
             {
@@ -804,16 +794,16 @@ namespace CompilerDotNet
                 OnCONTEST_CREATEChanged();
             }
         }
-        private global::System.DateTime _CONTEST_CREATE;
-        partial void OnCONTEST_CREATEChanging(global::System.DateTime value);
+        private Nullable<global::System.DateTime> _CONTEST_CREATE;
+        partial void OnCONTEST_CREATEChanging(Nullable<global::System.DateTime> value);
         partial void OnCONTEST_CREATEChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.DateTime CONTEST_BEGIN
+        public Nullable<global::System.DateTime> CONTEST_BEGIN
         {
             get
             {
@@ -828,16 +818,16 @@ namespace CompilerDotNet
                 OnCONTEST_BEGINChanged();
             }
         }
-        private global::System.DateTime _CONTEST_BEGIN;
-        partial void OnCONTEST_BEGINChanging(global::System.DateTime value);
+        private Nullable<global::System.DateTime> _CONTEST_BEGIN;
+        partial void OnCONTEST_BEGINChanging(Nullable<global::System.DateTime> value);
         partial void OnCONTEST_BEGINChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.DateTime CONTEST_END
+        public Nullable<global::System.DateTime> CONTEST_END
         {
             get
             {
@@ -852,16 +842,16 @@ namespace CompilerDotNet
                 OnCONTEST_ENDChanged();
             }
         }
-        private global::System.DateTime _CONTEST_END;
-        partial void OnCONTEST_ENDChanging(global::System.DateTime value);
+        private Nullable<global::System.DateTime> _CONTEST_END;
+        partial void OnCONTEST_ENDChanging(Nullable<global::System.DateTime> value);
         partial void OnCONTEST_ENDChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.DateTime CONTEST_FREEZE
+        public Nullable<global::System.DateTime> CONTEST_FREEZE
         {
             get
             {
@@ -876,8 +866,8 @@ namespace CompilerDotNet
                 OnCONTEST_FREEZEChanged();
             }
         }
-        private global::System.DateTime _CONTEST_FREEZE;
-        partial void OnCONTEST_FREEZEChanging(global::System.DateTime value);
+        private Nullable<global::System.DateTime> _CONTEST_FREEZE;
+        partial void OnCONTEST_FREEZEChanging(Nullable<global::System.DateTime> value);
         partial void OnCONTEST_FREEZEChanged();
 
         #endregion
@@ -1527,7 +1517,7 @@ namespace CompilerDotNet
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 NCPROBLEM_ID
         {
@@ -1537,11 +1527,14 @@ namespace CompilerDotNet
             }
             set
             {
-                OnNCPROBLEM_IDChanging(value);
-                ReportPropertyChanging("NCPROBLEM_ID");
-                _NCPROBLEM_ID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("NCPROBLEM_ID");
-                OnNCPROBLEM_IDChanged();
+                if (_NCPROBLEM_ID != value)
+                {
+                    OnNCPROBLEM_IDChanging(value);
+                    ReportPropertyChanging("NCPROBLEM_ID");
+                    _NCPROBLEM_ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("NCPROBLEM_ID");
+                    OnNCPROBLEM_IDChanged();
+                }
             }
         }
         private global::System.Int32 _NCPROBLEM_ID;
@@ -1644,18 +1637,18 @@ namespace CompilerDotNet
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("lpojModel", "FK_RELATIONSHIP_15", "lpoj_ncverdict")]
+        [EdmRelationshipNavigationPropertyAttribute("lpojModel", "FK_1", "lpoj_ncverdict")]
         public EntityCollection<lpoj_ncverdict> lpoj_ncverdict
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<lpoj_ncverdict>("lpojModel.FK_RELATIONSHIP_15", "lpoj_ncverdict");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<lpoj_ncverdict>("lpojModel.FK_1", "lpoj_ncverdict");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<lpoj_ncverdict>("lpojModel.FK_RELATIONSHIP_15", "lpoj_ncverdict", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<lpoj_ncverdict>("lpojModel.FK_1", "lpoj_ncverdict", value);
                 }
             }
         }
@@ -1878,18 +1871,18 @@ namespace CompilerDotNet
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("lpojModel", "FK_RELATIONSHIP_14", "lpoj_ncverdict")]
+        [EdmRelationshipNavigationPropertyAttribute("lpojModel", "FK_2", "lpoj_ncverdict")]
         public EntityCollection<lpoj_ncverdict> lpoj_ncverdict
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<lpoj_ncverdict>("lpojModel.FK_RELATIONSHIP_14", "lpoj_ncverdict");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<lpoj_ncverdict>("lpojModel.FK_2", "lpoj_ncverdict");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<lpoj_ncverdict>("lpojModel.FK_RELATIONSHIP_14", "lpoj_ncverdict", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<lpoj_ncverdict>("lpojModel.FK_2", "lpoj_ncverdict", value);
                 }
             }
         }
@@ -2042,16 +2035,16 @@ namespace CompilerDotNet
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("lpojModel", "FK_RELATIONSHIP_15", "lpoj_ncsubmission")]
+        [EdmRelationshipNavigationPropertyAttribute("lpojModel", "FK_1", "lpoj_ncsubmission")]
         public lpoj_ncsubmission lpoj_ncsubmission
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<lpoj_ncsubmission>("lpojModel.FK_RELATIONSHIP_15", "lpoj_ncsubmission").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<lpoj_ncsubmission>("lpojModel.FK_1", "lpoj_ncsubmission").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<lpoj_ncsubmission>("lpojModel.FK_RELATIONSHIP_15", "lpoj_ncsubmission").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<lpoj_ncsubmission>("lpojModel.FK_1", "lpoj_ncsubmission").Value = value;
             }
         }
         /// <summary>
@@ -2063,13 +2056,13 @@ namespace CompilerDotNet
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<lpoj_ncsubmission>("lpojModel.FK_RELATIONSHIP_15", "lpoj_ncsubmission");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<lpoj_ncsubmission>("lpojModel.FK_1", "lpoj_ncsubmission");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<lpoj_ncsubmission>("lpojModel.FK_RELATIONSHIP_15", "lpoj_ncsubmission", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<lpoj_ncsubmission>("lpojModel.FK_1", "lpoj_ncsubmission", value);
                 }
             }
         }
@@ -2080,16 +2073,16 @@ namespace CompilerDotNet
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("lpojModel", "FK_RELATIONSHIP_14", "lpoj_nctestcase")]
+        [EdmRelationshipNavigationPropertyAttribute("lpojModel", "FK_2", "lpoj_nctestcase")]
         public lpoj_nctestcase lpoj_nctestcase
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<lpoj_nctestcase>("lpojModel.FK_RELATIONSHIP_14", "lpoj_nctestcase").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<lpoj_nctestcase>("lpojModel.FK_2", "lpoj_nctestcase").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<lpoj_nctestcase>("lpojModel.FK_RELATIONSHIP_14", "lpoj_nctestcase").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<lpoj_nctestcase>("lpojModel.FK_2", "lpoj_nctestcase").Value = value;
             }
         }
         /// <summary>
@@ -2101,13 +2094,13 @@ namespace CompilerDotNet
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<lpoj_nctestcase>("lpojModel.FK_RELATIONSHIP_14", "lpoj_nctestcase");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<lpoj_nctestcase>("lpojModel.FK_2", "lpoj_nctestcase");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<lpoj_nctestcase>("lpojModel.FK_RELATIONSHIP_14", "lpoj_nctestcase", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<lpoj_nctestcase>("lpojModel.FK_2", "lpoj_nctestcase", value);
                 }
             }
         }
@@ -3056,33 +3049,17 @@ namespace CompilerDotNet
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("lpojModel", "FK_RELATIONSHIP_7", "lpoj_ncsubmission")]
-        public lpoj_ncsubmission lpoj_ncsubmission
+        public EntityCollection<lpoj_ncsubmission> lpoj_ncsubmission
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<lpoj_ncsubmission>("lpojModel.FK_RELATIONSHIP_7", "lpoj_ncsubmission").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<lpoj_ncsubmission>("lpojModel.FK_RELATIONSHIP_7", "lpoj_ncsubmission").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<lpoj_ncsubmission> lpoj_ncsubmissionReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<lpoj_ncsubmission>("lpojModel.FK_RELATIONSHIP_7", "lpoj_ncsubmission");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<lpoj_ncsubmission>("lpojModel.FK_RELATIONSHIP_7", "lpoj_ncsubmission");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<lpoj_ncsubmission>("lpojModel.FK_RELATIONSHIP_7", "lpoj_ncsubmission", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<lpoj_ncsubmission>("lpojModel.FK_RELATIONSHIP_7", "lpoj_ncsubmission", value);
                 }
             }
         }

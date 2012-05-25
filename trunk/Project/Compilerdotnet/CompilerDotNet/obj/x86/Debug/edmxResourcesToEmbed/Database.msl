@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="lpojModelStoreContainer" CdmEntityContainer="lpojEntities2">
+  <EntityContainerMapping StorageEntityContainer="lpojModelStoreContainer" CdmEntityContainer="lpojEntities">
     <EntitySetMapping Name="lpoj_clarification">
       <EntityTypeMapping TypeName="lpojModel.lpoj_clarification">
         <MappingFragment StoreEntitySet="lpoj_clarification">
@@ -76,6 +76,7 @@
           <ScalarProperty Name="USERS_ID" ColumnName="USERS_ID" />
           <ScalarProperty Name="NCTESTCASE_ID" ColumnName="NCTESTCASE_ID" />
           <ScalarProperty Name="NCVERDICT_STATUS" ColumnName="NCVERDICT_STATUS" />
+          <ScalarProperty Name="NCPROBLEM_ID" ColumnName="NCPROBLEM_ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="lpojModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
-  <EntityContainer Name="lpojEntities2" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="lpojEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="lpoj_clarification" EntityType="lpojModel.lpoj_clarification" />
     <EntitySet Name="lpoj_contest" EntityType="lpojModel.lpoj_contest" />
     <EntitySet Name="lpoj_contestant" EntityType="lpojModel.lpoj_contestant" />
@@ -45,7 +45,7 @@
       <End Role="lpoj_ncproblem" EntitySet="lpoj_ncproblem" />
       <End Role="lpoj_nctestcase" EntitySet="lpoj_nctestcase" />
     </AssociationSet>
-    <AssociationSet Name="FK_RELATIONSHIP_15" Association="lpojModel.FK_RELATIONSHIP_15">
+    <AssociationSet Name="FK_1" Association="lpojModel.FK_1">
       <End Role="lpoj_ncsubmission" EntitySet="lpoj_ncsubmission" />
       <End Role="lpoj_ncverdict" EntitySet="lpoj_ncverdict" />
     </AssociationSet>
@@ -53,7 +53,7 @@
       <End Role="lpoj_users" EntitySet="lpoj_users" />
       <End Role="lpoj_ncsubmission" EntitySet="lpoj_ncsubmission" />
     </AssociationSet>
-    <AssociationSet Name="FK_RELATIONSHIP_14" Association="lpojModel.FK_RELATIONSHIP_14">
+    <AssociationSet Name="FK_2" Association="lpojModel.FK_2">
       <End Role="lpoj_nctestcase" EntitySet="lpoj_nctestcase" />
       <End Role="lpoj_ncverdict" EntitySet="lpoj_ncverdict" />
     </AssociationSet>
@@ -78,7 +78,7 @@
     <Key>
       <PropertyRef Name="CLARIFICATION_ID" />
     </Key>
-    <Property Name="CLARIFICATION_ID" Type="Int32" Nullable="false" />
+    <Property Name="CLARIFICATION_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="CONTEST_ID" Type="Int32" Nullable="false" />
     <Property Name="CONTESTANT_ID" Type="Int32" Nullable="false" />
     <Property Name="CLARIFICATION_TITLE" Type="String" Nullable="false" />
@@ -92,13 +92,13 @@
     <Key>
       <PropertyRef Name="CONTEST_ID" />
     </Key>
-    <Property Name="CONTEST_ID" Type="Int32" Nullable="false" />
+    <Property Name="CONTEST_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="CONTEST_TITLE" Type="String" Nullable="false" />
-    <Property Name="CONTEST_DESCRIPTION" Type="String" Nullable="false" />
-    <Property Name="CONTEST_CREATE" Type="DateTime" Nullable="false" />
-    <Property Name="CONTEST_BEGIN" Type="DateTime" Nullable="false" />
-    <Property Name="CONTEST_END" Type="DateTime" Nullable="false" />
-    <Property Name="CONTEST_FREEZE" Type="DateTime" Nullable="false" />
+    <Property Name="CONTEST_DESCRIPTION" Type="String" />
+    <Property Name="CONTEST_CREATE" Type="DateTime" />
+    <Property Name="CONTEST_BEGIN" Type="DateTime" />
+    <Property Name="CONTEST_END" Type="DateTime" />
+    <Property Name="CONTEST_FREEZE" Type="DateTime" />
     <NavigationProperty Name="lpoj_clarification" Relationship="lpojModel.FK_RELATIONSHIP_11" FromRole="lpoj_contest" ToRole="lpoj_clarification" />
     <NavigationProperty Name="lpoj_contestant" Relationship="lpojModel.FK_RELATIONSHIP_2" FromRole="lpoj_contest" ToRole="lpoj_contestant" />
     <NavigationProperty Name="lpoj_problem" Relationship="lpojModel.FK_RELATIONSHIP_3" FromRole="lpoj_contest" ToRole="lpoj_problem" />
@@ -107,7 +107,7 @@
     <Key>
       <PropertyRef Name="CONTESTANT_ID" />
     </Key>
-    <Property Name="CONTESTANT_ID" Type="Int32" Nullable="false" />
+    <Property Name="CONTESTANT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="USERS_ID" Type="Int32" Nullable="false" />
     <Property Name="CONTEST_ID" Type="Int32" Nullable="false" />
     <Property Name="CONTESTANT_STATUS" Type="Int32" Nullable="false" />
@@ -133,13 +133,14 @@
   <EntityType Name="lpoj_ncsubmission">
     <Key>
       <PropertyRef Name="USERS_ID" />
+      <PropertyRef Name="NCPROBLEM_ID" />
     </Key>
     <Property Name="USERS_ID" Type="Int32" Nullable="false" />
     <Property Name="NCPROBLEM_ID" Type="Int32" Nullable="false" />
     <Property Name="NCSUBMISSION_SCORE" Type="Int32" Nullable="false" />
     <Property Name="NCSUBMISSION_TIME" Type="Int32" Nullable="false" />
     <NavigationProperty Name="lpoj_ncproblem" Relationship="lpojModel.FK_RELATIONSHIP_8" FromRole="lpoj_ncsubmission" ToRole="lpoj_ncproblem" />
-    <NavigationProperty Name="lpoj_ncverdict" Relationship="lpojModel.FK_RELATIONSHIP_15" FromRole="lpoj_ncsubmission" ToRole="lpoj_ncverdict" />
+    <NavigationProperty Name="lpoj_ncverdict" Relationship="lpojModel.FK_1" FromRole="lpoj_ncsubmission" ToRole="lpoj_ncverdict" />
     <NavigationProperty Name="lpoj_users" Relationship="lpojModel.FK_RELATIONSHIP_7" FromRole="lpoj_ncsubmission" ToRole="lpoj_users" />
   </EntityType>
   <EntityType Name="lpoj_nctestcase">
@@ -151,24 +152,26 @@
     <Property Name="NCTESTCASE_INPUT" Type="String" Nullable="false" />
     <Property Name="NCTESTCASE_OUTPUT" Type="String" Nullable="false" />
     <NavigationProperty Name="lpoj_ncproblem" Relationship="lpojModel.FK_RELATIONSHIP_9" FromRole="lpoj_nctestcase" ToRole="lpoj_ncproblem" />
-    <NavigationProperty Name="lpoj_ncverdict" Relationship="lpojModel.FK_RELATIONSHIP_14" FromRole="lpoj_nctestcase" ToRole="lpoj_ncverdict" />
+    <NavigationProperty Name="lpoj_ncverdict" Relationship="lpojModel.FK_2" FromRole="lpoj_nctestcase" ToRole="lpoj_ncverdict" />
   </EntityType>
   <EntityType Name="lpoj_ncverdict">
     <Key>
       <PropertyRef Name="USERS_ID" />
       <PropertyRef Name="NCTESTCASE_ID" />
+      <PropertyRef Name="NCPROBLEM_ID" />
     </Key>
     <Property Name="USERS_ID" Type="Int32" Nullable="false" />
     <Property Name="NCTESTCASE_ID" Type="Int32" Nullable="false" />
     <Property Name="NCVERDICT_STATUS" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="lpoj_ncsubmission" Relationship="lpojModel.FK_RELATIONSHIP_15" FromRole="lpoj_ncverdict" ToRole="lpoj_ncsubmission" />
-    <NavigationProperty Name="lpoj_nctestcase" Relationship="lpojModel.FK_RELATIONSHIP_14" FromRole="lpoj_ncverdict" ToRole="lpoj_nctestcase" />
+    <Property Name="NCPROBLEM_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="lpoj_ncsubmission" Relationship="lpojModel.FK_1" FromRole="lpoj_ncverdict" ToRole="lpoj_ncsubmission" />
+    <NavigationProperty Name="lpoj_nctestcase" Relationship="lpojModel.FK_2" FromRole="lpoj_ncverdict" ToRole="lpoj_nctestcase" />
   </EntityType>
   <EntityType Name="lpoj_problem">
     <Key>
       <PropertyRef Name="PROBLEM_ID" />
     </Key>
-    <Property Name="PROBLEM_ID" Type="Int32" Nullable="false" />
+    <Property Name="PROBLEM_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="CONTEST_ID" Type="Int32" />
     <Property Name="PROBLEM_TITLE" Type="String" Nullable="false" />
     <Property Name="PROBLEM_DESCRIPTION" Type="String" Nullable="false" />
@@ -197,7 +200,7 @@
     <Key>
       <PropertyRef Name="TESTCASE_ID" />
     </Key>
-    <Property Name="TESTCASE_ID" Type="Int32" Nullable="false" />
+    <Property Name="TESTCASE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="PROBLEM_ID" Type="Int32" Nullable="false" />
     <Property Name="TESTCASE_INPUT" Type="String" Nullable="false" />
     <Property Name="TESTCASE_OUTPUT" Type="String" Nullable="false" />
@@ -208,7 +211,7 @@
     <Key>
       <PropertyRef Name="USERS_ID" />
     </Key>
-    <Property Name="USERS_ID" Type="Int32" Nullable="false" />
+    <Property Name="USERS_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="USERS_USERNAME" Type="String" Nullable="false" />
     <Property Name="USERS_PASSWORD" Type="String" Nullable="false" />
     <Property Name="USERS_STATUS" Type="Int32" Nullable="false" />
@@ -325,21 +328,23 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_RELATIONSHIP_15">
+  <Association Name="FK_1">
     <End Role="lpoj_ncsubmission" Type="lpojModel.lpoj_ncsubmission" Multiplicity="1" />
     <End Role="lpoj_ncverdict" Type="lpojModel.lpoj_ncverdict" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="lpoj_ncsubmission">
         <PropertyRef Name="USERS_ID" />
+        <PropertyRef Name="NCPROBLEM_ID" />
       </Principal>
       <Dependent Role="lpoj_ncverdict">
         <PropertyRef Name="USERS_ID" />
+        <PropertyRef Name="NCPROBLEM_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_RELATIONSHIP_7">
     <End Role="lpoj_users" Type="lpojModel.lpoj_users" Multiplicity="1" />
-    <End Role="lpoj_ncsubmission" Type="lpojModel.lpoj_ncsubmission" Multiplicity="0..1" />
+    <End Role="lpoj_ncsubmission" Type="lpojModel.lpoj_ncsubmission" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="lpoj_users">
         <PropertyRef Name="USERS_ID" />
@@ -349,7 +354,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_RELATIONSHIP_14">
+  <Association Name="FK_2">
     <End Role="lpoj_nctestcase" Type="lpojModel.lpoj_nctestcase" Multiplicity="1" />
     <End Role="lpoj_ncverdict" Type="lpojModel.lpoj_ncverdict" Multiplicity="*" />
     <ReferentialConstraint>
