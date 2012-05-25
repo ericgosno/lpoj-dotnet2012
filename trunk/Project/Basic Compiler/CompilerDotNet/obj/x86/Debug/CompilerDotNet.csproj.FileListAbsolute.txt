@@ -7,3 +7,13 @@ C:\Users\Adrianus\Documents\LPOJ\Project\Basic Compiler\CompilerDotNet\obj\x86\D
 C:\Users\Adrianus\Documents\LPOJ\Project\Basic Compiler\CompilerDotNet\obj\x86\Debug\CompilerDotNet.csproj.GenerateResource.Cache
 C:\Users\Adrianus\Documents\LPOJ\Project\Basic Compiler\CompilerDotNet\obj\x86\Debug\CompilerDotNet.exe
 C:\Users\Adrianus\Documents\LPOJ\Project\Basic Compiler\CompilerDotNet\obj\x86\Debug\CompilerDotNet.pdb
+D:\User\FELIX 5109100121\Kuliah\Pemrogaman .Net\SVNProject\Project\Basic Compiler\CompilerDotNet\bin\Debug\CompilerDotNet.exe.config
+D:\User\FELIX 5109100121\Kuliah\Pemrogaman .Net\SVNProject\Project\Basic Compiler\CompilerDotNet\obj\x86\Debug\CompilerDotNet.exe
+D:\User\FELIX 5109100121\Kuliah\Pemrogaman .Net\SVNProject\Project\Basic Compiler\CompilerDotNet\obj\x86\Debug\CompilerDotNet.pdb
+D:\User\FELIX 5109100121\Kuliah\Pemrogaman .Net\SVNProject\Project\Basic Compiler\CompilerDotNet\bin\Debug\CompilerDotNet.exe
+D:\User\FELIX 5109100121\Kuliah\Pemrogaman .Net\SVNProject\Project\Basic Compiler\CompilerDotNet\bin\Debug\CompilerDotNet.pdb
+D:\User\FELIX 5109100121\Kuliah\Pemrogaman .Net\SVNProject\Project\Basic Compiler\CompilerDotNet\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\User\FELIX 5109100121\Kuliah\Pemrogaman .Net\SVNProject\Project\Basic Compiler\CompilerDotNet\obj\x86\Debug\CompilerDotNet.Form1.resources
+D:\User\FELIX 5109100121\Kuliah\Pemrogaman .Net\SVNProject\Project\Basic Compiler\CompilerDotNet\obj\x86\Debug\CompilerDotNet.Properties.Resources.resources
+D:\User\FELIX 5109100121\Kuliah\Pemrogaman .Net\SVNProject\Project\Basic Compiler\CompilerDotNet\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\User\FELIX 5109100121\Kuliah\Pemrogaman .Net\SVNProject\Project\Basic Compiler\CompilerDotNet\obj\x86\Debug\GenerateResource.write.1.tlog
