@@ -11,11 +11,11 @@
 
 <asp:Content ID="Sheet" ContentPlaceHolderID="SheetContentPlaceHolder" runat="server">
 <br />
-   <h3>Contest Managemen User</h3>
+   <hContest Management User</h3>
    <form id="form1" runat="server">
         <table>
             <tr>
-                <td colspan="2"> Time Management </td>
+                <td colspan="2"> Time Management t </td>
             </tr>
             <tr>
                 <td></td>
@@ -23,7 +23,8 @@
             <tr>
                 <td> Start Time </td>
                 <td> <asp:TextBox ID="startTime" runat="server" /> </td>
-                <td> <asp:Button ID="setStartTime" text="Set" runat="server" /> </td>
+                <td> <asp:Button ID="setStartTime" text="Set" runat="server" 
+                        onclick="setStartTime_Click" /> </td>
             </tr>
             <tr>
                 <td></td>
@@ -55,25 +56,31 @@
                 <td> Add new problem </td>
             </tr>
             <tr>
-                <td> Title </td>
+                <tdTitle </td>
             </tr>
             <tr>
-                <td> <asp:TextBox ID="problemName" runat="server" /> </td>
-                <td> <asp:Button ID="addProblem" text="Add" runat="server" 
+                <td> <asp:TextBox ID="problemName" runat="server" /> <asp:Button ID="addProblem" text="Add" runat="server" 
                         onclick="addProblem_Click" /> </td>
+                <td> &nbsp;</td>
             </tr>
             <tr>
                 <td></td>
             </tr>
             <tr>
-                <td> Edit problem </td>
+                <td> Edit problem m </td>
             </tr>
             <tr>
-                <td> Title </td>
+                <tdTitle </td>
             </tr>
             <tr>
-                <td> <asp:DropDownList ID="problemList" runat="server" /> </td>
+                <td> <asp:DropDownList ID="problemList" runat="server" /> 
+                    <br />
+                </td>
+            </tr>
+            <tr>
                 <td> <asp:Button ID="editProblem" text="Edit" runat="server" /> </td>
+            </tr>
+            <tr>
                 <td> <asp:Button ID="removeProblem" text="Remove" runat="server" /> </td>
             </tr>
         </table>
@@ -81,7 +88,7 @@
         <br />
         <table>
             <tr>
-                <td colspan="2"> Clarification Management </td>
+                <td colspan="2"> Clarification Management t </td>
             </tr>
             <tr>
                 <td> <asp:Button ID="viewClarification" text="View Clarifications" runat="server" 

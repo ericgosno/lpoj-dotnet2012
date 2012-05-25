@@ -8,3 +8,6 @@ c:\users\3nc\documents\visual studio 2010\Projects\CompilerDotNet\CompilerDotNet
 c:\users\3nc\documents\visual studio 2010\Projects\CompilerDotNet\CompilerDotNet\obj\x86\Debug\CompilerDotNet.exe
 c:\users\3nc\documents\visual studio 2010\Projects\CompilerDotNet\CompilerDotNet\obj\x86\Debug\CompilerDotNet.pdb
 C:\Users\3nc\documents\visual studio 2010\Projects\CompilerDotNet\CompilerDotNet\bin\Debug\CompilerDotNet.exe.config
+D:\SVNDotNet\Project\Compilerdotnet\CompilerDotNet\bin\Debug\CompilerDotNet.exe.config
+D:\SVNDotNet\Project\Compilerdotnet\CompilerDotNet\obj\x86\Debug\CompilerDotNet.exe
+D:\SVNDotNet\Project\Compilerdotnet\CompilerDotNet\obj\x86\Debug\CompilerDotNet.pdb
