@@ -21,24 +21,6 @@ Credit
 <asp:Content ID="Content5" ContentPlaceHolderID="SheetContentPlaceHolder" runat="server">
 <h3>Dibuat oleh</h3>
 
- <form id="form1"  action="InsertUser" method="post">
-        <table style="background-color:transparent; border:#FFFFFF">
-            <tr>
-                <td> Username </td>
-                <td> <input id = "TextName" name="TextName" type = "text" value= "" /> 
-                </td>
-            </tr>
-            <tr>
-                <td> Password </td>
-                <td> <input id="TextPass" name="TextPass" type="password" value="" /> </td>
-            </tr>
-            <tr>
-                <td colspan="2"> 
-                <input type="submit" value = "Login" />
-                </td>
-            </tr>
-        </table>
-        </form>
   <br />
   <br />
   <br />
