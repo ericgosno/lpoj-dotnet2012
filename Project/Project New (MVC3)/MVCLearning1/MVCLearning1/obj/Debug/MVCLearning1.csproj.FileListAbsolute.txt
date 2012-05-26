@@ -14,3 +14,5 @@ D:\User\FELIX 5109100121\Kuliah\Pemrogaman .Net\Final Project\ProjectMVC\MVCLear
 D:\User\FELIX 5109100121\Kuliah\Pemrogaman .Net\Final Project\ProjectMVC\MVCLearning1\MVCLearning1\bin\MySql.Data.dll
 D:\User\FELIX 5109100121\Kuliah\Pemrogaman .Net\Final Project\ProjectMVC\MVCLearning1\MVCLearning1\bin\Castle.Core.dll
 D:\User\FELIX 5109100121\Kuliah\Pemrogaman .Net\Final Project\ProjectMVC\MVCLearning1\MVCLearning1\bin\Castle.Core.xml
+D:\User\FELIX 5109100121\Kuliah\Pemrogaman .Net\SVNProject\Project\Project New (MVC3)\MVCLearning1\MVCLearning1\obj\Debug\ResolveAssemblyReference.cache
+D:\User\FELIX 5109100121\Kuliah\Pemrogaman .Net\SVNProject\Project\Project New (MVC3)\MVCLearning1\MVCLearning1\obj\Debug\MVCLearning1.dll
