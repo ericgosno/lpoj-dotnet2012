@@ -20,7 +20,11 @@ User
 
 
 <asp:Content ID="Content5" ContentPlaceHolderID="SheetContentPlaceHolder" runat="server">
-Welcome User
+<h3>National Programming Contest 2012</h3>
+      <br />
+      <p style="text-align:justify">National Programming Contest 2012 adalah perlombaan programming nasional terbesar di Indonesia. National Programming contest telah berjalan sejak tahun 2006, yang dahulu bernama LPC (Logic Programming Competition)</p>
+      <br />
+      <br />
 </asp:Content>
 
 

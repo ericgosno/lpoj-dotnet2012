@@ -8,3 +8,8 @@ D:\SVNDotNet\Project\Project (non MVC3)\PrOJ-Contest\PrOJ-Contest\bin\PrOJ-Conte
 D:\SVNDotNet\Project\Project (non MVC3)\PrOJ-Contest\PrOJ-Contest\obj\Debug\ResolveAssemblyReference.cache
 D:\SVNDotNet\Project\Project (non MVC3)\PrOJ-Contest\PrOJ-Contest\obj\Debug\PrOJ-Contest.dll
 D:\SVNDotNet\Project\Project (non MVC3)\PrOJ-Contest\PrOJ-Contest\obj\Debug\PrOJ-Contest.pdb
+E:\KULIAH\SEMESTER VI\DOT NET\dotnet-code\lpoj-dotnet2012\Project\Project (non MVC3)\PrOJ-Contest\PrOJ-Contest\bin\PrOJ-Contest.dll
+E:\KULIAH\SEMESTER VI\DOT NET\dotnet-code\lpoj-dotnet2012\Project\Project (non MVC3)\PrOJ-Contest\PrOJ-Contest\bin\PrOJ-Contest.pdb
+E:\KULIAH\SEMESTER VI\DOT NET\dotnet-code\lpoj-dotnet2012\Project\Project (non MVC3)\PrOJ-Contest\PrOJ-Contest\obj\Debug\ResolveAssemblyReference.cache
+E:\KULIAH\SEMESTER VI\DOT NET\dotnet-code\lpoj-dotnet2012\Project\Project (non MVC3)\PrOJ-Contest\PrOJ-Contest\obj\Debug\PrOJ-Contest.dll
+E:\KULIAH\SEMESTER VI\DOT NET\dotnet-code\lpoj-dotnet2012\Project\Project (non MVC3)\PrOJ-Contest\PrOJ-Contest\obj\Debug\PrOJ-Contest.pdb
