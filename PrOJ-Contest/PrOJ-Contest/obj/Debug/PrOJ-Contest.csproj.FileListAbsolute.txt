@@ -1,0 +1,5 @@
+D:\User\FELIX 5109100121\Kuliah\Pemrogaman .Net\Final Project\Project\PrOJ-Contest\PrOJ-Contest\bin\PrOJ-Contest.dll
+D:\User\FELIX 5109100121\Kuliah\Pemrogaman .Net\Final Project\Project\PrOJ-Contest\PrOJ-Contest\bin\PrOJ-Contest.pdb
+D:\User\FELIX 5109100121\Kuliah\Pemrogaman .Net\Final Project\Project\PrOJ-Contest\PrOJ-Contest\obj\Debug\ResolveAssemblyReference.cache
+D:\User\FELIX 5109100121\Kuliah\Pemrogaman .Net\Final Project\Project\PrOJ-Contest\PrOJ-Contest\obj\Debug\PrOJ-Contest.dll
+D:\User\FELIX 5109100121\Kuliah\Pemrogaman .Net\Final Project\Project\PrOJ-Contest\PrOJ-Contest\obj\Debug\PrOJ-Contest.pdb
