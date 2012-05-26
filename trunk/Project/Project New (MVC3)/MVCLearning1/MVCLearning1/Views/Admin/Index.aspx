@@ -61,17 +61,17 @@ Administrator
                 <tr>
                     <td > Old Password </td>
                     <td> : </td>
-                    <td> <input id="oldPassword" name="oldPassword" type="text" /></td>
+                    <td> <input id="oldPassword" name="oldPassword" type="password" /></td>
                 </tr>
                 <tr>
                     <td> New Password </td>
                     <td> : </td>
-                    <td><input id="newPassword" name="newPassword" type="text" /></td>
+                    <td><input id="newPassword" name="newPassword" type="password" /></td>
                 </tr>
                 <tr>
                     <td> Confirm New Password </td>
                     <td> : </td>
-                    <td> <input id="confirmPassword" name="confirmPassword" type="text" /></td>
+                    <td> <input id="confirmPassword" name="confirmPassword" type="password"/></td>
                 </tr>
                 <tr>
                     <td colspan="3" align="center"> <input type="submit" value = "Update" />
@@ -81,94 +81,111 @@ Administrator
         </form>
         <br />
         <br />
-        <table border="0">
-            <tr>
-                <td colspan="2" style="font-size:large"> User Management </td>
-            </tr>
-            <tr>
-                <td></td>
-            </tr>
-            <tr>
-                <td style="font-style:italic" > Add new user </td>
-            </tr>
-            <tr>
-                <td> Username </td>
-                <td> Password </td>
-            </tr>
-            <tr>
-                <td> <asp:TextBox ID="userName" runat="server" /> </td>
-                <td> <asp:TextBox ID="userPass" runat="server" TextMode="Password" /> </td>
+             <form id="form3"  action="Admin/AddNewUser" method="post">
+                <table border="0">
+                        <tr>
+                            <td colspan="2" style="font-size:large"> User Management </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td style="font-style:italic" > Add new user </td>
+                        </tr>
+                        <tr>
+                            <td> Username </td>
+                            <td> Password </td>
+                        </tr>
+                        <tr>
+                            <td> <input id="userName" name="userName" type="text"/> </td>
+                       
+                            <td> <input id="userPass" name="userPass" type="password" /> </td>
                 
-            </tr>
-            <tr>
-                <td align="center" colspan="2"> <asp:Button ID="addUser" text="Tambah User" runat="server" onclick="addUser_Click" Width="200" /> </td>
-            </tr>
-            <tr>
-                <td></td>
-            </tr>
-            <tr>
-                <td style="font-style:italic"> Edit user </td>
-            </tr>
-            <tr>
-                <td> Username </td>
-            </tr>
-            <tr>
-                <td class="style1"> <asp:DropDownList ID="userList" runat="server" 
-                        onselectedindexchanged="userList_SelectedIndexChanged"  AutoPostBack="true" /> 
-                    
-                </td>
-                
-                <td class="style1" rowspan="2"> <asp:Button ID="btn_penalizeUser" 
-                        text="Active / NonActive" runat="server" 
-                        onclick="penalizeUser_Click" Height="40px"  />
-                   </td>
-            </tr>
-            <tr>
-                <td>Status : <asp:Label ID="statusUser" runat="server" Text="Status"></asp:Label></td>
-            </tr>
+                        </tr>
+                        <tr>
+                            <td colspan="2" align="center"> <input type="submit" value = "Tambah User" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                        </tr>
+                   </table>
+                </form>
 
-            <tr>
-                <td > Reset user password </td>
+            <form id="form4"  action="Admin/EditUser" method="post">
+                <table border="0">
+                    <tr>
+                        <td style="font-style:italic"> Edit user </td>
+                    </tr>
+                    <tr>
+                        <td> Username </td>
+                    </tr>
+                    <tr>
+                        <td class="style1"> <asp:DropDownList ID="userList" runat="server" 
+                                onselectedindexchanged="userList_SelectedIndexChanged"  AutoPostBack="true" /> 
+                    
+                        </td>
                 
-                <td> <asp:Button ID="btn_changeUserPass" text="Reset Password" runat="server" 
-                        onclick="btn_changeUserPass_Click" /> </td>
-            </tr>
-        </table>
+                        <td class="style1" rowspan="2"> 
+                        <asp:Button ID="btn_penalizeUser" text="Active / NonActive" runat="server" 
+                                onclick="penalizeUser_Click" Height="40px"  />
+                           </td>
+                    </tr>
+                    <tr>
+                        <td>Status : <asp:Label ID="statusUser" runat="server" Text="Status"></asp:Label></td>
+                    </tr>
+
+                    <tr>
+                        <td > Reset user password </td>
+                
+                        <td> <asp:Button ID="btn_changeUserPass" text="Reset Password" runat="server" 
+                                onclick="btn_changeUserPass_Click" /> </td>
+                    </tr>
+                </table>
+            </form>
         <br />
         <br />
-        <table>
-            <tr>
-                <td colspan="2" style="font-size:large"> Contest Management </td>
-            </tr>
-            <tr>
-                <td></td>
-            </tr>
-            <tr>
-                <td style="font-style:italic"> Add new contest </td>
-            </tr>
-            <tr>
-                <td> Title </td>
-            </tr>
-            <tr>
-                <td> <asp:TextBox ID="contestName" runat="server" /> </td>
-                <td> <asp:Button ID="addContest" text="Add" runat="server" 
-                        onclick="addContest_Click" /> </td>
-            </tr>
-            <tr>
-                <td></td>
-            </tr>
-            <tr>
-                <td style="font-style:italic"> Edit contest </td>
-            </tr>
-            <tr>
-                <td> Title </td>
-            </tr>
-            <tr>
-                <td> <asp:DropDownList ID="contestList" runat="server" 
-                        onselectedindexchanged="contestList_SelectedIndexChanged" /> </td>
-                <td> <asp:Button ID="editContest" text="Edit" runat="server" /> </td>
-            </tr>
-        </table>
+            <form id="form5"  action="Admin/AddNewContest" method="post">
+                <table>
+                    <tr>
+                        <td colspan="2" style="font-size:large"> Contest Management </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td style="font-style:italic"> Add new contest </td>
+                    </tr>
+                    <tr>
+                        <td> Title </td>
+                    </tr>
+                    <tr>
+                        <td> <input id="contestName" name="contestName" type="text"/> </td>
+                
+                        <td  colspan="2" align="center"> <input type="submit" value = "Add Contest" />  </td>
+                    </tr>
+                    </table>
+                </form>
+            </br>
+            </br>
+                <form id = "form6" action = "Admin/EditContest" method ="post">
+                    <table>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td style="font-style:italic"> Edit contest </td>
+                    </tr>
+                    <tr>
+                        <td> Title </td>
+                    </tr>
+                    <tr>
+                        <td> <asp:DropDownList ID="contestList" runat="server" 
+                                onselectedindexchanged="contestList_SelectedIndexChanged" /> </td>
+                        <td> <asp:Button ID="editContest" text="Edit" runat="server" /> </td>
+                    </tr>
+                </table>
+            </form>
     
 </asp:Content>
 
