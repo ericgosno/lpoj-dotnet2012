@@ -54,6 +54,7 @@ namespace PrOJ_Contest
                 //{
                 //    contestList.Items.Add(h.CONTEST_TITLE);
                 //}
+                
             }
 
             refreshListBanned();

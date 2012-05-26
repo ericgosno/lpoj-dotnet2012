@@ -1,8 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<dynamic>" %>
-
+<%@ Import Namespace="MVCLearning1.Models" %>
 <script runat="server">
     
+    private lpojEntities entity;
     private lpoj_users activeUser;
+    private lpoj_users users;
+    private lpoj_contest contests;
+
     protected void Page_Load(object sender, EventArgs e)
     {
 
@@ -10,17 +14,17 @@
 
     protected void initialUserActive()
     {
-        activeUser = new lpoj_users();
-        // error handling untuk menghitung session
-        try
-        {
-            activeUser = (lpoj_users)Session["userActive"];
-            lb_activeUser.Text = activeUser.USERS_USERNAME;
-        }
-        catch (Exception ex)
-        {
-            Response.Redirect("Default.aspx");
-        }
+        //activeUser = new lpoj_users();
+        //// error handling untuk menghitung session
+        //try
+        //{
+        //    activeUser = (lpoj_users)Session["userActive"];
+        //    lb_activeUser.Text = activeUser.USERS_USERNAME;
+        //}
+        //catch (Exception ex)
+        //{
+        //    Response.Redirect("Default.aspx");
+        //}
     }
 </script>
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContentPlaceHolder" runat="server">
