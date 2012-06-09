@@ -11,16 +11,23 @@
 
 <asp:Content ID="Sheet" ContentPlaceHolderID="SheetContentPlaceHolder" runat="server">
 <br />
+    <h3>Hello, 
+        <asp:Label ID="lb_userActive" runat="server" Text="&lt;'noName'&gt;"></asp:Label>
+    </h3>
+    <h4>Current Contest : <asp:Label ID="lb_contestActive" runat="server" Text="&lt;'noName'&gt;"></asp:Label></h4>
+
+    <br />
       <form id="form1" runat="server">
         <table>
             <tr>
                 <td> Contest Description </td>
             </tr>
             <tr>
-                <td> <asp:TextBox  TextMode="MultiLine" ID="contestDescription" text="..........................................." runat="server" /> </td>
+                <td> <asp:TextBox  TextMode="MultiLine" ID="contestDescription" Text="&lt;'noDesc'&gt;" runat="server" /> </td>
             </tr>
             <tr>
-                <td> <asp:Button ID="changeDescription" text="Change" runat="server" /> </td>
+                <td> <asp:Button ID="changeDescription" text="Change" runat="server" 
+                        onclick="changeDescription_Click" /> </td>
             </tr>
         </table>
         <br />

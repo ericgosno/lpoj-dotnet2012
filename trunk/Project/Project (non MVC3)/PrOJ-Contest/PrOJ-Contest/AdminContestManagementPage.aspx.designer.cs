@@ -13,6 +13,24 @@ namespace PrOJ_Contest {
     public partial class AdminContestManagementPage {
         
         /// <summary>
+        /// lb_userActive control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lb_userActive;
+        
+        /// <summary>
+        /// lb_contestActive control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lb_contestActive;
+        
+        /// <summary>
         /// form1 control.
         /// </summary>
         /// <remarks>

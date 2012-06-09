@@ -24,7 +24,6 @@ namespace PrOJ_Contest
                                             where f.USERS_USERNAME == textName.Text
                                             select f;
 
-            //System.Windows.Forms.MessageBox.Show(dbPassword.First<lpoj_users>().USERS_USERNAME);//dbPassword.Count().ToString());
             try { users = dbPassword.First<lpoj_users>(); }
             catch (Exception ex) { return; }
 
