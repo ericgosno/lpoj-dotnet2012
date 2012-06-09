@@ -47,6 +47,11 @@ namespace PrOJ_Contest
 
                 IQueryable<lpoj_contest> resultcontest = from f in entity.lpoj_contest
                                                          select f;
+                contestList.Items.Add(" ");
+                foreach (lpoj_contest g in resultcontest)
+                {
+                    contestList.Items.Add(g.CONTEST_ID + "-" + g.CONTEST_TITLE);
+                }
                 //contestList.DataSource = resultcontest;
                 //contestList.DataBind();
                 //contestList.Items.Add("coba");
@@ -56,7 +61,6 @@ namespace PrOJ_Contest
                 //}
                 
             }
-
             refreshListBanned();
            
         }
@@ -180,6 +184,22 @@ namespace PrOJ_Contest
         protected void contestList_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        protected void editContest_Click(object sender, EventArgs e)
+        {
+            Session["userActive"] = activeUser;
+            string ContestID = (contestList.SelectedItem.Text);
+            string[] a = ContestID.Split('-');
+            int idContest = int.Parse(a[0]);
+            lpoj_contest c = new lpoj_contest();
+            IQueryable<lpoj_contest> dbContest = from f in entity.lpoj_contest
+                                                 where f.CONTEST_ID == idContest
+                                                 select f;
+            try { c = dbContest.First<lpoj_contest>(); }
+            catch (Exception ex) { return; }
+            Session["contestActive"] = c;
+            Response.Redirect("AdminContestManagementPage.aspx");
         }
 
 

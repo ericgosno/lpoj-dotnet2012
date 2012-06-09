@@ -32,6 +32,12 @@
             <div class="art-nav-wrapper">
                 <div class="art-nav-inner">
 	                <asp:contentplaceholder id="MenuContentPlaceHolder" runat="server"></asp:contentplaceholder>
+<%--                    <img src ="images/logo1.png" width = "100" height="70" 
+                      style ="
+                        position : fixed;
+                        right : auto
+                        "
+                    />--%>
                 </div>
             </div>
         </div>
@@ -46,8 +52,8 @@
                 <div class="art-header-inner">
                     <asp:contentplaceholder id="HeaderContentPlaceHolder" runat="server">
                     <div class="art-logo">
-                        <h1 class="art-logo-name"><a href="#">Headline</a></h1>
-                        <h2 class="art-logo-text">Slogan text</h2>
+                        <h1 class="art-logo-name"><a href="Default.aspx"></a>Laboratorium Pemrograman Online Judge</h1>
+                        <h2 class="art-logo-text">Judging your Code</h2>
                     </div>
                     </asp:contentplaceholder>
                 </div>
