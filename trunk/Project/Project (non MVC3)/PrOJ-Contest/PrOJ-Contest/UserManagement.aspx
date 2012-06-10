@@ -20,17 +20,18 @@
             <tr>
                 <td> Old Password </td>
                 <td> : </td>
-                <td> <asp:TextBox ID="oldPassword" runat="server" /> </td>
+                <td> <asp:TextBox ID="oldPassword" TextMode="Password" runat="server" /> </td>
             </tr>
             <tr>
                 <td> New Password </td>
                 <td> : </td>
-                <td> <asp:TextBox ID="newPassword" runat="server" /> </td>
+                <td> <asp:TextBox ID="newPassword" TextMode="Password" runat="server" /> </td>
             </tr>
             <tr>
                 <td> Confirm New Password </td>
                 <td> : </td>
-                <td> <asp:TextBox ID="confirmPassword" runat="server" /> </td>
+                <td><asp:TextBox ID="confirmPassword" TextMode="Password" runat="server" /> </td>
+                <td><asp:CompareValidator ControlToCompare="newPassword" ControlToValidate="confirmPassword" ErrorMessage="False Confirm Password" runat="server" /></td>
             </tr>
             <tr>
                 <td> <asp:Button ID="changePassword" Text="Change" runat="server" /> </td>
