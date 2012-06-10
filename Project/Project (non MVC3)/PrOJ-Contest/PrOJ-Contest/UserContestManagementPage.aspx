@@ -32,7 +32,8 @@
             <tr>
                 <td> Freeze Time </td>
                 <td> <asp:TextBox ID="freezeTime" runat="server" /> </td>
-                <td> <asp:Button ID="setFreezeTime" text="Set" runat="server" /> </td>
+                <td> <asp:Button ID="setFreezeTime" text="Set" runat="server" 
+                        onclick="setFreezeTime_Click" /> </td>
             </tr>
             <tr>
                 <td></td>
@@ -40,7 +41,8 @@
             <tr>
                 <td> Finish Time </td>
                 <td> <asp:TextBox ID="finishTime" runat="server" /> </td>
-                <td> <asp:Button ID="setFinishTime" text="Set" runat="server" /> </td>
+                <td> <asp:Button ID="setFinishTime" text="Set" runat="server" 
+                        onclick="setFinishTime_Click" /> </td>
             </tr>
         </table>
         <br />
