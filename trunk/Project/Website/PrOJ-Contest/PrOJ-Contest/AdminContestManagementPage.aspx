@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AdminContestManagementPage.aspx.cs" Inherits="PrOJ_Contest.AdminContestManagementPage" %>
+<%@ Register assembly="obout_Calendar2_Net" namespace="OboutInc.Calendar2" tagprefix="obout" %>
 <asp:Content ID="Title" ContentPlaceHolderID="TitleContentPlaceHolder" runat="server"> Admin Page -  Contest Management
 </asp:Content>
 
@@ -44,7 +45,14 @@
             </tr>
             <tr>
                 <td> Start Time </td>
-                <td> <asp:TextBox ID="startTime" runat="server" /> </td>
+                <td>
+                    <asp:TextBox ID="startTime" runat="server" /> 
+                    <obout:Calendar ID="startTimePicker" runat="server"
+                        ShowTimeSelector="true"
+                        DateFormat="MM/dd/yyyy hh:mm:ss"
+                        DatePickerMode="true"
+                        TextBoxId="startTime" />
+                </td>
                 <td> <asp:Button ID="setStartTime" text="Set" runat="server" /> </td>
             </tr>
             <tr>
@@ -52,7 +60,14 @@
             </tr>
             <tr>
                 <td> Freeze Time </td>
-                <td> <asp:TextBox ID="freezeTime" runat="server" /> </td>
+                <td>
+                    <asp:TextBox ID="freezeTime" runat="server" />
+                    <obout:Calendar ID="freezeTimePicker" runat="server"
+                        ShowTimeSelector="true"
+                        DateFormat="MM/dd/yyyy hh:mm:ss"
+                        DatePickerMode="true"
+                        TextBoxId="freezeTime" />
+                </td>
                 <td> <asp:Button ID="setFreezeTime" text="Set" runat="server" /> </td>
             </tr>
             <tr>
@@ -60,7 +75,14 @@
             </tr>
             <tr>
                 <td> Finish Time </td>
-                <td> <asp:TextBox ID="finishTime" runat="server" /> </td>
+                <td>
+                    <asp:TextBox ID="finishTime" runat="server" />
+                    <obout:Calendar ID="finishTimePicker" runat="server"
+                        ShowTimeSelector="true"
+                        DateFormat="MM/dd/yyyy hh:mm:ss"
+                        DatePickerMode="true"
+                        TextBoxId="finishTime" />
+                </td>
                 <td> <asp:Button ID="setFinishTime" text="Set" runat="server" /> </td>
             </tr>
         </table>

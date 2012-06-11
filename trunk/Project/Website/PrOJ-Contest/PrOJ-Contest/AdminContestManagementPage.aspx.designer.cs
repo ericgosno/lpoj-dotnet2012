@@ -67,6 +67,15 @@ namespace PrOJ_Contest {
         protected global::System.Web.UI.WebControls.TextBox startTime;
         
         /// <summary>
+        /// startTimePicker control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::OboutInc.Calendar2.Calendar startTimePicker;
+        
+        /// <summary>
         /// setStartTime control.
         /// </summary>
         /// <remarks>
@@ -85,6 +94,15 @@ namespace PrOJ_Contest {
         protected global::System.Web.UI.WebControls.TextBox freezeTime;
         
         /// <summary>
+        /// freezeTimePicker control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::OboutInc.Calendar2.Calendar freezeTimePicker;
+        
+        /// <summary>
         /// setFreezeTime control.
         /// </summary>
         /// <remarks>
@@ -101,6 +119,15 @@ namespace PrOJ_Contest {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox finishTime;
+        
+        /// <summary>
+        /// finishTimePicker control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::OboutInc.Calendar2.Calendar finishTimePicker;
         
         /// <summary>
         /// setFinishTime control.

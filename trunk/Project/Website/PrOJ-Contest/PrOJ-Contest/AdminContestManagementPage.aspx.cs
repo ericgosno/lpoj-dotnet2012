@@ -15,8 +15,8 @@ namespace PrOJ_Contest
         private lpoj_contest contestnow;
         protected void Page_Load(object sender, EventArgs e)
         {
-            initialContestActive();
-            initialUserActive();
+            //initialContestActive();
+            //initialUserActive();
             //initialContestDesc();
         }
 

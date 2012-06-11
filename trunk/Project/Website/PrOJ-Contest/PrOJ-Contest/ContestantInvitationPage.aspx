@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ContestantInvitationPage.aspx.cs" Inherits="PrOJ_Contest.ProblemPage" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ContestantInvitationPage.aspx.cs" Inherits="PrOJ_Contest.ContestantInvitationPage" %>
 <asp:Content ID="Title" ContentPlaceHolderID="TitleContentPlaceHolder" runat="server"> Contestant Invitation Page
 </asp:Content>
 
