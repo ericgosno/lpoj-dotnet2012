@@ -25,41 +25,43 @@
             <tr>
                 <td> Old Password </td>
                 <td> : </td>
-                <td> <asp:TextBox ID="oldPassword" runat="server" /> </td>
+                <td> <asp:TextBox ID="oldPassword" TextMode="Password" runat="server" /> </td>
             </tr>
             <tr>
                 <td> New Password </td>
                 <td> : </td>
-                <td> <asp:TextBox ID="newPassword" runat="server" /> </td>
+                <td> <asp:TextBox ID="newPassword" TextMode="Password" runat="server" /> </td>
             </tr>
             <tr>
                 <td> Confirm New Password </td>
                 <td> : </td>
-                <td> <asp:TextBox ID="confirmPassword" runat="server" /> </td>
+                <td> <asp:TextBox ID="confirmPassword" TextMode="Password" runat="server" /> </td>
+                <td> <asp:CompareValidator ID="validator" runat="server" ErrorMessage="Password Not Match" ControlToCompare="newPassword" ControlToValidate="confirmPassword" /> </td>
             </tr>
             <tr>
-                <td> <asp:Button ID="changePassword" Text="Change" runat="server" /> </td>
+                <td> <asp:Button ID="changePassword" Text="Change" runat="server" 
+                        onclick="changePassword_Click" /> </td>
             </tr>
         </table>
         <br />
         <br />
         <table>
-            <tr>
-                <td colspan="2"> Select Contest </td>
-            </tr>
-            <tr>
-                <td> <asp:DropDownList ID="cmbox_listContest" runat="server" 
-                        OnTextChanged="cmbox_listContest_SelectedIndexChanged" AutoPostBack="true"/> </td>
-            </tr>
-            <tr>
-                <td> <asp:Button ID="btn_enterContest" Text="Enter" runat="server" Visible="true" 
-                        onclick="btn_enterContest_Click" /> </td>
-            </tr>
-            <tr>
-                <td> 
-                    <asp:Button ID="btn_manageContest" Text="Manage" runat="server" 
-                        Visible = "false" onclick="btn_manageContest_Click" /> </td>
-            </tr>
+        <tr>
+            <td colspan="2"> Select Contest </td>
+        </tr>
+        <tr>
+            <td> <asp:DropDownList ID="cmbox_listContest" runat="server" 
+                    OnTextChanged="cmbox_listContest_SelectedIndexChanged" AutoPostBack="true"/> </td>
+        </tr>
+        <tr>
+            <td> <asp:Button ID="btn_enterContest" Text="Enter" runat="server" Visible="true" 
+                    onclick="btn_enterContest_Click" /> </td>
+        </tr>
+        <tr>
+            <td> 
+                <asp:Button ID="btn_manageContest" Text="Manage" runat="server" 
+                    Visible = "false" onclick="btn_manageContest_Click" /> </td>
+        </tr>
         </table>
     </form>
 
