@@ -73,6 +73,7 @@ namespace PrOJ_Contest
                 lb_userActive.Text = activeUser.USERS_USERNAME;
             }
         }
+
         protected void cmbox_listContest_SelectedIndexChanged(object sender, EventArgs e)
         {
             char[] separator = new char[1];
