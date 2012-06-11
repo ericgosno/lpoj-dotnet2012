@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="D:\User\FELIX 5109100121\Kuliah\Pemrogaman .Net\Final Project\IIS" deleteExistingFiles="True" ftpAnonymousLogin="True" ftpPassiveMode="True" msdeploySite="localhost:82" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="True" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FileSystem" replaceMatchingFiles="False" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="UserContestManagementPage.aspx" publishTime="05/26/2012 14:28:30" />
+    <file relUrl="images/01.png" publishTime="03/06/2012 10:28:32" />
+    <file relUrl="images/link photo.txt" publishTime="03/06/2012 10:28:32" />
+    <file relUrl="images/footer_b.png" publishTime="03/06/2012 10:28:32" />
+    <file relUrl="images/subitem.png" publishTime="03/06/2012 10:28:32" />
+    <file relUrl="Global.asax" publishTime="03/07/2012 15:44:55" />
+    <file relUrl="Scripts/jquery-1.4.1-vsdoc.js" publishTime="02/26/2012 18:00:40" />
+    <file relUrl="Site.Master" publishTime="06/09/2012 10:40:10" />
+    <file relUrl="Styles/Site.css" publishTime="02/26/2012 18:00:40" />
+    <file relUrl="images/sheet_t.png" publishTime="03/06/2012 10:28:32" />
+    <file relUrl="images/menuseparator.png" publishTime="03/06/2012 10:28:32" />
+    <file relUrl="images/menuitem.png" publishTime="03/06/2012 10:28:32" />
+    <file relUrl="images/header.jpg" publishTime="03/06/2012 10:28:32" />
+    <file relUrl="style.css" publishTime="03/06/2012 13:45:40" />
+    <file relUrl="About.aspx" publishTime="03/07/2012 15:44:55" />
+    <file relUrl="images/sheet_b.png" publishTime="03/06/2012 10:28:32" />
+    <file relUrl="images/contact.jpg" publishTime="03/06/2012 10:28:32" />
+    <file relUrl="images/vsubitem.png" publishTime="03/06/2012 10:28:32" />
+    <file relUrl="UserSubmissionPage.aspx" publishTime="03/08/2012 11:42:10" />
+    <file relUrl="AdminPage.aspx" publishTime="06/09/2012 11:01:39" />
+    <file relUrl="Web.config" publishTime="05/04/2012 17:28:19" />
+    <file relUrl="images/button.png" publishTime="03/06/2012 10:28:32" />
+    <file relUrl="Scripts/jquery.js" publishTime="03/06/2012 10:28:32" />
+    <file relUrl="LoginPage.aspx" publishTime="03/08/2012 10:08:17" />
+    <file relUrl="ProblemPage.aspx" publishTime="03/08/2012 11:42:08" />
+    <file relUrl="images/blockcontentbullets.png" publishTime="03/06/2012 10:28:32" />
+    <file relUrl="ClarificationPage.aspx" publishTime="03/08/2012 11:42:10" />
+    <file relUrl="bin/PrOJ-Contest.pdb" publishTime="06/09/2012 12:05:35" />
+    <file relUrl="images/preview.jpg" publishTime="03/06/2012 10:28:32" />
+    <file relUrl="Credits.aspx" publishTime="03/08/2012 09:51:22" />
+    <file relUrl="Scripts/jquery-1.4.1.min.js" publishTime="02/26/2012 18:00:40" />
+    <file relUrl="images/02.png" publishTime="03/06/2012 10:28:32" />
+    <file relUrl="images/nav.png" publishTime="03/06/2012 10:28:32" />
+    <file relUrl="bin/PrOJ-Contest.dll" publishTime="06/09/2012 12:05:35" />
+    <file relUrl="Default.aspx" publishTime="05/04/2012 17:20:47" />
+    <file relUrl="images/footer.png" publishTime="03/06/2012 10:28:32" />
+    <file relUrl="AdminContestManagementPage.aspx" publishTime="06/09/2012 12:01:31" />
+    <file relUrl="images/rssicon.png" publishTime="03/06/2012 10:28:32" />
+    <file relUrl="images/03.png" publishTime="03/06/2012 10:28:32" />
+    <file relUrl="Scripts/script.js" publishTime="03/06/2012 10:28:32" />
+    <file relUrl="ContestClarificationAnswerPage.aspx" publishTime="03/08/2012 11:46:45" />
+    <file relUrl="images/footerbullets.png" publishTime="03/06/2012 10:28:32" />
+    <file relUrl="images/vsubitemicon.png" publishTime="03/06/2012 10:28:32" />
+    <file relUrl="images/vmenuitem.png" publishTime="03/06/2012 10:28:32" />
+    <file relUrl="images/header.png" publishTime="03/06/2012 10:28:32" />
+    <file relUrl="UserManagement.aspx" publishTime="03/08/2012 11:32:42" />
+    <file relUrl="images/VS.png" publishTime="03/06/2012 10:28:32" />
+    <file relUrl="images/sheet.png" publishTime="03/06/2012 10:28:32" />
+    <file relUrl="images/postquote.png" publishTime="03/06/2012 10:28:32" />
+    <file relUrl="UserPage.aspx" publishTime="03/15/2012 18:57:07" />
+    <file relUrl="images/postbullets.png" publishTime="03/06/2012 10:28:32" />
+    <file relUrl="images/spacer.gif" publishTime="03/06/2012 10:28:32" />
+    <file relUrl="Scripts/jquery-1.4.1.js" publishTime="02/26/2012 18:00:40" />
+    <file relUrl="ContestRankPage.aspx" publishTime="03/08/2012 11:42:10" />
+    <file relUrl="images/Bottom_texture.jpg" publishTime="03/06/2012 10:28:32" />
+  </publishProfile>
+</publishData>
