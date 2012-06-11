@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="UserContestManagementPage.aspx.cs" Inherits="PrOJ_Contest.UserContestManagementPage" %>
+<%@ Register assembly="obout_Calendar2_Net" namespace="OboutInc.Calendar2" tagprefix="obout" %>
 <asp:Content ID="Title" ContentPlaceHolderID="TitleContentPlaceHolder" runat="server"> User Page
 </asp:Content>
 
@@ -27,7 +28,14 @@
             </tr>
             <tr>
                 <td> Start Time </td>
-                <td> <asp:TextBox ID="startTime" runat="server" /> </td>
+                <td>
+                    <asp:TextBox ID="startTime" runat="server" /> 
+                    <obout:Calendar ID="startTimePicker" runat="server"
+                        ShowTimeSelector="true"
+                        DateFormat="MM/dd/yyyy hh:mm:ss"
+                        DatePickerMode="true"
+                        TextBoxId="startTime" />
+                </td>
                 <td> <asp:Button ID="setStartTime" text="Set" runat="server" 
                         onclick="setStartTime_Click" /> </td>
             </tr>
@@ -36,16 +44,32 @@
             </tr>
             <tr>
                 <td> Freeze Time </td>
-                <td> <asp:TextBox ID="freezeTime" runat="server" /> </td>
-                <td> <asp:Button ID="setFreezeTime" text="Set" runat="server" /> </td>
+                <td>
+                    <asp:TextBox ID="freezeTime" runat="server" />
+                    <obout:Calendar ID="freezeTimePicker" runat="server"
+                        ShowTimeSelector="true"
+                        DateFormat="MM/dd/yyyy hh:mm:ss"
+                        DatePickerMode="true"
+                        TextBoxId="freezeTime" />
+                </td>
+                <td> <asp:Button ID="setFreezeTime" text="Set" runat="server" 
+                        onclick="setFreezeTime_Click" /> </td>
             </tr>
             <tr>
                 <td></td>
             </tr>
             <tr>
                 <td> Finish Time </td>
-                <td> <asp:TextBox ID="finishTime" runat="server" /> </td>
-                <td> <asp:Button ID="setFinishTime" text="Set" runat="server" /> </td>
+                <td>
+                    <asp:TextBox ID="finishTime" runat="server" />
+                    <obout:Calendar ID="finishTimePicker" runat="server"
+                        ShowTimeSelector="true"
+                        DateFormat="MM/dd/yyyy hh:mm:ss"
+                        DatePickerMode="true"
+                        TextBoxId="finishTime" />
+                </td>
+                <td> <asp:Button ID="setFinishTime" text="Set" runat="server" 
+                        onclick="setFinishTime_Click" /> </td>
             </tr>
         </table>
         <br />
@@ -61,7 +85,7 @@
                 <td> Add new problem </td>
             </tr>
             <tr>
-                <tdTitle </td>
+                <td> Title </td>
             </tr>
             <tr>
                 <td> <asp:TextBox ID="problemName" runat="server" /> <asp:Button ID="addProblem" text="Add" runat="server" 

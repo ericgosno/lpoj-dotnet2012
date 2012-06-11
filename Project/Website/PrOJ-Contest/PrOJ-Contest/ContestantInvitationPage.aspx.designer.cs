@@ -10,7 +10,7 @@
 namespace PrOJ_Contest {
     
     
-    public partial class ProblemPage {
+    public partial class ContestantInvitationPage {
         
         /// <summary>
         /// form1 control.
