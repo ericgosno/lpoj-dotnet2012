@@ -91,6 +91,7 @@
     <Content Include="images\vsubitem.png" />
     <Content Include="images\vsubitemicon.png" />
     <Content Include="LoginPage.aspx" />
+    <Content Include="ContestantInvitationPage.aspx" />
     <Content Include="ProblemManagementPage.aspx" />
     <Content Include="ProblemPage.aspx" />
     <Content Include="Scripts\jquery.js" />
@@ -106,7 +107,9 @@
     <Content Include="UserManagement.aspx" />
     <Content Include="UserPage.aspx" />
     <Content Include="UserSubmissionPage.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -185,6 +188,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>lpoj.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ContestantInvitationPage.aspx.cs">
+      <DependentUpon>ContestantInvitationPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ContestantInvitationPage.aspx.designer.cs">
+      <DependentUpon>ContestantInvitationPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProblemManagementPage.aspx.cs">
       <DependentUpon>ProblemManagementPage.aspx</DependentUpon>

@@ -112,48 +112,48 @@ namespace PrOJ_Contest {
         protected global::System.Web.UI.WebControls.Button setFinishTime;
         
         /// <summary>
-        /// userInviteList control.
+        /// ParticipantList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList userInviteList;
+        protected global::System.Web.UI.WebControls.ListBox ParticipantList;
         
         /// <summary>
-        /// problemSetterInvitation control.
+        /// ProblemSetterList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button problemSetterInvitation;
+        protected global::System.Web.UI.WebControls.ListBox ProblemSetterList;
         
         /// <summary>
-        /// participantInvitation control.
+        /// removeParticipant control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button participantInvitation;
+        protected global::System.Web.UI.WebControls.Button removeParticipant;
         
         /// <summary>
-        /// userRemoveList control.
+        /// removeProblemSetter control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList userRemoveList;
+        protected global::System.Web.UI.WebControls.Button removeProblemSetter;
         
         /// <summary>
-        /// userRemoval control.
+        /// inviteContestant control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button userRemoval;
+        protected global::System.Web.UI.WebControls.Button inviteContestant;
     }
 }
