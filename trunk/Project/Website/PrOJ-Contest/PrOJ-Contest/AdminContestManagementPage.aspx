@@ -74,31 +74,28 @@
                 <td></td>
             </tr>
             <tr>
-                <td> Invite user </td>
+                <td> List of Participant </td>
+                <td> </td>
+                <td> List of Problem Setter </td>
             </tr>
             <tr>
-                <td> Username </td>
+                <td> <asp:ListBox ID="ParticipantList" runat="server" Height="180px" Width="130px" /> </td>
+                <td> </td>
+                <td> <asp:ListBox ID="ProblemSetterList" runat="server" Height="180px" Width="130px" /> </td>
             </tr>
             <tr>
-                <td> <asp:DropDownList ID="userInviteList" runat="server" /> </td>
-                <td> <asp:Button ID="problemSetterInvitation" text="As Problem Setter" runat="server" /> </td>
-                <td> <asp:Button ID="participantInvitation" text="As Participant" runat="server" /> </td>
+                <td> <asp:Button ID="removeParticipant" text="Remove" runat="server" /> </td>
+                <td> </td>
+                <td> <asp:Button ID="removeProblemSetter" text="Remove" runat="server" /> </td>
             </tr>
             <tr>
-                <td></td>
+                <td> </td>
             </tr>
             <tr>
-                <td> Remove user from contest </td>
-            </tr>
-            <tr>
-                <td> Username </td>
-            </tr>
-            <tr>
-                <td> <asp:DropDownList ID="userRemoveList" runat="server" /> </td>
-                <td> <asp:Button ID="userRemoval" text="Remove" runat="server" /> </td>
+                <td colspan="3"> <asp:Button ID="inviteContestant" text="Invite Contestant" 
+                        runat="server" onclick="inviteContestant_Click" /> </td>
             </tr>
         </table>
     </form>
-
 
 </asp:Content>

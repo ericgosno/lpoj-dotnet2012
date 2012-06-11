@@ -71,7 +71,7 @@ namespace PrOJ_Contest
             try
             {
                 activeUser = (lpoj_users)Session["userActive"];
-                lb_activeUser.Text = activeUser.USERS_USERNAME;
+                
             }
             catch (Exception ex)
             {
