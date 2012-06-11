@@ -12,10 +12,13 @@ namespace PrOJ_Contest
     {
         private lpojEntities Entity;
         private int contest_id;
+        private lpoj_users activeUser;
         private lpoj_contest contestDetail;
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             Entity = new lpojEntities();
+            initialUserActive();
             try
             {
                 contest_id = Convert.ToInt32(Request.QueryString["Id"]);
@@ -38,6 +41,21 @@ namespace PrOJ_Contest
             for (int i = 0; i < query.Count; i++)
             {
                 problemList.Items.Add(query[i].PROBLEM_ID + " - " + query[i].PROBLEM_TITLE);
+            }
+        }
+
+        protected void initialUserActive()
+        {
+            activeUser = new lpoj_users();
+            // error handling untuk menghitung session
+            if (Session.Count == 0)
+            {
+                Response.Redirect("Default.aspx");
+            }
+            else
+            {
+                activeUser = (lpoj_users)Session["userActive"];
+                lb_userActive.Text = activeUser.USERS_USERNAME;
             }
         }
 

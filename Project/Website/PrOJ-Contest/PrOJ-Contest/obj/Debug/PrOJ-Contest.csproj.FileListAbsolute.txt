@@ -23,3 +23,8 @@ C:\Users\Gracius\Documents\LpOJ - Online Connection\Project\Website\PrOJ-Contest
 C:\Users\Gracius\Documents\LpOJ - Online Connection\Project\Website\PrOJ-Contest\PrOJ-Contest\bin\PrOJ-Contest.dll
 C:\Users\Gracius\Documents\LpOJ - Online Connection\Project\Website\PrOJ-Contest\PrOJ-Contest\bin\PrOJ-Contest.pdb
 C:\Users\Gracius\Documents\LpOJ - Online Connection\Project\Website\PrOJ-Contest\PrOJ-Contest\obj\Debug\PrOJ-Contest.pdb
+D:\160Gb (G)\LPOJ-Trunk\Project\Website\PrOJ-Contest\PrOJ-Contest\bin\PrOJ-Contest.dll
+D:\160Gb (G)\LPOJ-Trunk\Project\Website\PrOJ-Contest\PrOJ-Contest\bin\PrOJ-Contest.pdb
+D:\160Gb (G)\LPOJ-Trunk\Project\Website\PrOJ-Contest\PrOJ-Contest\obj\Debug\PrOJ-Contest.csprojResolveAssemblyReference.cache
+D:\160Gb (G)\LPOJ-Trunk\Project\Website\PrOJ-Contest\PrOJ-Contest\obj\Debug\PrOJ-Contest.dll
+D:\160Gb (G)\LPOJ-Trunk\Project\Website\PrOJ-Contest\PrOJ-Contest\obj\Debug\PrOJ-Contest.pdb
