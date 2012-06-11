@@ -72,5 +72,31 @@ namespace PrOJ_Contest
                 Entity.SaveChanges();
             }
         }
+
+        protected void setFreezeTime_Click(object sender, EventArgs e)
+        {
+            IEnumerable<lpoj_contest> con = from g in Entity.lpoj_contest
+                                            where g.CONTEST_ID == contest_id
+                                            select g;
+            if (con.Count() > 0)
+            {
+                contestDetail = con.ElementAt<lpoj_contest>(0);
+                contestDetail.CONTEST_FREEZE = DateTime.Parse(freezeTime.Text);
+                Entity.SaveChanges();
+            }
+        }
+
+        protected void setFinishTime_Click(object sender, EventArgs e)
+        {
+            IEnumerable<lpoj_contest> con = from g in Entity.lpoj_contest
+                                            where g.CONTEST_ID == contest_id
+                                            select g;
+            if (con.Count() > 0)
+            {
+                contestDetail = con.ElementAt<lpoj_contest>(0);
+                contestDetail.CONTEST_END = DateTime.Parse(finishTime.Text);
+                Entity.SaveChanges();
+            }
+        }
     }
 }
