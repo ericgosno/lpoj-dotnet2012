@@ -102,12 +102,13 @@
                 <td>Title </td>
             </tr>
             <tr>
-                <td> <asp:DropDownList ID="problemList" runat="server" /> 
+                <td> <asp:DropDownList ID="problemList" runat="server"  AutoPostBack="true"/> 
                     <br />
                 </td>
             </tr>
             <tr>
-                <td> <asp:Button ID="editProblem" text="Edit" runat="server" /> </td>
+                <td> <asp:Button ID="editProblem" text="Edit" runat="server" 
+                        onclick="editProblem_Click" /> </td>
             </tr>
             <tr>
                 <td> <asp:Button ID="removeProblem" text="Remove" runat="server" 
