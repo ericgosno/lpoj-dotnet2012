@@ -123,7 +123,8 @@
             <tr>
                 <td> <asp:DropDownList ID="contestList" runat="server" 
                         onselectedindexchanged="contestList_SelectedIndexChanged" /> </td>
-                <td> <asp:Button ID="editContest" text="Edit" runat="server" /> </td>
+                <td> <asp:Button ID="editContest" text="Edit" runat="server" 
+                        onclick="editContest_Click" /> </td>
             </tr>
         </table>
     </form>

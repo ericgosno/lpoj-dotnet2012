@@ -38,6 +38,7 @@ namespace PrOJ_Contest
             var query = (from f in Entity.lpoj_problem
                         where f.CONTEST_ID == contest_id
                         select f).ToList<lpoj_problem>();
+            problemList.Items.Clear();
             for (int i = 0; i < query.Count; i++)
             {
                 problemList.Items.Add(query[i].PROBLEM_ID + " - " + query[i].PROBLEM_TITLE);
@@ -76,6 +77,7 @@ namespace PrOJ_Contest
             news.PROBLEM_TIMELIMIT = 500;
             Entity.lpoj_problem.AddObject(news);
             Entity.SaveChanges();
+            Response.Redirect("UserContestManagementPage.aspx?Id=" + contest_id.ToString()); 
         }
 
         protected void setStartTime_Click(object sender, EventArgs e)
@@ -106,6 +108,23 @@ namespace PrOJ_Contest
 
         protected void setFinishTime_Click(object sender, EventArgs e)
         {
+            IEnumerable<lpoj_contest> con = from g in Entity.lpoj_contest
+                                            where g.CONTEST_ID == contest_id
+                                            select g;
+            if (con.Count() > 0)
+            {
+                contestDetail = con.ElementAt<lpoj_contest>(0);
+                contestDetail.CONTEST_END = DateTime.Parse(finishTime.Text);
+                Entity.SaveChanges();
+            }
+        }
+
+        protected void removeProblem_Click(object sender, EventArgs e)
+        {
+            char[] separator = new char[1];
+            separator[0] = ' ';
+            int hasil = Convert.ToInt32(problemList.SelectedItem.Text.Split(separator).First<string>());
+            
             IEnumerable<lpoj_contest> con = from g in Entity.lpoj_contest
                                             where g.CONTEST_ID == contest_id
                                             select g;

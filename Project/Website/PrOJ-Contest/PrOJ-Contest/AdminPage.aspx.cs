@@ -47,7 +47,6 @@ namespace PrOJ_Contest
 
                 IQueryable<lpoj_contest> resultcontest = from f in entity.lpoj_contest
                                                          select f;
-                contestList.Items.Add(" ");
                 foreach (lpoj_contest g in resultcontest)
                 {
                     contestList.Items.Add(g.CONTEST_ID + "-" + g.CONTEST_TITLE);
@@ -201,6 +200,9 @@ namespace PrOJ_Contest
             Session["contestActive"] = c;
             Response.Redirect("AdminContestManagementPage.aspx");
         }
+
+ 
+       
 
 
     }
