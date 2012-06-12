@@ -198,7 +198,7 @@ namespace PrOJ_Contest
             try { c = dbContest.First<lpoj_contest>(); }
             catch (Exception ex) { return; }
             Session["contestActive"] = c;
-            Response.Redirect("AdminContestManagementPage.aspx");
+            Response.Redirect("AdminContestManagementPage.aspx?Id="+c.CONTEST_ID.ToString());
         }
 
  

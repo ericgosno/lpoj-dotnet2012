@@ -26,12 +26,14 @@
                 <td> Contest Description </td>
             </tr>
             <tr>
-                <td> <asp:TextBox ID="contestDescription" text="Tulis deskripsi kontes di sini!" 
-                        TextMode="MultiLine" runat="server" Height="300px" Width="500px" />
+                <td> 
+                    <asp:TextBox ID="contestDescription" text="Tulis deskripsi kontes di sini!" 
+                        TextMode="MultiLine" runat="server" Height="300px" Width="414px" />
                 </td>
             </tr>
             <tr>
-                <td> <asp:Button ID="changeDescription" text="Change" runat="server" /> </td>
+                <td> <asp:Button ID="changeDescription" text="Change" runat="server" 
+                        onclick="changeDescription_Click" /> </td>
             </tr>
         </table>
         <br />
@@ -53,7 +55,8 @@
                         DatePickerMode="true"
                         TextBoxId="startTime" />
                 </td>
-                <td> <asp:Button ID="setStartTime" text="Set" runat="server" /> </td>
+                <td> <asp:Button ID="setStartTime" text="Set" runat="server" 
+                        onclick="setStartTime_Click" /> </td>
             </tr>
             <tr>
                 <td></td>
@@ -68,7 +71,8 @@
                         DatePickerMode="true"
                         TextBoxId="freezeTime" />
                 </td>
-                <td> <asp:Button ID="setFreezeTime" text="Set" runat="server" /> </td>
+                <td> <asp:Button ID="setFreezeTime" text="Set" runat="server" 
+                        onclick="setFreezeTime_Click" /> </td>
             </tr>
             <tr>
                 <td></td>
@@ -83,7 +87,8 @@
                         DatePickerMode="true"
                         TextBoxId="finishTime" />
                 </td>
-                <td> <asp:Button ID="setFinishTime" text="Set" runat="server" /> </td>
+                <td> <asp:Button ID="setFinishTime" text="Set" runat="server" 
+                        onclick="setFinishTime_Click" /> </td>
             </tr>
         </table>
         <br />

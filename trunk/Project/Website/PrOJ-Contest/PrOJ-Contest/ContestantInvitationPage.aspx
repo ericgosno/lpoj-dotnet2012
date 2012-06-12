@@ -1,14 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ContestantInvitationPage.aspx.cs" Inherits="PrOJ_Contest.ContestantInvitationPage" %>
-<asp:Content ID="Title" ContentPlaceHolderID="TitleContentPlaceHolder" runat="server"> Contestant Invitation Page
+<asp:Content ID="Title" ContentPlaceHolderID="TitleContentPlaceHolder" runat="server"> 
+Contestant Invitation Page
 </asp:Content>
+
 
 <asp:Content ID="Menu" ContentPlaceHolderID="MenuContentPlaceHolder" runat="server">
     <ul class="art-hmenu">
-        <li><a href="ProblemPage.aspx" class="active"><span class="l"></span><span class="r"></span><span class="t">Problem</span></a></li>
-        <li><a href="UserSubmissionPage.aspx" ><span class="l"></span><span class="r"></span><span class="t">Submission</span></a></li>
-        <li><a href="ContestRankPage.aspx"><span class="l"></span><span class="r"></span><span class="t">Ranking</span> </a></li>
-        <li><a href="ClarificationPage.aspx"><span class="l"></span><span class="r"></span><span class="t">Clarification</span> </a></li>
-        <li><a href="UserPage.aspx"><span class="l"></span><span class="r"></span><span class="t"> User Home </span> </a></li>
+        <li><a href="#" class="active"><span class="l"></span><span class="r"></span><span class="t">Invitation</span></a></li>
     </ul>
 </asp:Content>
 
@@ -54,3 +52,4 @@
         <br />
     </form>
 </asp:Content>
+
