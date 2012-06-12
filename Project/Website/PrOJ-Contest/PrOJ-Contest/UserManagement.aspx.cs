@@ -16,16 +16,15 @@ namespace PrOJ_Contest
         {
             Entity = new lpojEntities();
             initialUserActive();
-            if (cmbox_listContest.Items.Count == 0)
-            {
-                initialContest();
-            }
+            if (IsPostBack) return;
+            initialContest();
         }
         private void initialContest()
         {
             IEnumerable<lpoj_contestant> query = from f in Entity.lpoj_contestant
                                            where f.USERS_ID == activeUser.USERS_ID
                                            select f;
+            if (query.Count() == 0) btn_enterContest.Visible = false;
             for (int i = 0; i < query.Count<lpoj_contestant>(); i++)
             {
                 int cek = query.ElementAt(i).CONTEST_ID;
