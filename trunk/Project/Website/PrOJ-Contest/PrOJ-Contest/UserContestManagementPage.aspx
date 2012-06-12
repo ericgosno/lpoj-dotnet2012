@@ -89,17 +89,17 @@
             </tr>
             <tr>
                 <td> <asp:TextBox ID="problemName" runat="server" /> <asp:Button ID="addProblem" text="Add" runat="server" 
-                        onclick="addProblem_Click" /> </td>
+                        onclick="addProblem_Click"/> </td>
                 <td> &nbsp;</td>
             </tr>
             <tr>
                 <td></td>
             </tr>
             <tr>
-                <td> Edit problem m </td>
+                <td> Edit problem</td>
             </tr>
             <tr>
-                <tdTitle </td>
+                <td>Title </td>
             </tr>
             <tr>
                 <td> <asp:DropDownList ID="problemList" runat="server" /> 
@@ -110,14 +110,15 @@
                 <td> <asp:Button ID="editProblem" text="Edit" runat="server" /> </td>
             </tr>
             <tr>
-                <td> <asp:Button ID="removeProblem" text="Remove" runat="server" /> </td>
+                <td> <asp:Button ID="removeProblem" text="Remove" runat="server" 
+                        onclick="removeProblem_Click" /> </td>
             </tr>
         </table>
         <br />
         <br />
         <table>
             <tr>
-                <td colspan="2"> Clarification Management t </td>
+                <td colspan="2"> Clarification Management </td>
             </tr>
             <tr>
                 <td> <asp:Button ID="viewClarification" text="View Clarifications" runat="server" 
