@@ -180,11 +180,6 @@ namespace PrOJ_Contest
 
         }
 
-        protected void contestList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         protected void editContest_Click(object sender, EventArgs e)
         {
             Session["userActive"] = activeUser;

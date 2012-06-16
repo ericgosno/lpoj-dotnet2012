@@ -27,7 +27,8 @@ Contestant Invitation Page
                 </td>
             </tr>
             <tr>
-                <td> <asp:Button ID="Button1" text="Search" runat="server" /> </td>
+                <td> <asp:Button ID="searchButton" text="Search" runat="server" 
+                        onclick="searchButton_Click" /> </td>
             </tr>
         </table>
         <br />
@@ -41,15 +42,20 @@ Contestant Invitation Page
                 </td>
             </tr>
             <tr>
-                <td> <asp:Button ID="regularInviteParticipant" text="Invite As Participant" 
-                        runat="server" Width="230px" /> </td>
+                <td> 
+                    <asp:Button ID="regularInviteParticipant" text="Invite As Participant" 
+                        runat="server" Width="230px" onclick="regularInviteParticipant_Click" /> </td>
             </tr>
             <tr>
-                <td> <asp:Button ID="regularInviteProblemSetter" text="Invite As Problem Setter" 
-                        runat="server" Width="230px" /> </td>
+                <td> 
+                    <asp:Button ID="regularInviteProblemSetter" text="Invite As Problem Setter" 
+                        runat="server" Width="230px" onclick="regularInviteProblemSetter_Click" /> </td>
             </tr>
         </table>
         <br />
+        <br />
+        <asp:Button ID="backButton" Text="Back" runat="server" 
+            onclick="backButton_Click" />
     </form>
 </asp:Content>
 

@@ -111,9 +111,11 @@
                 <td> <asp:ListBox ID="ProblemSetterList" runat="server" Height="180px" Width="130px" /> </td>
             </tr>
             <tr>
-                <td> <asp:Button ID="removeParticipant" text="Remove" runat="server" /> </td>
+                <td> <asp:Button ID="removeParticipant" text="Remove" runat="server" 
+                        onclick="removeParticipant_Click" /> </td>
                 <td> </td>
-                <td> <asp:Button ID="removeProblemSetter" text="Remove" runat="server" /> </td>
+                <td> <asp:Button ID="removeProblemSetter" text="Remove" runat="server" 
+                        onclick="removeProblemSetter_Click" /> </td>
             </tr>
             <tr>
                 <td> </td>
