@@ -104,7 +104,7 @@ namespace PrOJ_Contest
 
         protected void inviteContestant_Click(object sender, EventArgs e)
         {
-            Response.Redirect("ContestantInvitationPage.aspx");
+            Response.Redirect("ContestantInvitationPage.aspx?Id="+contest_id.ToString());
         }
 
         protected void setStartTime_Click(object sender, EventArgs e)
