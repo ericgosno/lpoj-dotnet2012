@@ -17,8 +17,33 @@
     <h3>Clarification</h3>
     <br />
     <form id="form1" runat="server">
-        <asp:DataGrid ID="contestClarification" runat="server" />
+        <br />
+        <table>
+            <tr>
+                <td> Ask clarification : </td>
+            </tr>
+            <tr>
+                <td> <asp:TextBox ID="answerText" text="Tulis klarifikasi di sini!" 
+                        TextMode="MultiLine" runat="server" Height="51px" Width="305px" /> </td>
+            </tr>
+            <tr>
+                <td> <asp:Button ID="askButton" Text="Ask" runat="server" /> </td>
+            </tr>
+        </table>
+        <br />
+        <br />
+        <h4>All Asked Clarification</h4>
+        <asp:Table runat="server">
+            <asp:TableRow>
+                <asp:TableCell> From : </asp:TableCell>
+                <asp:TableCell> <asp:Label runat="server" ID="usernameAsker" Text="Penanya" /> </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell ColumnSpan="2"> <asp:Label runat="server" ID="question" Text="tempat pertanyaan" /> </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell ColumnSpan="2"> <asp:Label runat="server" ID="answer" Text="tempat jawaban" /> </asp:TableCell>
+            </asp:TableRow>
+        </asp:Table>
     </form>
-
-
 </asp:Content>
