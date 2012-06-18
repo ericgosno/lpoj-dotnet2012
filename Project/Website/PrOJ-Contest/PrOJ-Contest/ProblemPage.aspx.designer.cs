@@ -13,6 +13,15 @@ namespace PrOJ_Contest {
     public partial class ProblemPage {
         
         /// <summary>
+        /// lb_userActive control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lb_userActive;
+        
+        /// <summary>
         /// TblBrowse control.
         /// </summary>
         /// <remarks>
@@ -55,7 +64,7 @@ namespace PrOJ_Contest {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox timeLimit;
+        protected global::System.Web.UI.WebControls.Label timeLimit;
         
         /// <summary>
         /// memoryLimit control.
@@ -64,6 +73,6 @@ namespace PrOJ_Contest {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox memoryLimit;
+        protected global::System.Web.UI.WebControls.Label memoryLimit;
     }
 }
