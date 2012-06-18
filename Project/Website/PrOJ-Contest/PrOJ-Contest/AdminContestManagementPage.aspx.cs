@@ -16,6 +16,8 @@ namespace PrOJ_Contest
 
         private void updateContestantList()
         {
+            ParticipantList.Items.Clear();
+            ProblemSetterList.Items.Clear();
             Entity = new lpojEntities();
             IEnumerable<lpoj_contestant> Participant = from c in Entity.lpoj_contestant
                                                        where (c.CONTEST_ID == contest_id) && (c.CONTESTANT_STATUS == 1)
@@ -93,14 +95,10 @@ namespace PrOJ_Contest
                                                     select f;
             try { contestnow = queryContest.First<lpoj_contest>(); }
             catch { return; }
-            System.Windows.Forms.MessageBox.Show(contestDescription.Text);
             contestnow.CONTEST_DESCRIPTION = contestDescription.Text;
-
             Entity.SaveChanges();
-
             contestDetail = contestnow;
-            Response.Redirect("AdminContestManagementPage.aspx?Id="+contestnow.CONTEST_ID);
-
+            Response.Redirect("AdminContestManagementPage.aspx?Id=" + contestnow.CONTEST_ID);
         }
 
         protected void inviteContestant_Click(object sender, EventArgs e)
@@ -117,7 +115,6 @@ namespace PrOJ_Contest
             {
                 contestDetail = con.ElementAt<lpoj_contest>(0);
                 contestDetail.CONTEST_BEGIN = DateTime.Parse(startTime.Text);
-                System.Windows.Forms.MessageBox.Show(startTime.Text);
                 Entity.SaveChanges();
             }
         }
@@ -148,30 +145,43 @@ namespace PrOJ_Contest
             }
         }
 
-        protected void removeParticipant_Click(object sender, EventArgs e)
+        private void removeContestant(string username)
         {
             Entity = new lpojEntities();
             IEnumerable<int> userID = from c in Entity.lpoj_users
-                                           where c.USERS_USERNAME == ParticipantList.SelectedItem.ToString()
-                                           select c.USERS_ID;
+                                      where c.USERS_USERNAME == username
+                                      select c.USERS_ID;
+            int UID = userID.First<int>();
             IEnumerable<lpoj_contestant> contestant = from c in Entity.lpoj_contestant
-                                                      where (c.USERS_ID == userID.First<int>()) && (c.CONTEST_ID == contest_id)
+                                                      where (c.USERS_ID == UID) && (c.CONTEST_ID == contest_id)
                                                       select c;
-            Entity.DeleteObject(contestant.First<lpoj_contestant>());
+            Entity.lpoj_contestant.DeleteObject(contestant.ElementAt<lpoj_contestant>(0));
+            Entity.SaveChanges();
             updateContestantList();
+        }
+
+        protected void removeParticipant_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                removeContestant(ParticipantList.SelectedItem.ToString());
+            }
+            catch
+            {
+                return;
+            }
         }
 
         protected void removeProblemSetter_Click(object sender, EventArgs e)
         {
-            Entity = new lpojEntities();
-            IEnumerable<int> userID = from c in Entity.lpoj_users
-                                      where c.USERS_USERNAME == ProblemSetterList.SelectedItem.ToString()
-                                      select c.USERS_ID;
-            IEnumerable<lpoj_contestant> contestant = from c in Entity.lpoj_contestant
-                                                      where (c.USERS_ID == userID.First<int>()) && (c.CONTEST_ID == contest_id)
-                                                      select c;
-            Entity.DeleteObject(contestant.First<lpoj_contestant>());
-            updateContestantList();
+            try
+            {
+                removeContestant(ProblemSetterList.SelectedItem.ToString());
+            }
+            catch
+            {
+                return;
+            }
         }
         
     }

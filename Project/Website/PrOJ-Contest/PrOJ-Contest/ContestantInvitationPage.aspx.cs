@@ -32,6 +32,7 @@ namespace PrOJ_Contest
             {
                 contestDetail = con.ElementAt<lpoj_contest>(0);
                 if (IsPostBack) return;
+                lb_contestName.Text = contestDetail.CONTEST_TITLE;
             }
         }
 
@@ -90,12 +91,18 @@ namespace PrOJ_Contest
                 if (userQuery.Count() <= 0)
                     continue;
                 tempUser = userQuery.First<lpoj_users>();
+                IEnumerable<lpoj_contestant> registeredUser = from d in Entity.lpoj_contestant
+                                                              where d.USERS_ID == tempUser.USERS_ID
+                                                              select d;
+                if (registeredUser.Count() >= 1)
+                    continue;
                 Entity.AddTolpoj_contestant(new lpoj_contestant
                 {
                     CONTEST_ID = contest_id,
                     USERS_ID = tempUser.USERS_ID,
                     CONTESTANT_STATUS = contestantStatus
                 });
+                Entity.SaveChanges();
             }
             Response.Redirect("AdminContestManagementPage.aspx?Id=" + contest_id.ToString());
         }
