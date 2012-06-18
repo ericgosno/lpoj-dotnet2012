@@ -16,7 +16,9 @@
     <br />
     <h3>Problem Browse</h3>
     <form id="form1" runat="server">
-        
+        <h3>
+            Hello, <asp:Label ID="lb_userActive" runat="server" Text="&lt;'noName'&gt;" />
+        </h3>
         <h4>
             Problem Title : <asp:Label ID="problemTitle" runat="server" Text="&lt;'noName'&gt;" />
         </h4>
@@ -35,7 +37,7 @@
             <tr>
                 <td> 
                     <asp:TextBox ID="problemDescription" text="Tulis deskripsi di sini!" 
-                        TextMode="MultiLine" runat="server" Height="300px" Width="500px" ReadOnly=true/>
+                        TextMode="MultiLine" runat="server" Height="300px" Width="500px" ReadOnly="true"/>
                 </td>
             </tr>
             <tr>
@@ -45,7 +47,7 @@
                 <td> Time Limit (Milidetik) </td>
             </tr>
             <tr>
-                <td> <asp:TextBox ID="timeLimit" runat="server" ReadOnly=true /> </td>
+                <td> <asp:Label ID="timeLimit" runat="server" Text=""/> </td>
             </tr>
             
             <tr>
@@ -55,7 +57,7 @@
                 <td> Time Limit (Byte) </td>
             </tr>
             <tr>
-                <td> <asp:TextBox ID="memoryLimit" runat="server" ReadOnly = "True" /> </td>
+                <td> <asp:Label ID="memoryLimit" runat="server" Text=""/></td>
             </tr>
             
         </table>
