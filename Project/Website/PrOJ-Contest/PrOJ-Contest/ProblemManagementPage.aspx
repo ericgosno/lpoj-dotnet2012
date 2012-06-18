@@ -6,7 +6,7 @@
 
 <asp:Content ID="Menu" ContentPlaceHolderID="MenuContentPlaceHolder" runat="server">
     <ul class="art-hmenu">
-        <li><a href="ProblemPage.aspx" class="active"><span class="l"></span><span class="r"></span><span class="t">Problem</span></a></li>
+        <li><a href="#" class="active"><span class="l"></span><span class="r"></span><span class="t">Problem</span></a></li>
         <li><a href="UserSubmissionPage.aspx" ><span class="l"></span><span class="r"></span><span class="t">Submission</span></a></li>
         <li><a href="ContestRankPage.aspx"><span class="l"></span><span class="r"></span><span class="t">Ranking</span> </a></li>
         <li><a href="ClarificationPage.aspx"><span class="l"></span><span class="r"></span><span class="t">Clarification</span> </a></li>
@@ -39,7 +39,8 @@
                 </td>
             </tr>
             <tr>
-                <td> <asp:Button ID="changeDescription" text="Change" runat="server" /> </td>
+                <td> <asp:Button ID="changeDescription" text="Change" runat="server" 
+                        onclick="changeDescription_Click" /> </td>
             </tr>
             <tr>
                 <td></td>
@@ -51,7 +52,8 @@
                 <td> <asp:TextBox ID="timeLimit" runat="server" /> </td>
             </tr>
             <tr>
-                <td> <asp:Button ID="changeTimeLimit" text="Change" runat="server" /> </td>
+                <td> <asp:Button ID="changeTimeLimit" text="Change" runat="server" 
+                        onclick="changeTimeLimit_Click" /> </td>
             </tr>
             <tr>
                 <td></td>
@@ -63,7 +65,8 @@
                 <td> <asp:TextBox ID="memoryLimit" runat="server" /> </td>
             </tr>
             <tr>
-                <td> <asp:Button ID="changeMemoryLimit" text="Change" runat="server" /> </td>
+                <td> <asp:Button ID="changeMemoryLimit" text="Change" runat="server" 
+                        onclick="changeMemoryLimit_Click" /> </td>
             </tr>
         </table>
         <br />
@@ -80,14 +83,15 @@
             </tr>
             <tr>
                 <td> File input  : </td>
-                <td> <asp:FileUpload ID="inputFile" runat="server" /> </td>
+                <td> <asp:FileUpload ID="inputFile" runat="server" /></td>
             </tr>
             <tr>
                 <td> File output : </td>
                 <td> <asp:FileUpload ID="outputFile" runat="server" /> </td>
             </tr>
             <tr>
-                <td> <asp:Button ID="uploadTestCase" text="Upload" runat="server" /> </td>
+                <td> <asp:Button ID="uploadTestCase" text="Upload" runat="server" 
+                        onclick="uploadTestCase_Click" /> </td>
             </tr>
             <tr>
                 <td></td>
