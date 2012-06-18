@@ -17,27 +17,29 @@ namespace PrOJ_Contest
         private void updateContestantList()
         {
             Entity = new lpojEntities();
-            IEnumerable<lpoj_contestant> PSetters = from c in Entity.lpoj_contestant
-                                                   where (c.CONTEST_ID == contest_id) && (c.CONTESTANT_STATUS == 2)
-                                                   select c;
             IEnumerable<lpoj_contestant> Participant = from c in Entity.lpoj_contestant
-                                                   where (c.CONTEST_ID == contest_id) && (c.CONTESTANT_STATUS == 1)
-                                                   select c;
-            for (int c = 0; c < PSetters.Count<lpoj_contestant>(); c++)
+                                                       where (c.CONTEST_ID == contest_id) && (c.CONTESTANT_STATUS == 1)
+                                                       select c;
+            IEnumerable<lpoj_contestant> PSetters = from c in Entity.lpoj_contestant
+                                                    where (c.CONTEST_ID == contest_id) && (c.CONTESTANT_STATUS == 2)
+                                                    select c;
+            lpoj_contestant[] ParticipantArray = Participant.ToArray<lpoj_contestant>();
+            lpoj_contestant[] PSetterArray = PSetters.ToArray<lpoj_contestant>();
+            for (int c = 0; c < ParticipantArray.Length; c++)
             {
-                int userID = PSetters.ElementAt<lpoj_contestant>(c).USERS_ID;
-                IEnumerable<lpoj_users> user = from d in Entity.lpoj_users
-                                               where d.USERS_ID == userID
-                                               select d;
-                ProblemSetterList.Items.Add(user.First<lpoj_users>().USERS_USERNAME);
-            }
-            for (int c = 0; c < Participant.Count<lpoj_contestant>(); c++)
-            {
-                int userID = Participant.ElementAt<lpoj_contestant>(c).USERS_ID;
+                int userID = ParticipantArray[c].USERS_ID;
                 IEnumerable<lpoj_users> user = from d in Entity.lpoj_users
                                                where d.USERS_ID == userID
                                                select d;
                 ParticipantList.Items.Add(user.First<lpoj_users>().USERS_USERNAME);
+            }
+            for (int c = 0; c < PSetterArray.Length; c++)
+            {
+                int userID = PSetterArray[c].USERS_ID;
+                IEnumerable<lpoj_users> user = from d in Entity.lpoj_users
+                                               where d.USERS_ID == userID
+                                               select d;
+                ProblemSetterList.Items.Add(user.First<lpoj_users>().USERS_USERNAME);
             }
         }
 
@@ -56,7 +58,6 @@ namespace PrOJ_Contest
                                             select g;
             if (con.Count() > 0)
             {
-                
                 contestDetail = con.ElementAt<lpoj_contest>(0);
                 if (IsPostBack) return;
                 lb_contestActive.Text = contestDetail.CONTEST_TITLE.ToString();
