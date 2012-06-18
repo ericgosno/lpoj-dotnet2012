@@ -69,53 +69,50 @@ namespace PrOJ_Contest
             usernameList.Text = ans;
         }
 
-        protected void regularInviteParticipant_Click(object sender, EventArgs e)
+        private void inviteUsers(string[] usernames, int contestantStatus)
         {
-            string[] usernames = usernameList.Text.Split('\n');
-
-            foreach (string a in usernames)
+            foreach (string c in usernames)
             {
-
+                string username;
+                if (c.Contains('\n'))
+                    username = c.Remove('\n');
+                else if (c.Contains(Convert.ToChar(11)))
+                    username = c.Remove(c.LastIndexOf(Convert.ToChar(11)));
+                else if (c.Contains(Convert.ToChar(13)))
+                    username = c.Remove(c.LastIndexOf(Convert.ToChar(13)));
+                else
+                    username = c;
                 Entity = new lpojEntities();
                 lpoj_users tempUser;
-                lpoj_contestant newContestant = new lpoj_contestant();
                 IQueryable<lpoj_users> userQuery = from d in Entity.lpoj_users
-                                                   where d.USERS_USERNAME == a
+                                                   where d.USERS_USERNAME == username
                                                    select d;
-                System.Windows.Forms.MessageBox.Show(userQuery.Count().ToString());
-                //newContestant.CONTEST_ID = contestDetail.CONTEST_ID;
-                //tempUser = userQuery.First<lpoj_users>();
-                //newContestant.USERS_ID = tempUser.USERS_ID;
-                ////BACA :: mboh lali 1 itu PSetter ato Perticipant loh!!!
-                //newContestant.CONTESTANT_STATUS = 1;
-                //Entity.AddTolpoj_contestant(newContestant);
+                if (userQuery.Count() <= 0)
+                    continue;
+                tempUser = userQuery.First<lpoj_users>();
+                Entity.AddTolpoj_contestant(new lpoj_contestant
+                {
+                    CONTEST_ID = contest_id,
+                    USERS_ID = tempUser.USERS_ID,
+                    CONTESTANT_STATUS = contestantStatus
+                });
             }
+            Response.Redirect("AdminContestManagementPage.aspx?Id=" + contest_id.ToString());
+        }
+
+        protected void regularInviteParticipant_Click(object sender, EventArgs e)
+        {
+            inviteUsers(usernameList.Text.Split("\n".ToCharArray()), 1);
         }
 
         protected void regularInviteProblemSetter_Click(object sender, EventArgs e)
         {
-            string[] usernames = usernameList.Text.Split("\n".ToCharArray());
-            
-            for (int c = 0; c < usernames.Length; c++)
-            {
-                Entity = new lpojEntities();
-                lpoj_users tempUser;
-                lpoj_contestant newContestant = new lpoj_contestant();
-                IQueryable<lpoj_users> userQuery = from d in Entity.lpoj_users
-                                                   where d.USERS_USERNAME == usernames[c]
-                                                   select d;
-                newContestant.CONTEST_ID = contestDetail.CONTEST_ID;
-                tempUser = userQuery.First<lpoj_users>();
-                newContestant.USERS_ID = tempUser.USERS_ID;
-                //komentar sama dengan paragraf sebelumnya
-                newContestant.CONTESTANT_STATUS = 2;
-                Entity.AddTolpoj_contestant(newContestant);
-            }
+            inviteUsers(usernameList.Text.Split("\n".ToCharArray()), 2);
         }
 
         protected void backButton_Click(object sender, EventArgs e)
         {
-            Response.Redirect("AdminContestManagementPage.aspx");
+            Response.Redirect("AdminContestManagementPage.aspx?Id=" + contest_id.ToString());
         }
     }
 }

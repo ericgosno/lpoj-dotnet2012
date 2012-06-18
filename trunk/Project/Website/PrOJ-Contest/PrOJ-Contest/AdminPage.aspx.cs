@@ -70,9 +70,8 @@ namespace PrOJ_Contest
             try
             {
                 activeUser = (lpoj_users)Session["userActive"];
-                
             }
-            catch (Exception ex)
+            catch
             {
                 Response.Redirect("Default.aspx");
             }
@@ -191,14 +190,10 @@ namespace PrOJ_Contest
                                                  where f.CONTEST_ID == idContest
                                                  select f;
             try { c = dbContest.First<lpoj_contest>(); }
-            catch (Exception ex) { return; }
+            catch { return; }
             Session["contestActive"] = c;
-            Response.Redirect("AdminContestManagementPage.aspx?Id="+c.CONTEST_ID.ToString());
+            Response.Redirect("AdminContestManagementPage.aspx?Id=" + c.CONTEST_ID.ToString());
         }
-
- 
-       
-
 
     }
 }
