@@ -16,7 +16,7 @@
         <br />
         <h4> Clarification List : </h4>
         <asp:ListBox ID="clarificationList" runat="server" Height="170px" Width="280px" 
-            onselectedindexchanged="clarificationList_SelectedIndexChanged" />
+            onselectedindexchanged="clarificationList_SelectedIndexChanged" AutoPostBack="true" />
         <br />
         <br />
         <table>

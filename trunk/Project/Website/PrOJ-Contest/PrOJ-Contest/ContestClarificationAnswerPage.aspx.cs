@@ -91,6 +91,7 @@ namespace PrOJ_Contest
         protected void clarificationList_SelectedIndexChanged(object sender, EventArgs e)
         {
             Entity = new lpojEntities();
+            System.Windows.Forms.MessageBox.Show("wew");
             string clarificationTitle = clarificationList.SelectedValue;
             string clarificationID = "";
             foreach(char ch in clarificationTitle)

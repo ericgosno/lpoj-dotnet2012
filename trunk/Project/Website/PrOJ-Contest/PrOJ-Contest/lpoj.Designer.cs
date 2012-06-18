@@ -548,7 +548,7 @@ namespace PrOJ_Contest
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String CLARIFICATION_ANSWER
         {
@@ -560,7 +560,7 @@ namespace PrOJ_Contest
             {
                 OnCLARIFICATION_ANSWERChanging(value);
                 ReportPropertyChanging("CLARIFICATION_ANSWER");
-                _CLARIFICATION_ANSWER = StructuralObject.SetValidValue(value, false);
+                _CLARIFICATION_ANSWER = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("CLARIFICATION_ANSWER");
                 OnCLARIFICATION_ANSWERChanged();
             }
