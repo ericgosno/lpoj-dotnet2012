@@ -13,9 +13,11 @@ namespace PrOJ_Contest
         private int contest_id;
         private lpoj_users activeUser;
         private lpoj_contest contestDetail;
+        
 
         private void refreshClarificationForm(lpoj_clarification clarification)
         {
+            
             if (clarification == null)
             {
                 Asker.Text = "-";
@@ -34,7 +36,16 @@ namespace PrOJ_Contest
                                            select c.USERS_USERNAME;
             Asker.Text = username.First<string>();
             Question.Text = clarification.CLARIFICATION_DESCRIPTION;
-            answerText.Enabled = true;
+            if (clarification.CLARIFICATION_ANSWER == null)
+            {
+                answerText.Enabled = true;
+                answerText.Text = "<< unknown answer >>";
+            }
+            else
+            {
+                answerText.Text = clarification.CLARIFICATION_ANSWER;
+            }
+            
             answerButton.Enabled = true;
         }
 
@@ -70,7 +81,7 @@ namespace PrOJ_Contest
             {
                 clarificationList.Items.Add(clarification.CLARIFICATION_ID.ToString() + " - " + clarification.CLARIFICATION_TITLE);
             }
-
+            idAsker.Text = "0";
             refreshClarificationForm(null);
         }
 
@@ -91,7 +102,6 @@ namespace PrOJ_Contest
         protected void clarificationList_SelectedIndexChanged(object sender, EventArgs e)
         {
             Entity = new lpojEntities();
-            System.Windows.Forms.MessageBox.Show("wew");
             string clarificationTitle = clarificationList.SelectedValue;
             string clarificationID = "";
             foreach(char ch in clarificationTitle)
@@ -103,7 +113,28 @@ namespace PrOJ_Contest
             IEnumerable<lpoj_clarification> clarifications = from c in Entity.lpoj_clarification
                                                              where c.CLARIFICATION_ID == CID
                                                              select c;
+
+
+            idAsker.Text = CID.ToString();
+ 
             refreshClarificationForm(clarifications.First<lpoj_clarification>());
+            
+        }
+
+        protected void answerButton_Click(object sender, EventArgs e)
+        {
+            Entity = new lpojEntities();
+            lpoj_clarification tempClar;
+            int idClarification = Convert.ToInt32(idAsker.Text);
+            System.Windows.Forms.MessageBox.Show(idClarification.ToString());
+            IEnumerable<lpoj_clarification> clarifications = from c in Entity.lpoj_clarification
+                                                             where c.CLARIFICATION_ID == idClarification 
+                                                             select c;
+            tempClar = clarifications.ElementAt<lpoj_clarification>(0);
+            tempClar.CLARIFICATION_ANSWER = answerText.Text;
+            tempClar.CLARIFICATION_STATUS = 1;
+           
+            Entity.SaveChanges();
         }
     }
 }

@@ -4,7 +4,10 @@
 
 <asp:Content ID="Menu" ContentPlaceHolderID="MenuContentPlaceHolder" runat="server">
     <ul class="art-hmenu">
+    
+
         <li><a href="ContestClarificationAnswerPage.aspx" class="active"><span class="l"></span><span class="r"></span><span class="t">Answer Clarification</span></a></li>
+            
         <li><a href="UserContestManagementPage.aspx"><span class="l"></span><span class="r"></span><span class="t">Manager Contest</span> </a></li>
     </ul>
 </asp:Content>
@@ -22,7 +25,10 @@
         <table>
             <tr>
                 <td> From : </td>
-                <td> <asp:Label ID="Asker" Text="username yang nanya" runat="server" /> </td>
+                <td> 
+                <asp:Label ID="Asker" Text="username yang nanya" runat="server" /> 
+                <asp:Label ID="idAsker" Text="" runat = "server" Visible ="false"/>
+                </td>
             </tr>
             <tr>
                 <td> Question : </td>
@@ -37,7 +43,8 @@
                         TextMode="MultiLine" runat="server" Height="51px" Width="305px" /> </td>
             </tr>
             <tr>
-                <td> <asp:Button ID="answerButton" Text="Answer" runat="server" /> </td>
+                <td> <asp:Button ID="answerButton" Text="Answer" runat="server" 
+                        onclick="answerButton_Click" /> </td>
             </tr>
         </table>
     </form>
