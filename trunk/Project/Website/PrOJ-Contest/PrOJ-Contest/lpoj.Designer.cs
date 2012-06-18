@@ -8,12 +8,13 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.ComponentModel;
+using System.Data.EntityClient;
 using System.Data.Objects;
 using System.Data.Objects.DataClasses;
-using System.Data.EntityClient;
-using System.ComponentModel;
-using System.Xml.Serialization;
+using System.Linq;
 using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
@@ -277,6 +278,7 @@ namespace PrOJ_Contest
         private ObjectSet<lpoj_verdict> _lpoj_verdict;
 
         #endregion
+
         #region AddTo Methods
     
         /// <summary>
@@ -376,11 +378,11 @@ namespace PrOJ_Contest
         }
 
         #endregion
+
     }
-    
 
     #endregion
-    
+
     #region Entities
     
     /// <summary>
@@ -417,6 +419,7 @@ namespace PrOJ_Contest
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -591,6 +594,7 @@ namespace PrOJ_Contest
         partial void OnCLARIFICATION_STATUSChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -671,6 +675,7 @@ namespace PrOJ_Contest
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -697,6 +702,7 @@ namespace PrOJ_Contest
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -871,6 +877,7 @@ namespace PrOJ_Contest
         partial void OnCONTEST_FREEZEChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -941,6 +948,7 @@ namespace PrOJ_Contest
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -971,6 +979,7 @@ namespace PrOJ_Contest
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1073,6 +1082,7 @@ namespace PrOJ_Contest
         partial void OnCONTESTANT_STATUSChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -1197,6 +1207,7 @@ namespace PrOJ_Contest
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1233,6 +1244,7 @@ namespace PrOJ_Contest
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1407,6 +1419,7 @@ namespace PrOJ_Contest
         partial void OnNCPROBLEM_MEMORYLIMITChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -1455,6 +1468,7 @@ namespace PrOJ_Contest
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1485,6 +1499,7 @@ namespace PrOJ_Contest
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1590,6 +1605,7 @@ namespace PrOJ_Contest
         partial void OnNCSUBMISSION_TIMEChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -1692,6 +1708,7 @@ namespace PrOJ_Contest
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1722,6 +1739,7 @@ namespace PrOJ_Contest
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1824,6 +1842,7 @@ namespace PrOJ_Contest
         partial void OnNCTESTCASE_OUTPUTChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -1888,6 +1907,7 @@ namespace PrOJ_Contest
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1918,6 +1938,7 @@ namespace PrOJ_Contest
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -2026,6 +2047,7 @@ namespace PrOJ_Contest
         partial void OnNCPROBLEM_IDChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -2106,6 +2128,7 @@ namespace PrOJ_Contest
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -2142,6 +2165,7 @@ namespace PrOJ_Contest
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -2340,6 +2364,7 @@ namespace PrOJ_Contest
         partial void OnPROBLEM_MEMORYLIMITChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -2426,6 +2451,7 @@ namespace PrOJ_Contest
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -2456,6 +2482,7 @@ namespace PrOJ_Contest
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -2561,6 +2588,7 @@ namespace PrOJ_Contest
         partial void OnSUBMISSION_TIMEChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -2663,6 +2691,7 @@ namespace PrOJ_Contest
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -2693,6 +2722,7 @@ namespace PrOJ_Contest
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -2795,6 +2825,7 @@ namespace PrOJ_Contest
         partial void OnTESTCASE_OUTPUTChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -2859,6 +2890,7 @@ namespace PrOJ_Contest
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -2891,6 +2923,7 @@ namespace PrOJ_Contest
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -3017,6 +3050,7 @@ namespace PrOJ_Contest
         partial void OnUSERS_JOIN_DATEChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -3065,6 +3099,7 @@ namespace PrOJ_Contest
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -3095,6 +3130,7 @@ namespace PrOJ_Contest
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -3203,6 +3239,7 @@ namespace PrOJ_Contest
         partial void OnVERDICT_STATUSChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -3283,8 +3320,10 @@ namespace PrOJ_Contest
         }
 
         #endregion
+
     }
 
     #endregion
+
     
 }

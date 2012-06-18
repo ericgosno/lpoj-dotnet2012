@@ -20,14 +20,21 @@
         <br />
         <table>
             <tr>
-                <td> Ask clarification : </td>
+                <td> Clarification Title : </td>
             </tr>
             <tr>
-                <td> <asp:TextBox ID="answerText" text="Tulis klarifikasi di sini!" 
-                        TextMode="MultiLine" runat="server" Height="51px" Width="305px" /> </td>
+                <td> <asp:TextBox ID="Clar_Title" text="Judul Klarifikasi" runat="server" /> </td>
+            </tr>
+
+            <tr>
+                <td> Description : </td>
             </tr>
             <tr>
-                <td> <asp:Button ID="askButton" Text="Ask" runat="server" /> </td>
+                <td> <asp:TextBox ID="Clar_Desc" text="Tulis klarifikasi di sini!" TextMode="MultiLine" runat="server" Height="51px" Width="305px" /> </td>
+            </tr>
+            <tr>
+                <td> <asp:Button ID="askButton" Text="Ask" runat="server" 
+                        onclick="askButton_Click" /> </td>
             </tr>
         </table>
         <br />
@@ -36,14 +43,6 @@
         <asp:Table runat="server">
             <asp:TableRow>
                 <asp:TableCell> From : </asp:TableCell>
-                <asp:TableCell> <asp:Label runat="server" ID="usernameAsker" Text="Penanya" /> </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow>
-                <asp:TableCell ColumnSpan="2"> <asp:Label runat="server" ID="question" Text="tempat pertanyaan" /> </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow>
-                <asp:TableCell ColumnSpan="2"> <asp:Label runat="server" ID="answer" Text="tempat jawaban" /> </asp:TableCell>
-            </asp:TableRow>
-        </asp:Table>
-    </form>
-</asp:Content>
+                <asp:TableCell> <asp:Label runat="server" ID="usernameAsker" Text="Penanya" /> </asp:TableCell></asp:TableRow><asp:TableRow>
+                <asp:TableCell ColumnSpan="2"> <asp:Label runat="server" ID="question" Text="tempat pertanyaan" /> </asp:TableCell></asp:TableRow><asp:TableRow>
+                <asp:TableCell ColumnSpan="2"> <asp:Label runat="server" ID="answer" Text="tempat jawaban" /> </asp:TableCell></asp:TableRow></asp:Table></form></asp:Content>

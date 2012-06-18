@@ -22,13 +22,22 @@ namespace PrOJ_Contest {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// answerText control.
+        /// Clar_Title control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox answerText;
+        protected global::System.Web.UI.WebControls.TextBox Clar_Title;
+        
+        /// <summary>
+        /// Clar_Desc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Clar_Desc;
         
         /// <summary>
         /// askButton control.

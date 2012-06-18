@@ -88,7 +88,7 @@
           <Property Name="CONTESTANT_ID" Type="int" Nullable="false" />
           <Property Name="CLARIFICATION_TITLE" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="CLARIFICATION_DESCRIPTION" Type="longtext" Nullable="false" />
-          <Property Name="CLARIFICATION_ANSWER" Type="longtext" Nullable="false" />
+          <Property Name="CLARIFICATION_ANSWER" Type="longtext" />
           <Property Name="CLARIFICATION_STATUS" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="lpoj_contest">
