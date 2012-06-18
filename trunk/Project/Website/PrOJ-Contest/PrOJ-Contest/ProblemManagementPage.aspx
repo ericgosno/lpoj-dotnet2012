@@ -82,26 +82,35 @@
                 <td> Upload TestCase </td>
             </tr>
             <tr>
-                <td> File input  : </td>
-                <td> <asp:FileUpload ID="inputFile" runat="server" /></td>
+                <td> File input  : <asp:FileUpload ID="inputFile" runat="server" /></td>
             </tr>
             <tr>
-                <td> File output : </td>
-                <td> <asp:FileUpload ID="outputFile" runat="server" /> </td>
+                <td> File output : <asp:FileUpload ID="outputFile" runat="server" /></td>
             </tr>
             <tr>
                 <td> <asp:Button ID="uploadTestCase" text="Upload" runat="server" 
                         onclick="uploadTestCase_Click" /> </td>
             </tr>
             <tr>
-                <td></td>
+                <td>
+                    <asp:Table ID="TblTestCase" runat="server">
+                        <asp:TableHeaderRow>
+                            <asp:TableHeaderCell>
+                                Input Testcase
+                            </asp:TableHeaderCell>
+                            <asp:TableHeaderCell>
+                                Output Testcase
+                            </asp:TableHeaderCell>
+                        </asp:TableHeaderRow>
+                    </asp:Table>
+                </td>
             </tr>
             <tr>
                 <td> Remove TestCase </td>
             </tr>
             <tr>
-                <td> <asp:DropDownList ID="testCaseList" runat="server" /> </td>
-                <td> <asp:Button ID="removeTestCase" text="Remove" runat="server" /> </td>
+                <td> <asp:Button ID="removeTestCase" text="Remove" runat="server" 
+                        onclick="removeTestCase_Click" /> </td>
             </tr>
         </table>
     </form>

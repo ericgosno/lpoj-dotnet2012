@@ -112,13 +112,13 @@ namespace PrOJ_Contest {
         protected global::System.Web.UI.WebControls.Button uploadTestCase;
         
         /// <summary>
-        /// testCaseList control.
+        /// TblTestCase control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList testCaseList;
+        protected global::System.Web.UI.WebControls.Table TblTestCase;
         
         /// <summary>
         /// removeTestCase control.
