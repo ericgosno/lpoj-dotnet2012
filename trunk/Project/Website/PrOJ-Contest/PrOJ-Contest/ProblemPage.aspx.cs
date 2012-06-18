@@ -116,7 +116,8 @@ namespace PrOJ_Contest
             }
             else
             {
-                activeUser = (lpoj_users)Session["userActive"];                
+                activeUser = (lpoj_users)Session["userActive"];
+                lb_userActive.Text = activeUser.USERS_USERNAME;
             }
         }
     }

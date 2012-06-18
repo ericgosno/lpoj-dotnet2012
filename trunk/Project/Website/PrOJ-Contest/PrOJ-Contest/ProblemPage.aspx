@@ -14,6 +14,9 @@
 </asp:Content>
 
 <asp:Content ID="Sheet" ContentPlaceHolderID="SheetContentPlaceHolder" runat="server">
+    <h3>
+    Hello, <asp:Label ID="lb_userActive" runat="server" Text="&lt;'noName'&gt;" />
+    </h3>
     <br />
     <h3>Problem Browse</h3>
     <br />
@@ -50,7 +53,7 @@
                 <td> Time Limit (Milidetik) </td>
             </tr>
             <tr>
-                <td> <asp:TextBox ID="timeLimit" runat="server" ReadOnly="true" /> </td>
+                <td> <asp:label ID="timeLimit" runat="server" /> </td>
             </tr>
             
             <tr>
@@ -60,7 +63,7 @@
                 <td> Time Limit (Byte) </td>
             </tr>
             <tr>
-                <td> <asp:TextBox ID="memoryLimit" runat="server" ReadOnly = "True" /> </td>
+                <td> <asp:label ID="memoryLimit" runat="server"/> </td>
             </tr>
             
         </table>
