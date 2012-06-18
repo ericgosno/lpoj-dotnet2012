@@ -71,34 +71,42 @@ namespace PrOJ_Contest
 
         protected void regularInviteParticipant_Click(object sender, EventArgs e)
         {
-            string[] usernames = usernameList.Text.Split("\n".ToCharArray());
-            for (int c = 0; c < usernames.Length; c++)
+            string[] usernames = usernameList.Text.Split('\n');
+
+            foreach (string a in usernames)
             {
+
                 Entity = new lpojEntities();
+                lpoj_users tempUser;
                 lpoj_contestant newContestant = new lpoj_contestant();
                 IQueryable<lpoj_users> userQuery = from d in Entity.lpoj_users
-                                                   where d.USERS_USERNAME == usernames[c]
+                                                   where d.USERS_USERNAME == a
                                                    select d;
-                newContestant.CONTEST_ID = contestDetail.CONTEST_ID;
-                newContestant.USERS_ID = userQuery.First<lpoj_users>().USERS_ID;
-                //BACA :: mboh lali 1 itu PSetter ato Perticipant loh!!!
-                newContestant.CONTESTANT_STATUS = 1;
-                Entity.AddTolpoj_contestant(newContestant);
+                System.Windows.Forms.MessageBox.Show(userQuery.Count().ToString());
+                //newContestant.CONTEST_ID = contestDetail.CONTEST_ID;
+                //tempUser = userQuery.First<lpoj_users>();
+                //newContestant.USERS_ID = tempUser.USERS_ID;
+                ////BACA :: mboh lali 1 itu PSetter ato Perticipant loh!!!
+                //newContestant.CONTESTANT_STATUS = 1;
+                //Entity.AddTolpoj_contestant(newContestant);
             }
         }
 
         protected void regularInviteProblemSetter_Click(object sender, EventArgs e)
         {
             string[] usernames = usernameList.Text.Split("\n".ToCharArray());
+            
             for (int c = 0; c < usernames.Length; c++)
             {
                 Entity = new lpojEntities();
+                lpoj_users tempUser;
                 lpoj_contestant newContestant = new lpoj_contestant();
                 IQueryable<lpoj_users> userQuery = from d in Entity.lpoj_users
                                                    where d.USERS_USERNAME == usernames[c]
                                                    select d;
                 newContestant.CONTEST_ID = contestDetail.CONTEST_ID;
-                newContestant.USERS_ID = userQuery.First<lpoj_users>().USERS_ID;
+                tempUser = userQuery.First<lpoj_users>();
+                newContestant.USERS_ID = tempUser.USERS_ID;
                 //komentar sama dengan paragraf sebelumnya
                 newContestant.CONTESTANT_STATUS = 2;
                 Entity.AddTolpoj_contestant(newContestant);
