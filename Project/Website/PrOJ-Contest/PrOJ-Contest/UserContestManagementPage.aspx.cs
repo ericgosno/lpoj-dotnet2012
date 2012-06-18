@@ -87,6 +87,7 @@ namespace PrOJ_Contest
 
         protected void addProblem_Click(object sender, EventArgs e)
         {
+            if (problemName.Text == "") return;
             lpoj_problem news = new lpoj_problem();
             news.CONTEST_ID = contest_id;
             news.PROBLEM_TITLE = problemName.Text;
@@ -148,6 +149,7 @@ namespace PrOJ_Contest
                                             where g.PROBLEM_ID == hasil
                                             select g;
             con.First().PROBLEM_STATUS = 1;
+
             Entity.SaveChanges();
             fillProblem();
         }

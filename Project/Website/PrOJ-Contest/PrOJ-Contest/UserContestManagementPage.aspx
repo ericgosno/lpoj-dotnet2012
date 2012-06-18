@@ -90,7 +90,6 @@
             <tr>
                 <td> <asp:TextBox ID="problemName" runat="server" /> <asp:Button ID="addProblem" text="Add" runat="server" 
                         onclick="addProblem_Click"/> </td>
-                <td> &nbsp;</td>
             </tr>
             <tr>
                 <td></td>
