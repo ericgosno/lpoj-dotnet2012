@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Windows.Forms;
 
 namespace PrOJ_Contest
 {
@@ -16,16 +17,11 @@ namespace PrOJ_Contest
 
         private void updateTestcaseList()
         {
-            testCaseList.Items.Clear();
             Entity = new lpojEntities();
             IEnumerable<lpoj_testcase> testcases = from c in Entity.lpoj_testcase
                                                    where c.PROBLEM_ID == problem_id
                                                    orderby c.TESTCASE_ID ascending
                                                    select c;
-            foreach (lpoj_testcase testcase in testcases)
-            {
-                testCaseList.Items.Add(testcase.TESTCASE_ID + " - " + testcase.TESTCASE_INPUT + " - " + testcase.TESTCASE_OUTPUT);
-            }
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -48,14 +44,60 @@ namespace PrOJ_Contest
             {
                 Response.Redirect("UserPage.aspx");
             }
+
+            IEnumerable<lpoj_contest> con1 = from g in Entity.lpoj_contest
+                                             where g.CONTEST_ID == problemDetail.CONTEST_ID
+                                             select g;
+            lpoj_contest contestnow = new lpoj_contest();
+            if (con1.Count() > 0)
+            {
+                contestnow = con1.First();
+            }
+            else
+            {
+                Response.Redirect("UserPage.aspx");
+            }
+            IEnumerable<lpoj_contestant> con2 = from g in Entity.lpoj_contestant
+                                                where g.USERS_ID == activeUser.USERS_ID && g.CONTEST_ID == contestnow.CONTEST_ID && g.CONTESTANT_STATUS == 2
+                                                select g;
+            lpoj_contestant contestantnow = new lpoj_contestant();
+            if (con2.Count() > 0)
+            {
+                contestantnow = con2.First();
+            }
+            else
+            {
+                Response.Redirect("UserPage.aspx");
+            }
+
             problemTitle.Text = problemDetail.PROBLEM_TITLE;
-            
+
+            fillTable();
+
             if (IsPostBack) return;
             if (problemDetail.PROBLEM_DESCRIPTION.Length > 0)
                 problemDescription.Text = problemDetail.PROBLEM_DESCRIPTION;
             timeLimit.Text = problemDetail.PROBLEM_TIMELIMIT.ToString();
             memoryLimit.Text = problemDetail.PROBLEM_MEMORYLIMIT.ToString();
             updateTestcaseList();
+        }
+
+        protected void fillTable()
+        {
+            IEnumerable<lpoj_testcase> query2 = from g in Entity.lpoj_testcase
+                                                where g.PROBLEM_ID == problem_id
+                                                select g;
+            for (int i = 0; i < query2.Count(); i++)
+            {
+                TableRow news = new TableRow();
+                TableCell news2 = new TableCell();
+                TableCell news3 = new TableCell();
+                news2.Text = query2.ElementAt(i).TESTCASE_INPUT;
+                news3.Text = query2.ElementAt(i).TESTCASE_OUTPUT;
+                news.Cells.Add(news2);
+                news.Cells.Add(news3);
+                TblTestCase.Rows.Add(news);
+            }
         }
 
         protected void initialUserActive()
@@ -150,6 +192,28 @@ namespace PrOJ_Contest
                 Entity.SaveChanges();
                 updateTestcaseList();
             }
+        }
+
+        protected void removeTestCase_Click(object sender, EventArgs e)
+        {
+            IEnumerable<lpoj_verdict> query1 = from g in Entity.lpoj_verdict
+                                               where g.PROBLEM_ID == problem_id
+                                               select g;
+            for (int i = 0; i < query1.Count(); i++)
+            {
+                lpoj_verdict nows1 = query1.ElementAt(i);
+                Entity.lpoj_verdict.DeleteObject(nows1);
+            }
+
+            IEnumerable<lpoj_testcase> query2 = from g in Entity.lpoj_testcase
+                                                where g.PROBLEM_ID == problem_id
+                                                select g;
+            for (int i = 0; i < query2.Count(); i++)
+            {
+                lpoj_testcase nows2 = query2.ElementAt(i);
+                Entity.lpoj_testcase.DeleteObject(nows2);
+            }
+            Entity.SaveChanges();
         }
     }
 }
