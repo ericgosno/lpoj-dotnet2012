@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="lpojModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="lpojModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="lpojModelStoreContainer">
           <EntitySet Name="lpoj_clarification" EntityType="lpojModel.Store.lpoj_clarification" store:Type="Tables" Schema="lpoj" />
           <EntitySet Name="lpoj_contest" EntityType="lpojModel.Store.lpoj_contest" store:Type="Tables" Schema="lpoj" />
@@ -161,11 +161,11 @@
           <Property Name="PROBLEM_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="CONTEST_ID" Type="int" />
           <Property Name="PROBLEM_TITLE" Type="varchar" Nullable="false" MaxLength="25" />
-          <Property Name="PROBLEM_DESCRIPTION" Type="longtext" Nullable="false" />
-          <Property Name="PROBLEM_CREATETIME" Type="timestamp" Nullable="false" Precision="0" />
+          <Property Name="PROBLEM_DESCRIPTION" Type="longtext" />
+          <Property Name="PROBLEM_CREATETIME" Type="timestamp" Precision="0" />
           <Property Name="PROBLEM_STATUS" Type="int" Nullable="false" />
-          <Property Name="PROBLEM_TIMELIMIT" Type="int" Nullable="false" />
-          <Property Name="PROBLEM_MEMORYLIMIT" Type="int" Nullable="false" />
+          <Property Name="PROBLEM_TIMELIMIT" Type="int" />
+          <Property Name="PROBLEM_MEMORYLIMIT" Type="int" />
         </EntityType>
         <EntityType Name="lpoj_submission">
           <Key>
@@ -181,10 +181,10 @@
           <Key>
             <PropertyRef Name="TESTCASE_ID" />
           </Key>
-          <Property Name="TESTCASE_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TESTCASE_ID" Type="int" Nullable="false" />
           <Property Name="PROBLEM_ID" Type="int" Nullable="false" />
-          <Property Name="TESTCASE_INPUT" Type="varchar" Nullable="false" MaxLength="100" />
-          <Property Name="TESTCASE_OUTPUT" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="TESTCASE_INPUT" Type="varchar" Nullable="false" />
+          <Property Name="TESTCASE_OUTPUT" Type="varchar" Nullable="false" />
         </EntityType>
         <EntityType Name="lpoj_users">
           <Key>
@@ -193,7 +193,7 @@
           <Property Name="USERS_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="USERS_USERNAME" Type="varchar" Nullable="false" MaxLength="15" />
           <Property Name="USERS_PASSWORD" Type="varchar" Nullable="false" MaxLength="35" />
-          <Property Name="USERS_STATUS" Type="int" Nullable="false" />
+          <Property Name="USERS_STATUS" Type="int" />
           <Property Name="USERS_JOIN_DATE" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="lpoj_verdict">
@@ -391,8 +391,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="lpojModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
