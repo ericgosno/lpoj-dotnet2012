@@ -12,8 +12,6 @@
     </ul>
 </asp:Content>
 
-
-
 <asp:Content ID="SheetContent" runat="server" ContentPlaceHolderID="SheetContentPlaceHolder">
     <h3>National Programming Contest 2012</h3>
     <br />
