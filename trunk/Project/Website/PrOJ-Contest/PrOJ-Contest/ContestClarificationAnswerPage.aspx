@@ -11,8 +11,14 @@
 
 <asp:Content ID="Sheet" ContentPlaceHolderID="SheetContentPlaceHolder" runat="server">
 <br />
-   <h3>Answer Clarification</h3>
+    <h3>Answer Clarification</h3>
     <form id="form1" runat="server">
+        <br />
+        <h4> Clarification List : </h4>
+        <asp:ListBox ID="clarificationList" runat="server" Height="170px" Width="280px" 
+            onselectedindexchanged="clarificationList_SelectedIndexChanged" />
+        <br />
+        <br />
         <table>
             <tr>
                 <td> From : </td>

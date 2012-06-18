@@ -82,7 +82,7 @@ namespace PrOJ_Contest
 
         protected void viewClarification_Click(object sender, EventArgs e)
         {
-            Response.Redirect("ContestClarificationAnswerPage.aspx");
+            Response.Redirect("ContestClarificationAnswerPage.aspx?ContestID=" + contest_id.ToString());
         }
 
         protected void addProblem_Click(object sender, EventArgs e)
