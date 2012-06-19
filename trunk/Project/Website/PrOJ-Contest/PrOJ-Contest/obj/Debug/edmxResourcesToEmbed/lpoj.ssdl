@@ -37,10 +37,6 @@
       <End Role="lpoj_submission" EntitySet="lpoj_submission" />
       <End Role="lpoj_verdict" EntitySet="lpoj_verdict" />
     </AssociationSet>
-    <AssociationSet Name="FK_RELATIONSHIP_13" Association="lpojModel.Store.FK_RELATIONSHIP_13">
-      <End Role="lpoj_testcase" EntitySet="lpoj_testcase" />
-      <End Role="lpoj_verdict" EntitySet="lpoj_verdict" />
-    </AssociationSet>
     <AssociationSet Name="FK_RELATIONSHIP_2" Association="lpojModel.Store.FK_RELATIONSHIP_2">
       <End Role="lpoj_contest" EntitySet="lpoj_contest" />
       <End Role="lpoj_contestant" EntitySet="lpoj_contestant" />
@@ -83,7 +79,7 @@
     <Property Name="CONTESTANT_ID" Type="int" Nullable="false" />
     <Property Name="CLARIFICATION_TITLE" Type="varchar" Nullable="false" MaxLength="50" />
     <Property Name="CLARIFICATION_DESCRIPTION" Type="longtext" Nullable="false" />
-    <Property Name="CLARIFICATION_ANSWER" Type="longtext" Nullable="false" />
+    <Property Name="CLARIFICATION_ANSWER" Type="longtext" />
     <Property Name="CLARIFICATION_STATUS" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="lpoj_contest">
@@ -156,11 +152,11 @@
     <Property Name="PROBLEM_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="CONTEST_ID" Type="int" />
     <Property Name="PROBLEM_TITLE" Type="varchar" Nullable="false" MaxLength="25" />
-    <Property Name="PROBLEM_DESCRIPTION" Type="longtext" Nullable="false" />
-    <Property Name="PROBLEM_CREATETIME" Type="timestamp" Nullable="false" Precision="0" />
+    <Property Name="PROBLEM_DESCRIPTION" Type="longtext" />
+    <Property Name="PROBLEM_CREATETIME" Type="timestamp" Precision="0" />
     <Property Name="PROBLEM_STATUS" Type="int" Nullable="false" />
-    <Property Name="PROBLEM_TIMELIMIT" Type="int" Nullable="false" />
-    <Property Name="PROBLEM_MEMORYLIMIT" Type="int" Nullable="false" />
+    <Property Name="PROBLEM_TIMELIMIT" Type="int" />
+    <Property Name="PROBLEM_MEMORYLIMIT" Type="int" />
   </EntityType>
   <EntityType Name="lpoj_submission">
     <Key>
@@ -172,14 +168,18 @@
     <Property Name="SUBMISSION_SCORE" Type="int" Nullable="false" />
     <Property Name="SUBMISSION_TIME" Type="int" Nullable="false" />
   </EntityType>
+  <!--Errors Found During Generation:
+      warning 6035: The relationship 'FK_RELATIONSHIP_13' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+      -->
   <EntityType Name="lpoj_testcase">
     <Key>
       <PropertyRef Name="TESTCASE_ID" />
+      <PropertyRef Name="PROBLEM_ID" />
     </Key>
-    <Property Name="TESTCASE_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="TESTCASE_ID" Type="int" Nullable="false" />
     <Property Name="PROBLEM_ID" Type="int" Nullable="false" />
-    <Property Name="TESTCASE_INPUT" Type="varchar" Nullable="false" MaxLength="100" />
-    <Property Name="TESTCASE_OUTPUT" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="TESTCASE_INPUT" Type="varchar" Nullable="false" />
+    <Property Name="TESTCASE_OUTPUT" Type="varchar" Nullable="false" />
   </EntityType>
   <EntityType Name="lpoj_users">
     <Key>
@@ -188,7 +188,7 @@
     <Property Name="USERS_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="USERS_USERNAME" Type="varchar" Nullable="false" MaxLength="15" />
     <Property Name="USERS_PASSWORD" Type="varchar" Nullable="false" MaxLength="35" />
-    <Property Name="USERS_STATUS" Type="int" Nullable="false" />
+    <Property Name="USERS_STATUS" Type="int" />
     <Property Name="USERS_JOIN_DATE" Type="date" Nullable="false" />
   </EntityType>
   <EntityType Name="lpoj_verdict">
@@ -275,18 +275,6 @@
       <Dependent Role="lpoj_verdict">
         <PropertyRef Name="PROBLEM_ID" />
         <PropertyRef Name="CONTESTANT_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_RELATIONSHIP_13">
-    <End Role="lpoj_testcase" Type="lpojModel.Store.lpoj_testcase" Multiplicity="1" />
-    <End Role="lpoj_verdict" Type="lpojModel.Store.lpoj_verdict" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="lpoj_testcase">
-        <PropertyRef Name="TESTCASE_ID" />
-      </Principal>
-      <Dependent Role="lpoj_verdict">
-        <PropertyRef Name="TESTCASE_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

@@ -8,13 +8,12 @@
 //------------------------------------------------------------------------------
 
 using System;
-using System.ComponentModel;
-using System.Data.EntityClient;
 using System.Data.Objects;
 using System.Data.Objects.DataClasses;
-using System.Linq;
-using System.Runtime.Serialization;
+using System.Data.EntityClient;
+using System.ComponentModel;
 using System.Xml.Serialization;
+using System.Runtime.Serialization;
 
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
@@ -33,7 +32,6 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("lpojModel", "FK_RELATIONSHIP_4", "lpoj_problem", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PrOJ_Contest.lpoj_problem), "lpoj_submission", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PrOJ_Contest.lpoj_submission), true)]
 [assembly: EdmRelationshipAttribute("lpojModel", "FK_RELATIONSHIP_6", "lpoj_problem", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PrOJ_Contest.lpoj_problem), "lpoj_testcase", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PrOJ_Contest.lpoj_testcase), true)]
 [assembly: EdmRelationshipAttribute("lpojModel", "FK_RELATIONSHIP_12", "lpoj_submission", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PrOJ_Contest.lpoj_submission), "lpoj_verdict", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PrOJ_Contest.lpoj_verdict), true)]
-[assembly: EdmRelationshipAttribute("lpojModel", "FK_RELATIONSHIP_13", "lpoj_testcase", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PrOJ_Contest.lpoj_testcase), "lpoj_verdict", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PrOJ_Contest.lpoj_verdict), true)]
 
 #endregion
 
@@ -278,7 +276,6 @@ namespace PrOJ_Contest
         private ObjectSet<lpoj_verdict> _lpoj_verdict;
 
         #endregion
-
         #region AddTo Methods
     
         /// <summary>
@@ -378,11 +375,11 @@ namespace PrOJ_Contest
         }
 
         #endregion
-
     }
+    
 
     #endregion
-
+    
     #region Entities
     
     /// <summary>
@@ -403,9 +400,8 @@ namespace PrOJ_Contest
         /// <param name="cONTESTANT_ID">Initial value of the CONTESTANT_ID property.</param>
         /// <param name="cLARIFICATION_TITLE">Initial value of the CLARIFICATION_TITLE property.</param>
         /// <param name="cLARIFICATION_DESCRIPTION">Initial value of the CLARIFICATION_DESCRIPTION property.</param>
-        /// <param name="cLARIFICATION_ANSWER">Initial value of the CLARIFICATION_ANSWER property.</param>
         /// <param name="cLARIFICATION_STATUS">Initial value of the CLARIFICATION_STATUS property.</param>
-        public static lpoj_clarification Createlpoj_clarification(global::System.Int32 cLARIFICATION_ID, global::System.Int32 cONTEST_ID, global::System.Int32 cONTESTANT_ID, global::System.String cLARIFICATION_TITLE, global::System.String cLARIFICATION_DESCRIPTION, global::System.String cLARIFICATION_ANSWER, global::System.Int32 cLARIFICATION_STATUS)
+        public static lpoj_clarification Createlpoj_clarification(global::System.Int32 cLARIFICATION_ID, global::System.Int32 cONTEST_ID, global::System.Int32 cONTESTANT_ID, global::System.String cLARIFICATION_TITLE, global::System.String cLARIFICATION_DESCRIPTION, global::System.Int32 cLARIFICATION_STATUS)
         {
             lpoj_clarification lpoj_clarification = new lpoj_clarification();
             lpoj_clarification.CLARIFICATION_ID = cLARIFICATION_ID;
@@ -413,13 +409,11 @@ namespace PrOJ_Contest
             lpoj_clarification.CONTESTANT_ID = cONTESTANT_ID;
             lpoj_clarification.CLARIFICATION_TITLE = cLARIFICATION_TITLE;
             lpoj_clarification.CLARIFICATION_DESCRIPTION = cLARIFICATION_DESCRIPTION;
-            lpoj_clarification.CLARIFICATION_ANSWER = cLARIFICATION_ANSWER;
             lpoj_clarification.CLARIFICATION_STATUS = cLARIFICATION_STATUS;
             return lpoj_clarification;
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -594,7 +588,6 @@ namespace PrOJ_Contest
         partial void OnCLARIFICATION_STATUSChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -675,7 +668,6 @@ namespace PrOJ_Contest
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -702,7 +694,6 @@ namespace PrOJ_Contest
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -877,7 +868,6 @@ namespace PrOJ_Contest
         partial void OnCONTEST_FREEZEChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -948,7 +938,6 @@ namespace PrOJ_Contest
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -979,7 +968,6 @@ namespace PrOJ_Contest
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -1082,7 +1070,6 @@ namespace PrOJ_Contest
         partial void OnCONTESTANT_STATUSChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -1207,7 +1194,6 @@ namespace PrOJ_Contest
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -1244,7 +1230,6 @@ namespace PrOJ_Contest
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -1419,7 +1404,6 @@ namespace PrOJ_Contest
         partial void OnNCPROBLEM_MEMORYLIMITChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -1468,7 +1452,6 @@ namespace PrOJ_Contest
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -1499,7 +1482,6 @@ namespace PrOJ_Contest
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -1605,7 +1587,6 @@ namespace PrOJ_Contest
         partial void OnNCSUBMISSION_TIMEChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -1708,7 +1689,6 @@ namespace PrOJ_Contest
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -1739,7 +1719,6 @@ namespace PrOJ_Contest
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -1842,7 +1821,6 @@ namespace PrOJ_Contest
         partial void OnNCTESTCASE_OUTPUTChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -1907,7 +1885,6 @@ namespace PrOJ_Contest
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -1938,7 +1915,6 @@ namespace PrOJ_Contest
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -2047,7 +2023,6 @@ namespace PrOJ_Contest
         partial void OnNCPROBLEM_IDChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -2128,7 +2103,6 @@ namespace PrOJ_Contest
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -2146,26 +2120,17 @@ namespace PrOJ_Contest
         /// </summary>
         /// <param name="pROBLEM_ID">Initial value of the PROBLEM_ID property.</param>
         /// <param name="pROBLEM_TITLE">Initial value of the PROBLEM_TITLE property.</param>
-        /// <param name="pROBLEM_DESCRIPTION">Initial value of the PROBLEM_DESCRIPTION property.</param>
-        /// <param name="pROBLEM_CREATETIME">Initial value of the PROBLEM_CREATETIME property.</param>
         /// <param name="pROBLEM_STATUS">Initial value of the PROBLEM_STATUS property.</param>
-        /// <param name="pROBLEM_TIMELIMIT">Initial value of the PROBLEM_TIMELIMIT property.</param>
-        /// <param name="pROBLEM_MEMORYLIMIT">Initial value of the PROBLEM_MEMORYLIMIT property.</param>
-        public static lpoj_problem Createlpoj_problem(global::System.Int32 pROBLEM_ID, global::System.String pROBLEM_TITLE, global::System.String pROBLEM_DESCRIPTION, global::System.DateTime pROBLEM_CREATETIME, global::System.Int32 pROBLEM_STATUS, global::System.Int32 pROBLEM_TIMELIMIT, global::System.Int32 pROBLEM_MEMORYLIMIT)
+        public static lpoj_problem Createlpoj_problem(global::System.Int32 pROBLEM_ID, global::System.String pROBLEM_TITLE, global::System.Int32 pROBLEM_STATUS)
         {
             lpoj_problem lpoj_problem = new lpoj_problem();
             lpoj_problem.PROBLEM_ID = pROBLEM_ID;
             lpoj_problem.PROBLEM_TITLE = pROBLEM_TITLE;
-            lpoj_problem.PROBLEM_DESCRIPTION = pROBLEM_DESCRIPTION;
-            lpoj_problem.PROBLEM_CREATETIME = pROBLEM_CREATETIME;
             lpoj_problem.PROBLEM_STATUS = pROBLEM_STATUS;
-            lpoj_problem.PROBLEM_TIMELIMIT = pROBLEM_TIMELIMIT;
-            lpoj_problem.PROBLEM_MEMORYLIMIT = pROBLEM_MEMORYLIMIT;
             return lpoj_problem;
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -2246,7 +2211,7 @@ namespace PrOJ_Contest
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String PROBLEM_DESCRIPTION
         {
@@ -2258,7 +2223,7 @@ namespace PrOJ_Contest
             {
                 OnPROBLEM_DESCRIPTIONChanging(value);
                 ReportPropertyChanging("PROBLEM_DESCRIPTION");
-                _PROBLEM_DESCRIPTION = StructuralObject.SetValidValue(value, false);
+                _PROBLEM_DESCRIPTION = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("PROBLEM_DESCRIPTION");
                 OnPROBLEM_DESCRIPTIONChanged();
             }
@@ -2270,9 +2235,9 @@ namespace PrOJ_Contest
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.DateTime PROBLEM_CREATETIME
+        public Nullable<global::System.DateTime> PROBLEM_CREATETIME
         {
             get
             {
@@ -2287,8 +2252,8 @@ namespace PrOJ_Contest
                 OnPROBLEM_CREATETIMEChanged();
             }
         }
-        private global::System.DateTime _PROBLEM_CREATETIME;
-        partial void OnPROBLEM_CREATETIMEChanging(global::System.DateTime value);
+        private Nullable<global::System.DateTime> _PROBLEM_CREATETIME;
+        partial void OnPROBLEM_CREATETIMEChanging(Nullable<global::System.DateTime> value);
         partial void OnPROBLEM_CREATETIMEChanged();
     
         /// <summary>
@@ -2318,9 +2283,9 @@ namespace PrOJ_Contest
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Int32 PROBLEM_TIMELIMIT
+        public Nullable<global::System.Int32> PROBLEM_TIMELIMIT
         {
             get
             {
@@ -2335,16 +2300,16 @@ namespace PrOJ_Contest
                 OnPROBLEM_TIMELIMITChanged();
             }
         }
-        private global::System.Int32 _PROBLEM_TIMELIMIT;
-        partial void OnPROBLEM_TIMELIMITChanging(global::System.Int32 value);
+        private Nullable<global::System.Int32> _PROBLEM_TIMELIMIT;
+        partial void OnPROBLEM_TIMELIMITChanging(Nullable<global::System.Int32> value);
         partial void OnPROBLEM_TIMELIMITChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Int32 PROBLEM_MEMORYLIMIT
+        public Nullable<global::System.Int32> PROBLEM_MEMORYLIMIT
         {
             get
             {
@@ -2359,12 +2324,11 @@ namespace PrOJ_Contest
                 OnPROBLEM_MEMORYLIMITChanged();
             }
         }
-        private global::System.Int32 _PROBLEM_MEMORYLIMIT;
-        partial void OnPROBLEM_MEMORYLIMITChanging(global::System.Int32 value);
+        private Nullable<global::System.Int32> _PROBLEM_MEMORYLIMIT;
+        partial void OnPROBLEM_MEMORYLIMITChanging(Nullable<global::System.Int32> value);
         partial void OnPROBLEM_MEMORYLIMITChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -2451,7 +2415,6 @@ namespace PrOJ_Contest
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -2482,7 +2445,6 @@ namespace PrOJ_Contest
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -2588,7 +2550,6 @@ namespace PrOJ_Contest
         partial void OnSUBMISSION_TIMEChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -2691,7 +2652,6 @@ namespace PrOJ_Contest
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -2722,7 +2682,6 @@ namespace PrOJ_Contest
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -2755,7 +2714,7 @@ namespace PrOJ_Contest
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 PROBLEM_ID
         {
@@ -2765,11 +2724,14 @@ namespace PrOJ_Contest
             }
             set
             {
-                OnPROBLEM_IDChanging(value);
-                ReportPropertyChanging("PROBLEM_ID");
-                _PROBLEM_ID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("PROBLEM_ID");
-                OnPROBLEM_IDChanged();
+                if (_PROBLEM_ID != value)
+                {
+                    OnPROBLEM_IDChanging(value);
+                    ReportPropertyChanging("PROBLEM_ID");
+                    _PROBLEM_ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("PROBLEM_ID");
+                    OnPROBLEM_IDChanged();
+                }
             }
         }
         private global::System.Int32 _PROBLEM_ID;
@@ -2825,7 +2787,6 @@ namespace PrOJ_Contest
         partial void OnTESTCASE_OUTPUTChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -2866,31 +2827,8 @@ namespace PrOJ_Contest
                 }
             }
         }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("lpojModel", "FK_RELATIONSHIP_13", "lpoj_verdict")]
-        public EntityCollection<lpoj_verdict> lpoj_verdict
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<lpoj_verdict>("lpojModel.FK_RELATIONSHIP_13", "lpoj_verdict");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<lpoj_verdict>("lpojModel.FK_RELATIONSHIP_13", "lpoj_verdict", value);
-                }
-            }
-        }
 
         #endregion
-
     }
     
     /// <summary>
@@ -2909,21 +2847,18 @@ namespace PrOJ_Contest
         /// <param name="uSERS_ID">Initial value of the USERS_ID property.</param>
         /// <param name="uSERS_USERNAME">Initial value of the USERS_USERNAME property.</param>
         /// <param name="uSERS_PASSWORD">Initial value of the USERS_PASSWORD property.</param>
-        /// <param name="uSERS_STATUS">Initial value of the USERS_STATUS property.</param>
         /// <param name="uSERS_JOIN_DATE">Initial value of the USERS_JOIN_DATE property.</param>
-        public static lpoj_users Createlpoj_users(global::System.Int32 uSERS_ID, global::System.String uSERS_USERNAME, global::System.String uSERS_PASSWORD, global::System.Int32 uSERS_STATUS, global::System.DateTime uSERS_JOIN_DATE)
+        public static lpoj_users Createlpoj_users(global::System.Int32 uSERS_ID, global::System.String uSERS_USERNAME, global::System.String uSERS_PASSWORD, global::System.DateTime uSERS_JOIN_DATE)
         {
             lpoj_users lpoj_users = new lpoj_users();
             lpoj_users.USERS_ID = uSERS_ID;
             lpoj_users.USERS_USERNAME = uSERS_USERNAME;
             lpoj_users.USERS_PASSWORD = uSERS_PASSWORD;
-            lpoj_users.USERS_STATUS = uSERS_STATUS;
             lpoj_users.USERS_JOIN_DATE = uSERS_JOIN_DATE;
             return lpoj_users;
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -3004,9 +2939,9 @@ namespace PrOJ_Contest
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Int32 USERS_STATUS
+        public Nullable<global::System.Int32> USERS_STATUS
         {
             get
             {
@@ -3021,8 +2956,8 @@ namespace PrOJ_Contest
                 OnUSERS_STATUSChanged();
             }
         }
-        private global::System.Int32 _USERS_STATUS;
-        partial void OnUSERS_STATUSChanging(global::System.Int32 value);
+        private Nullable<global::System.Int32> _USERS_STATUS;
+        partial void OnUSERS_STATUSChanging(Nullable<global::System.Int32> value);
         partial void OnUSERS_STATUSChanged();
     
         /// <summary>
@@ -3050,7 +2985,6 @@ namespace PrOJ_Contest
         partial void OnUSERS_JOIN_DATEChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -3099,7 +3033,6 @@ namespace PrOJ_Contest
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -3130,7 +3063,6 @@ namespace PrOJ_Contest
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -3239,7 +3171,6 @@ namespace PrOJ_Contest
         partial void OnVERDICT_STATUSChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -3280,50 +3211,10 @@ namespace PrOJ_Contest
                 }
             }
         }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("lpojModel", "FK_RELATIONSHIP_13", "lpoj_testcase")]
-        public lpoj_testcase lpoj_testcase
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<lpoj_testcase>("lpojModel.FK_RELATIONSHIP_13", "lpoj_testcase").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<lpoj_testcase>("lpojModel.FK_RELATIONSHIP_13", "lpoj_testcase").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<lpoj_testcase> lpoj_testcaseReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<lpoj_testcase>("lpojModel.FK_RELATIONSHIP_13", "lpoj_testcase");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<lpoj_testcase>("lpojModel.FK_RELATIONSHIP_13", "lpoj_testcase", value);
-                }
-            }
-        }
 
         #endregion
-
     }
 
     #endregion
-
     
 }
