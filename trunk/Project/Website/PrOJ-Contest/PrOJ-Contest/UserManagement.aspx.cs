@@ -25,13 +25,16 @@ namespace PrOJ_Contest
                                            where f.USERS_ID == activeUser.USERS_ID
                                            select f;
             if (query.Count() == 0) btn_enterContest.Visible = false;
+            DateTime now = DateTime.Now;
             for (int i = 0; i < query.Count<lpoj_contestant>(); i++)
             {
                 int cek = query.ElementAt(i).CONTEST_ID;
                 IEnumerable<lpoj_contest> query2 = from h in Entity.lpoj_contest
-                                                   where h.CONTEST_ID == cek
+                                                   where h.CONTEST_ID == cek && h.CONTEST_BEGIN <= now && h.CONTEST_END >= now //tambahan
                                                    select h;
                 string role;
+                if (query2.Count() <= 0) continue;
+                
                 if (query.ElementAt(i).CONTESTANT_STATUS == 0)
                 {
                     continue;
