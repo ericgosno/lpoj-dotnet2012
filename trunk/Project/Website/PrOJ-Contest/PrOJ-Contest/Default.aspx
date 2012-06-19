@@ -9,6 +9,7 @@
         <li><a href="Default.aspx" class="active"><span class="l"></span><span class="r"></span><span class="t">Home</span></a></li>
         <li><a href="LoginPage.aspx"><span class="l"></span><span class="r"></span><span class="t">Login</span></a></li>
         <li><a href="Credits.aspx"><span class="l"></span><span class="r"></span><span class="t">Credits</span></a></li>
+        <li><a href="Service.aspx"><span class="l"></span><span class="r"></span><span class="t">Service</span></a></li>
     </ul>
 </asp:Content>
 

@@ -1,0 +1,5 @@
+c:\users\felix\documents\visual studio 2010\Projects\lpojWebService\lpojWcf\bin\lpojWcf.dll
+c:\users\felix\documents\visual studio 2010\Projects\lpojWebService\lpojWcf\bin\lpojWcf.pdb
+c:\users\felix\documents\visual studio 2010\Projects\lpojWebService\lpojWcf\obj\Debug\ResolveAssemblyReference.cache
+c:\users\felix\documents\visual studio 2010\Projects\lpojWebService\lpojWcf\obj\Debug\lpojWcf.dll
+c:\users\felix\documents\visual studio 2010\Projects\lpojWebService\lpojWcf\obj\Debug\lpojWcf.pdb
