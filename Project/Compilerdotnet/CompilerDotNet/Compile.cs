@@ -11,6 +11,7 @@ namespace CompilerDotNet
 {
     public class Compile
     {
+        private string DirectoryPath;
         private string ExtName;
         private string fileName;
         private string destPath;
@@ -37,11 +38,12 @@ namespace CompilerDotNet
             submission = null;
             ncsubmission = null;
         }
-        public Compile(string ExtName,string fileName, ref Queue<string> MessageQueue)
+        public Compile(string ExtName, string DirectoryPath, string fileName, ref Queue<string> MessageQueue)
         {
             this.ExtName = ExtName;
             this.fileName = fileName;
             this.MessageQueue = MessageQueue;
+            this.DirectoryPath = DirectoryPath;
             isAlive = true;
             submission = null;
             ncsubmission = null;
@@ -54,7 +56,7 @@ namespace CompilerDotNet
             string trail = ".";
             string fileNameWithoutExt = fileName.Split(trail.ToCharArray(0,1)[0])[0];
 
-            destPath = @"D:\dotnet\Execute\" + fileName;
+            destPath = DirectoryPath + @"\Execute\" + fileName;
 
             System.Diagnostics.Process process = new System.Diagnostics.Process();
             System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
@@ -62,19 +64,19 @@ namespace CompilerDotNet
             startInfo.FileName = "cmd.exe";
             if (ExtName == "cpp" || ExtName == "c")
             {
-                ExePath = @"D:\dotnet\Execute\" + fileNameWithoutExt;
+                ExePath = DirectoryPath + @"\Execute\" + fileNameWithoutExt;
                 startInfo.Arguments = "/C g++ -o \"" + ExePath + "\" \"" + destPath + "\"";
                 ExePath += ".exe";
             }
             else if (ExtName == "java")
             {
-                ExePath = @"D:\dotnet\Execute\" + fileNameWithoutExt;
-                startInfo.Arguments = "/C javac \"" + fileName + "\"";
+                ExePath = DirectoryPath + @"\Execute\" + fileName;
+                startInfo.Arguments = "/C javac \"" + ExePath + "\" ";
             }
             else if (ExtName == "pas")
             {
-                ExePath = @"D:\dotnet\Execute\" + fileNameWithoutExt;
-                startInfo.Arguments = "/C fpc \"" + ExePath + "\" \"" + fileName + "\"";
+                ExePath = DirectoryPath + @"\Execute\" + fileName;
+                startInfo.Arguments = "/C fpc \"" + ExePath + "\" ";
             }
             process.StartInfo = startInfo;
             process.Start();
@@ -194,21 +196,24 @@ namespace CompilerDotNet
 
         public void Run()
         {
+            /*
             if (!Detect_Submission())
             {
                 MessageQueue.Enqueue("Error Submission " + fileName + " is Unknown\n");
                 isAlive = false;
                 return;
             }
+            */
             if (ExtName != "py")if (!Compile_Code()) return;
-            else ExePath = @"D:\dotnet\Execute\" + fileName;
-
+            else ExePath = DirectoryPath + @"\Execute\" + fileName;
+            /*
             if (!Testing_Code())
             {
                 MessageQueue.Enqueue("Error Submission " + fileName + " is Unknown\n");
                 isAlive = false;
                 return; 
             }
+            */
             Process_Code();
             isAlive = false;
             MessageQueue.Enqueue("Finish Judging Submission " + fileName + "\n");

@@ -47,9 +47,10 @@
             // 
             // TxtLog
             // 
+            this.TxtLog.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.TxtLog.Location = new System.Drawing.Point(15, 58);
             this.TxtLog.Name = "TxtLog";
-            this.TxtLog.Size = new System.Drawing.Size(422, 238);
+            this.TxtLog.Size = new System.Drawing.Size(757, 492);
             this.TxtLog.TabIndex = 1;
             this.TxtLog.Text = "";
             this.TxtLog.TextChanged += new System.EventHandler(this.TxtLog_TextChanged);
@@ -67,11 +68,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(449, 308);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(784, 562);
             this.Controls.Add(this.TxtLog);
             this.Controls.Add(this.BtnRun);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "LPOJ-Compiler";
             this.ResumeLayout(false);
 
         }

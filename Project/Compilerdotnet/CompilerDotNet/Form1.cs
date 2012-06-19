@@ -23,7 +23,13 @@ namespace CompilerDotNet
         public Form1()
         {
             InitializeComponent();
-            DirectoryPath = @"D:\dotnet";
+           
+            //DirPath
+            //On IIS
+            //DirectoryPath = @"D:\User\FELIX 5109100121\Kuliah\Pemrogaman .Net\Final Project\IIS\System";
+            //The Project
+            DirectoryPath = @"D:\User\FELIX 5109100121\Kuliah\Pemrogaman .Net\svnProj\Project\Website\PrOJ-Contest\PrOJ-Contest\System";
+            
             ExtApprove = new List<string>();
             ExtApprove.Add("cpp");
             ExtApprove.Add("c");
@@ -89,7 +95,7 @@ namespace CompilerDotNet
                 File.Move(FilePaths[0], destPath);
 
                 MessageLog.Enqueue("Judging Submission: " + fileName + "\n");
-                news =  new Compile(ExtSplit.ToLower(),fileName,ref MessageLog);
+                news =  new Compile(ExtSplit.ToLower(),DirectoryPath,fileName,ref MessageLog);
                 news.Run();
             }
             
