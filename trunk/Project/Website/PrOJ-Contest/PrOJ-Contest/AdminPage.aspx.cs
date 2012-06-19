@@ -66,12 +66,21 @@ namespace PrOJ_Contest
         protected void initialUserActive()
         {
             activeUser = new lpoj_users();
+            if (Session.Count == 0)
+            {
+                Response.Redirect("Default.aspx");
+            }
             // error handling untuk menghitung session
             try
             {
                 activeUser = (lpoj_users)Session["userActive"];
             }
             catch
+            {
+                Response.Redirect("Default.aspx");
+            }
+
+            if (activeUser.USERS_USERNAME != "admin")
             {
                 Response.Redirect("Default.aspx");
             }

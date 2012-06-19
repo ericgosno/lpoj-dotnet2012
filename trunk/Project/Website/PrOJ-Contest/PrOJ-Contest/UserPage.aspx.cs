@@ -20,7 +20,7 @@ namespace PrOJ_Contest
         {
             activeUser = new lpoj_users();
             // error handling untuk menghitung session
-            if (Session.Count == 0)
+            if (Session.Count == 0 )
             {
                 Response.Redirect("Default.aspx");
             }
@@ -28,6 +28,11 @@ namespace PrOJ_Contest
             {
                 activeUser = (lpoj_users)Session["userActive"];
                 lb_userActive.Text = activeUser.USERS_USERNAME;
+            }
+
+            if (activeUser.USERS_USERNAME == "admin")
+            {
+                Response.Redirect("Default.aspx");
             }
         }
     }
