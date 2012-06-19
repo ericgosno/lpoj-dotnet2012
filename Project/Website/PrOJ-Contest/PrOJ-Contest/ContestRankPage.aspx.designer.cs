@@ -31,57 +31,21 @@ namespace PrOJ_Contest {
         protected global::System.Web.UI.WebControls.Label activeContestLabel;
         
         /// <summary>
-        /// problemName control.
+        /// wew control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label problemName;
+        protected global::System.Web.UI.WebControls.Table wew;
         
         /// <summary>
-        /// userName control.
+        /// TblScore control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label userName;
-        
-        /// <summary>
-        /// submissionStatus control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label submissionStatus;
-        
-        /// <summary>
-        /// time control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label time;
-        
-        /// <summary>
-        /// scoretotal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label scoretotal;
-        
-        /// <summary>
-        /// timetotal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label timetotal;
+        protected global::System.Web.UI.WebControls.Table TblScore;
     }
 }
