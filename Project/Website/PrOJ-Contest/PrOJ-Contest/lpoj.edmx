@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="lpojModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+      <Schema Namespace="lpojModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="lpojModelStoreContainer">
           <EntitySet Name="lpoj_clarification" EntityType="lpojModel.Store.lpoj_clarification" store:Type="Tables" Schema="lpoj" />
           <EntitySet Name="lpoj_contest" EntityType="lpojModel.Store.lpoj_contest" store:Type="Tables" Schema="lpoj" />
@@ -40,10 +40,6 @@
           </AssociationSet>
           <AssociationSet Name="FK_RELATIONSHIP_12" Association="lpojModel.Store.FK_RELATIONSHIP_12">
             <End Role="lpoj_submission" EntitySet="lpoj_submission" />
-            <End Role="lpoj_verdict" EntitySet="lpoj_verdict" />
-          </AssociationSet>
-          <AssociationSet Name="FK_RELATIONSHIP_13" Association="lpojModel.Store.FK_RELATIONSHIP_13">
-            <End Role="lpoj_testcase" EntitySet="lpoj_testcase" />
             <End Role="lpoj_verdict" EntitySet="lpoj_verdict" />
           </AssociationSet>
           <AssociationSet Name="FK_RELATIONSHIP_2" Association="lpojModel.Store.FK_RELATIONSHIP_2">
@@ -177,9 +173,13 @@
           <Property Name="SUBMISSION_SCORE" Type="int" Nullable="false" />
           <Property Name="SUBMISSION_TIME" Type="int" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+      warning 6035: The relationship 'FK_RELATIONSHIP_13' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+      -->
         <EntityType Name="lpoj_testcase">
           <Key>
             <PropertyRef Name="TESTCASE_ID" />
+            <PropertyRef Name="PROBLEM_ID" />
           </Key>
           <Property Name="TESTCASE_ID" Type="int" Nullable="false" />
           <Property Name="PROBLEM_ID" Type="int" Nullable="false" />
@@ -283,18 +283,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_RELATIONSHIP_13">
-          <End Role="lpoj_testcase" Type="lpojModel.Store.lpoj_testcase" Multiplicity="1" />
-          <End Role="lpoj_verdict" Type="lpojModel.Store.lpoj_verdict" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="lpoj_testcase">
-              <PropertyRef Name="TESTCASE_ID" />
-            </Principal>
-            <Dependent Role="lpoj_verdict">
-              <PropertyRef Name="TESTCASE_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_RELATIONSHIP_2">
           <End Role="lpoj_contest" Type="lpojModel.Store.lpoj_contest" Multiplicity="1" />
           <End Role="lpoj_contestant" Type="lpojModel.Store.lpoj_contestant" Multiplicity="*" />
@@ -391,7 +379,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="lpojModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
@@ -464,10 +453,6 @@
             <End Role="lpoj_submission" EntitySet="lpoj_submission" />
             <End Role="lpoj_verdict" EntitySet="lpoj_verdict" />
           </AssociationSet>
-          <AssociationSet Name="FK_RELATIONSHIP_13" Association="lpojModel.FK_RELATIONSHIP_13">
-            <End Role="lpoj_testcase" EntitySet="lpoj_testcase" />
-            <End Role="lpoj_verdict" EntitySet="lpoj_verdict" />
-          </AssociationSet>
         </EntityContainer>
         <EntityType Name="lpoj_clarification">
           <Key>
@@ -478,7 +463,7 @@
           <Property Name="CONTESTANT_ID" Type="Int32" Nullable="false" />
           <Property Name="CLARIFICATION_TITLE" Type="String" Nullable="false" />
           <Property Name="CLARIFICATION_DESCRIPTION" Type="String" Nullable="false" />
-          <Property Name="CLARIFICATION_ANSWER" Type="String" Nullable="false" />
+          <Property Name="CLARIFICATION_ANSWER" Type="String" />
           <Property Name="CLARIFICATION_STATUS" Type="Int32" Nullable="false" />
           <NavigationProperty Name="lpoj_contestant" Relationship="lpojModel.FK_RELATIONSHIP_10" FromRole="lpoj_clarification" ToRole="lpoj_contestant" />
           <NavigationProperty Name="lpoj_contest" Relationship="lpojModel.FK_RELATIONSHIP_11" FromRole="lpoj_clarification" ToRole="lpoj_contest" />
@@ -569,11 +554,11 @@
           <Property Name="PROBLEM_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CONTEST_ID" Type="Int32" />
           <Property Name="PROBLEM_TITLE" Type="String" Nullable="false" />
-          <Property Name="PROBLEM_DESCRIPTION" Type="String" Nullable="false" />
-          <Property Name="PROBLEM_CREATETIME" Type="DateTime" Nullable="false" />
+          <Property Name="PROBLEM_DESCRIPTION" Type="String" />
+          <Property Name="PROBLEM_CREATETIME" Type="DateTime" />
           <Property Name="PROBLEM_STATUS" Type="Int32" Nullable="false" />
-          <Property Name="PROBLEM_TIMELIMIT" Type="Int32" Nullable="false" />
-          <Property Name="PROBLEM_MEMORYLIMIT" Type="Int32" Nullable="false" />
+          <Property Name="PROBLEM_TIMELIMIT" Type="Int32" />
+          <Property Name="PROBLEM_MEMORYLIMIT" Type="Int32" />
           <NavigationProperty Name="lpoj_contest" Relationship="lpojModel.FK_RELATIONSHIP_3" FromRole="lpoj_problem" ToRole="lpoj_contest" />
           <NavigationProperty Name="lpoj_submission" Relationship="lpojModel.FK_RELATIONSHIP_4" FromRole="lpoj_problem" ToRole="lpoj_submission" />
           <NavigationProperty Name="lpoj_testcase" Relationship="lpojModel.FK_RELATIONSHIP_6" FromRole="lpoj_problem" ToRole="lpoj_testcase" />
@@ -594,13 +579,13 @@
         <EntityType Name="lpoj_testcase">
           <Key>
             <PropertyRef Name="TESTCASE_ID" />
+            <PropertyRef Name="PROBLEM_ID" />
           </Key>
-          <Property Name="TESTCASE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TESTCASE_ID" Type="Int32" Nullable="false" />
           <Property Name="PROBLEM_ID" Type="Int32" Nullable="false" />
           <Property Name="TESTCASE_INPUT" Type="String" Nullable="false" />
           <Property Name="TESTCASE_OUTPUT" Type="String" Nullable="false" />
           <NavigationProperty Name="lpoj_problem" Relationship="lpojModel.FK_RELATIONSHIP_6" FromRole="lpoj_testcase" ToRole="lpoj_problem" />
-          <NavigationProperty Name="lpoj_verdict" Relationship="lpojModel.FK_RELATIONSHIP_13" FromRole="lpoj_testcase" ToRole="lpoj_verdict" />
         </EntityType>
         <EntityType Name="lpoj_users">
           <Key>
@@ -609,7 +594,7 @@
           <Property Name="USERS_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="USERS_USERNAME" Type="String" Nullable="false" />
           <Property Name="USERS_PASSWORD" Type="String" Nullable="false" />
-          <Property Name="USERS_STATUS" Type="Int32" Nullable="false" />
+          <Property Name="USERS_STATUS" Type="Int32" />
           <Property Name="USERS_JOIN_DATE" Type="DateTime" Nullable="false" />
           <NavigationProperty Name="lpoj_contestant" Relationship="lpojModel.FK_RELATIONSHIP_1" FromRole="lpoj_users" ToRole="lpoj_contestant" />
           <NavigationProperty Name="lpoj_ncsubmission" Relationship="lpojModel.FK_RELATIONSHIP_7" FromRole="lpoj_users" ToRole="lpoj_ncsubmission" />
@@ -625,7 +610,6 @@
           <Property Name="TESTCASE_ID" Type="Int32" Nullable="false" />
           <Property Name="VERDICT_STATUS" Type="Int32" Nullable="false" />
           <NavigationProperty Name="lpoj_submission" Relationship="lpojModel.FK_RELATIONSHIP_12" FromRole="lpoj_verdict" ToRole="lpoj_submission" />
-          <NavigationProperty Name="lpoj_testcase" Relationship="lpojModel.FK_RELATIONSHIP_13" FromRole="lpoj_verdict" ToRole="lpoj_testcase" />
         </EntityType>
         <Association Name="FK_RELATIONSHIP_10">
           <End Role="lpoj_contestant" Type="lpojModel.lpoj_contestant" Multiplicity="1" />
@@ -799,18 +783,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_RELATIONSHIP_13">
-          <End Role="lpoj_testcase" Type="lpojModel.lpoj_testcase" Multiplicity="1" />
-          <End Role="lpoj_verdict" Type="lpojModel.lpoj_verdict" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="lpoj_testcase">
-              <PropertyRef Name="TESTCASE_ID" />
-            </Principal>
-            <Dependent Role="lpoj_verdict">
-              <PropertyRef Name="TESTCASE_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -923,19 +895,19 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="lpoj" ZoomLevel="95">
+      <Diagram Name="lpoj">
         <EntityTypeShape EntityType="lpojModel.lpoj_clarification" Width="1.5" PointX="3" PointY="4.875" Height="2.7494921874999996" IsExpanded="true" />
         <EntityTypeShape EntityType="lpojModel.lpoj_contest" Width="1.5" PointX="0.75" PointY="4.875" Height="2.9417936197916656" IsExpanded="true" />
         <EntityTypeShape EntityType="lpojModel.lpoj_contestant" Width="1.5" PointX="6" PointY="5" Height="2.5571907552083335" IsExpanded="true" />
         <EntityTypeShape EntityType="lpojModel.lpoj_ncproblem" Width="1.5" PointX="3.75" PointY="15.875" Height="2.7494921875000014" IsExpanded="true" />
         <EntityTypeShape EntityType="lpojModel.lpoj_ncsubmission" Width="1.5" PointX="6" PointY="1.125" Height="2.3648893229166674" IsExpanded="true" />
-        <EntityTypeShape EntityType="lpojModel.lpoj_nctestcase" Width="1.5" PointX="11" PointY="15.375" Height="2.1725878906250014" IsExpanded="true" />
-        <EntityTypeShape EntityType="lpojModel.lpoj_ncverdict" Width="1.5" PointX="10.75" PointY="3.125" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="lpojModel.lpoj_nctestcase" Width="1.5" PointX="6" PointY="15.25" Height="2.1725878906250014" IsExpanded="true" />
+        <EntityTypeShape EntityType="lpojModel.lpoj_ncverdict" Width="1.5" PointX="8.25" PointY="1.25" Height="2.1725878906249996" IsExpanded="true" />
         <EntityTypeShape EntityType="lpojModel.lpoj_problem" Width="1.5" PointX="3" PointY="11.5" Height="3.1340950520833317" IsExpanded="true" />
         <EntityTypeShape EntityType="lpojModel.lpoj_submission" Width="1.5" PointX="8.25" PointY="8.625" Height="2.3648893229166674" IsExpanded="true" />
-        <EntityTypeShape EntityType="lpojModel.lpoj_testcase" Width="1.5" PointX="5.25" PointY="12" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="lpojModel.lpoj_testcase" Width="1.5" PointX="5.25" PointY="12.125" Height="1.9802864583333317" IsExpanded="true" />
         <EntityTypeShape EntityType="lpojModel.lpoj_users" Width="1.5" PointX="3.75" PointY="1.125" Height="2.3648893229166674" IsExpanded="true" />
-        <EntityTypeShape EntityType="lpojModel.lpoj_verdict" Width="1.5" PointX="10.5" PointY="10.375" Height="2.1725878906250031" IsExpanded="true" />
+        <EntityTypeShape EntityType="lpojModel.lpoj_verdict" Width="1.5" PointX="10.5" PointY="8.875" Height="1.9802864583333317" IsExpanded="true" />
         <AssociationConnector Association="lpojModel.FK_RELATIONSHIP_10" ManuallyRouted="false">
           <ConnectorPoint PointX="6" PointY="6.2785953776041667" />
           <ConnectorPoint PointX="4.833333333333333" PointY="6.2785953776041659" />
@@ -943,8 +915,8 @@
           <ConnectorPoint PointX="4.5" PointY="6.2785953776041667" />
         </AssociationConnector>
         <AssociationConnector Association="lpojModel.FK_RELATIONSHIP_11" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="6.170418235677082" />
-          <ConnectorPoint PointX="3" PointY="6.170418235677082" />
+          <ConnectorPoint PointX="2.25" PointY="6.24974609375" />
+          <ConnectorPoint PointX="3" PointY="6.24974609375" />
         </AssociationConnector>
         <AssociationConnector Association="lpojModel.FK_RELATIONSHIP_2" ManuallyRouted="false">
           <ConnectorPoint PointX="2.25" PointY="7.8167936197916656" />
@@ -969,6 +941,8 @@
         <AssociationConnector Association="lpojModel.FK_RELATIONSHIP_5" ManuallyRouted="false">
           <ConnectorPoint PointX="6.7812525" PointY="7.5571907552083335" />
           <ConnectorPoint PointX="6.7812525" PointY="9.8074446614583337" />
+          <ConnectorPoint PointX="7.791666666666667" PointY="9.8074446614583337" />
+          <ConnectorPoint PointX="7.958333333333333" PointY="9.8074446614583337" />
           <ConnectorPoint PointX="8.25" PointY="9.8074446614583337" />
         </AssociationConnector>
         <AssociationConnector Association="lpojModel.FK_RELATIONSHIP_8" ManuallyRouted="false">
@@ -981,41 +955,41 @@
           <ConnectorPoint PointX="6" PointY="2.3074446614583337" />
         </AssociationConnector>
         <AssociationConnector Association="lpojModel.FK_RELATIONSHIP_9" ManuallyRouted="false">
-          <ConnectorPoint PointX="5.25" PointY="16.7112939453125" />
-          <ConnectorPoint PointX="11" PointY="16.7112939453125" />
+          <ConnectorPoint PointX="5.25" PointY="16.6487939453125" />
+          <ConnectorPoint PointX="6" PointY="16.6487939453125" />
         </AssociationConnector>
         <AssociationConnector Association="lpojModel.FK_1" ManuallyRouted="false">
-          <ConnectorPoint PointX="7.5" PointY="3.3074446614583337" />
-          <ConnectorPoint PointX="10.75" PointY="3.3074446614583337" />
+          <ConnectorPoint PointX="7.5" PointY="2.3362939453125" />
+          <ConnectorPoint PointX="8.25" PointY="2.3362939453125" />
         </AssociationConnector>
         <AssociationConnector Association="lpojModel.FK_RELATIONSHIP_7" ManuallyRouted="false">
           <ConnectorPoint PointX="5.25" PointY="1.6537223307291669" />
           <ConnectorPoint PointX="6" PointY="1.6537223307291669" />
         </AssociationConnector>
         <AssociationConnector Association="lpojModel.FK_2" ManuallyRouted="false">
-          <ConnectorPoint PointX="12.15625" PointY="15.375" />
-          <ConnectorPoint PointX="12.15625" PointY="5.297587890625" />
+          <ConnectorPoint PointX="7.5" PointY="15.251152846153847" />
+          <ConnectorPoint PointX="7.875" PointY="14.876152846153847" />
+          <ConnectorPoint PointX="7.875" PointY="2.9106929179687504" />
+          <ConnectorPoint PointX="8.25" PointY="2.9106929179687504" />
         </AssociationConnector>
         <AssociationConnector Association="lpojModel.FK_RELATIONSHIP_4" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="11.71875" />
-          <ConnectorPoint PointX="4.666666666666667" PointY="11.71875" />
-          <ConnectorPoint PointX="4.833333333333333" PointY="11.71875" />
-          <ConnectorPoint PointX="9" PointY="11.71875" />
+          <ConnectorPoint PointX="4.5" PointY="11.78125" />
+          <ConnectorPoint PointX="4.666666666666667" PointY="11.78125" />
+          <ConnectorPoint PointX="4.833333333333333" PointY="11.78125" />
+          <ConnectorPoint PointX="7.791666666666667" PointY="11.78125" />
+          <ConnectorPoint PointX="7.958333333333333" PointY="11.78125" />
+          <ConnectorPoint PointX="9" PointY="11.78125" />
           <ConnectorPoint PointX="9" PointY="10.989889322916667" />
         </AssociationConnector>
         <AssociationConnector Association="lpojModel.FK_RELATIONSHIP_6" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="13.0862939453125" />
-          <ConnectorPoint PointX="4.666666666666667" PointY="13.0862939453125" />
-          <ConnectorPoint PointX="4.833333333333333" PointY="13.0862939453125" />
-          <ConnectorPoint PointX="5.25" PointY="13.0862939453125" />
+          <ConnectorPoint PointX="4.5" PointY="13.115143229166666" />
+          <ConnectorPoint PointX="4.666666666666667" PointY="13.115143229166666" />
+          <ConnectorPoint PointX="4.833333333333333" PointY="13.115143229166666" />
+          <ConnectorPoint PointX="5.25" PointY="13.115143229166666" />
         </AssociationConnector>
         <AssociationConnector Association="lpojModel.FK_RELATIONSHIP_12" ManuallyRouted="false">
-          <ConnectorPoint PointX="9.75" PointY="10.682444661458334" />
-          <ConnectorPoint PointX="10.5" PointY="10.682444661458334" />
-        </AssociationConnector>
-        <AssociationConnector Association="lpojModel.FK_RELATIONSHIP_13" ManuallyRouted="false">
-          <ConnectorPoint PointX="6.75" PointY="12.273793945312502" />
-          <ConnectorPoint PointX="10.5" PointY="12.273793945312502" />
+          <ConnectorPoint PointX="9.75" PointY="9.8651432291666659" />
+          <ConnectorPoint PointX="10.5" PointY="9.8651432291666659" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

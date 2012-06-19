@@ -6,6 +6,7 @@ using MySql.Data.MySqlClient;
 using MySql.Data.Types;
 using System.IO;
 using System.Threading;
+using System.Windows.Forms;
 
 namespace CompilerDotNet
 {
@@ -24,6 +25,7 @@ namespace CompilerDotNet
         private lpoj_ncproblem ncproblem;
         private lpoj_contestant contestant;
         private lpoj_users nccontestant;
+        private bool isContest;
 
         public bool IsAlive
         {
@@ -62,16 +64,23 @@ namespace CompilerDotNet
             System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
             startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
             startInfo.FileName = "cmd.exe";
-            if (ExtName == "cpp" || ExtName == "c")
+            if (ExtName == "cpp")
             {
                 ExePath = DirectoryPath + @"\Execute\" + fileNameWithoutExt;
                 startInfo.Arguments = "/C g++ -o \"" + ExePath + "\" \"" + destPath + "\"";
+                ExePath += ".exe";
+            }
+            else if(ExtName == "c")
+            {
+                ExePath = DirectoryPath + @"\Execute\" + fileNameWithoutExt;
+                startInfo.Arguments = "/C gcc -o \"" + ExePath + "\" \"" + destPath + "\"";
                 ExePath += ".exe";
             }
             else if (ExtName == "java")
             {
                 ExePath = DirectoryPath + @"\Execute\" + fileName;
                 startInfo.Arguments = "/C javac \"" + ExePath + "\" ";
+                ExePath = DirectoryPath + @"\Execute\" + fileNameWithoutExt + ".class";
             }
             else if (ExtName == "pas")
             {
@@ -80,6 +89,7 @@ namespace CompilerDotNet
             }
             process.StartInfo = startInfo;
             process.Start();
+            process.WaitForExit(10000);
             if (File.Exists(ExePath))
             {
                 MessageQueue.Enqueue("Finishing Compiling " + fileName);
@@ -107,14 +117,15 @@ namespace CompilerDotNet
                                                      select e;
 
                 submission.SUBMISSION_SCORE = 0;
+                int score = 0;
                 foreach (lpoj_testcase i in result3)
                 {
-                    Testing tc = new Testing(ExePath,i,submission,ref MessageQueue,ExtName,problem);
-                    Thread tcThread = new Thread(new ThreadStart(tc.run));
-                    tcThread.Start();
-                    Thread.Sleep(1);
+                    Testing tc = new Testing(ExePath,i,submission,ref MessageQueue,ExtName,problem,DirectoryPath);
+                    score += tc.run();
+                    Thread.Sleep(1000);
                 }
-                submission.SUBMISSION_SCORE = Convert.ToInt32(Convert.ToDouble(submission.SUBMISSION_SCORE) / Convert.ToDouble(result3.Count()) * 100);
+
+                submission.SUBMISSION_SCORE = Convert.ToInt32(Convert.ToDouble(score) / Convert.ToDouble(result3.Count()) * 100);
                 MessageQueue.Enqueue("Testing " + fileName + " finish, Result : " +  submission.SUBMISSION_SCORE);
             }
             else if (ncsubmission != null)
@@ -134,23 +145,33 @@ namespace CompilerDotNet
                                                        where e.NCPROBLEM_ID == ncproblem.NCPROBLEM_ID
                                                        select e;
                 ncsubmission.NCSUBMISSION_SCORE = 0;
+                int score = 0;
                 foreach (lpoj_nctestcase i in result3)
                 {
-                    Testing tc = new Testing(ExePath, i, ncsubmission, ref MessageQueue, ExtName,ncproblem);
-                    Thread tcThread = new Thread(new ThreadStart(tc.run));
-                    tcThread.Start();
-                    Thread.Sleep(1);
+                    Testing tc = new Testing(ExePath, i, ncsubmission, ref MessageQueue, ExtName,ncproblem,DirectoryPath);
+                    score += tc.run();
                 }
-                ncsubmission.NCSUBMISSION_SCORE = Convert.ToInt32(Convert.ToDouble(ncsubmission.NCSUBMISSION_SCORE) / Convert.ToDouble(result3.Count()) * 100);
+                ncsubmission.NCSUBMISSION_SCORE = Convert.ToInt32(Convert.ToDouble(score) / Convert.ToDouble(result3.Count()) * 100);
                 MessageQueue.Enqueue("Testing " + fileName + " finish, Result : " + ncsubmission.NCSUBMISSION_SCORE);
             }
             else return false;
+            Entity.SaveChanges();
             return true;
         }
 
         private void Process_Code()
         {
+            /* Move File to Finished Folder */
+            string nextPath = DirectoryPath + @"\Finished\" + fileName;
+            if (File.Exists(nextPath)) File.Delete(nextPath);
+            File.Move(destPath, nextPath);
 
+            /* Delete Executable File */
+            try
+            {
+                if (File.Exists(ExePath)) File.Delete(ExePath);
+            }
+            catch { }
         }
 
         private bool Detect_Submission()
@@ -173,47 +194,64 @@ namespace CompilerDotNet
                 MessageQueue.Enqueue(ex.ToString());    
                 return false; 
             }
-            return false;
+
             if (divInfo[2] == "c")
             {
+                isContest = true;
                 IQueryable<lpoj_submission> result = from e in Entity.lpoj_submission
                                                      where e.PROBLEM_ID == numProblem && e.CONTESTANT_ID == numContestant
                                                      select e;
                 try { submission = result.First<lpoj_submission>();}
-                catch { return false; }
+                catch (Exception ex) 
+                {
+                    MessageQueue.Enqueue(ex.ToString());  
+                    return false; 
+                }
             }
             else if (divInfo[2] == "nc")
             {
+                isContest = false;
                 IQueryable<lpoj_ncsubmission> result = from e in Entity.lpoj_ncsubmission
-                                                     where e.NCPROBLEM_ID == numProblem && e.USERS_ID == numContestant
-                                                     select e;
+                                                       where e.NCPROBLEM_ID == numProblem && e.USERS_ID == numContestant
+                                                       select e;
                 try { ncsubmission = result.First<lpoj_ncsubmission>(); }
-                catch { return false; }
+                catch (Exception ex)
+                {
+                    MessageQueue.Enqueue(ex.ToString());
+                    return false;
+                }
             }
-            else return false;
+            else
+            {
+                return false;
+
+            }
             return true;
         }
 
         public void Run()
         {
-            /*
+            System.Threading.Thread.Sleep(1000);
             if (!Detect_Submission())
             {
                 MessageQueue.Enqueue("Error Submission " + fileName + " is Unknown\n");
                 isAlive = false;
                 return;
             }
-            */
-            if (ExtName != "py")if (!Compile_Code()) return;
+
+            if (ExtName != "py")
+            {
+                if (!Compile_Code()) return;
+            }
             else ExePath = DirectoryPath + @"\Execute\" + fileName;
-            /*
+            
             if (!Testing_Code())
             {
                 MessageQueue.Enqueue("Error Submission " + fileName + " is Unknown\n");
                 isAlive = false;
                 return; 
             }
-            */
+            
             Process_Code();
             isAlive = false;
             MessageQueue.Enqueue("Finish Judging Submission " + fileName + "\n");

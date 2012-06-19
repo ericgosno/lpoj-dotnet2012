@@ -52,14 +52,14 @@ namespace PrOJ_Contest
             {
                 Response.Redirect("UserPage.aspx");
             }
-
+            if (IsPostBack) return;
             problems = from c in Entity.lpoj_problem
                         where c.CONTEST_ID == contestID && c.PROBLEM_STATUS == 0
                         select c;
             problemList.Items.Clear();
             foreach (lpoj_problem problem in problems)
                 problemList.Items.Add(problem.PROBLEM_ID.ToString() + " - " + problem.PROBLEM_TITLE);
-            if (IsPostBack) return;
+            
             refreshSubmissionList();
         }
 
@@ -83,26 +83,39 @@ namespace PrOJ_Contest
 
         protected void submit_Click(object sender, EventArgs e)
         {
-            System.Windows.Forms.MessageBox.Show(sourceFile.HasFile.ToString());//salah nih!!!!
+            //System.Windows.Forms.MessageBox.Show(sourceFile.HasFile.ToString());//salah nih!!!!
             if (sourceFile.HasFile)
             {
                 int problemID = Convert.ToInt32(problemList.SelectedItem.ToString().Split(" ".ToCharArray())[0]);
                 string extention = sourceFile.FileName.Split(".".ToCharArray()).Last<string>();
                 string filePath = Server.MapPath("~/") + "System\\Upload\\";
                 string fileName = problemID.ToString() + "_" + contestant.CONTESTANT_ID.ToString() + "_c." + extention;
-                System.Windows.Forms.MessageBox.Show(fileName);
+                //System.Windows.Forms.MessageBox.Show(fileName);
                 sourceFile.SaveAs(filePath + fileName);
-                lpojEntities Entity = new lpojEntities();
+                Entity = new lpojEntities();
                 int deltaS = Convert.ToInt32((DateTime.Now - DateTime.Parse(contest.CONTEST_BEGIN.ToString())).TotalSeconds);
 
-                Entity.AddTolpoj_submission(new lpoj_submission
+                IEnumerable<lpoj_submission> submissions = from c in Entity.lpoj_submission
+                                                           where c.CONTESTANT_ID == contestant.CONTESTANT_ID && c.PROBLEM_ID == problemID
+                                                           select c;
+                if (submissions.Count() <= 0)
                 {
-                    CONTESTANT_ID = contestant.CONTESTANT_ID,
-                    PROBLEM_ID = problemID,
-                    SUBMISSION_TIME = deltaS,
-                    SUBMISSION_SCORE = 0
-                });
-                Entity.SaveChanges();
+                    
+                    Entity.AddTolpoj_submission(new lpoj_submission
+                    {
+                        CONTESTANT_ID = contestant.CONTESTANT_ID,
+                        PROBLEM_ID = problemID,
+                        SUBMISSION_TIME = deltaS,
+                        SUBMISSION_SCORE = 0
+                    });
+                    Entity.SaveChanges();
+                }
+                else
+                {
+                    lpoj_submission temp = submissions.First<lpoj_submission>();
+                    temp.SUBMISSION_TIME = deltaS;
+                    Entity.SaveChanges();
+                }
                 refreshSubmissionList();
             }
         }

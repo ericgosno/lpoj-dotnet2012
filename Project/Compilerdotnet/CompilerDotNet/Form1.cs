@@ -28,7 +28,7 @@ namespace CompilerDotNet
             //On IIS
             //DirectoryPath = @"D:\User\FELIX 5109100121\Kuliah\Pemrogaman .Net\Final Project\IIS\System";
             //The Project
-            DirectoryPath = @"D:\User\FELIX 5109100121\Kuliah\Pemrogaman .Net\svnProj\Project\Website\PrOJ-Contest\PrOJ-Contest\System";
+            DirectoryPath = @"D:\User\FELIX5109100121\Kuliah\PemrogamanNet\svnProj\Project\Website\PrOJ-Contest\PrOJ-Contest\System";
             
             ExtApprove = new List<string>();
             ExtApprove.Add("cpp");

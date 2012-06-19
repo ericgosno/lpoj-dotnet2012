@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.IO;
-
+using System.Windows.Forms;
 
 namespace CompilerDotNet
 {
@@ -21,14 +21,15 @@ namespace CompilerDotNet
         private Queue<string> MessageQueue;
         private string ExtName;
         private lpojEntities Entity;
-        
+        private string DirectoryPath;
+
         private const int WRONG_ANSWER = 1;
         private const int TIME_LIMIT = 2;
         private const int COMPILE_ERROR = 3;
         private const int RUNTIME_ERROR = 4;
         private const int ACCEPTED = 0;
 
-        public Testing(string filename, lpoj_testcase testcase, lpoj_submission submission, ref Queue<string> MessageQueue,string ExtName,lpoj_problem problem)
+        public Testing(string filename, lpoj_testcase testcase, lpoj_submission submission, ref Queue<string> MessageQueue,string ExtName,lpoj_problem problem, string DirectoryPath)
         {
             this.filename = filename;
             this.testcase = testcase;
@@ -38,8 +39,9 @@ namespace CompilerDotNet
             this.ExtName = ExtName;
             this.problem = problem;
             this.Entity = new lpojEntities();
+            this.DirectoryPath = DirectoryPath;
         }
-        public Testing(string filename, lpoj_nctestcase nctestcase, lpoj_ncsubmission ncsubmission, ref Queue<string> MessageQueue, string ExtName,lpoj_ncproblem ncproblem)
+        public Testing(string filename, lpoj_nctestcase nctestcase, lpoj_ncsubmission ncsubmission, ref Queue<string> MessageQueue, string ExtName,lpoj_ncproblem ncproblem,string DirectoryPath)
         {
             this.filename = filename;
             this.nctestcase = nctestcase;
@@ -49,41 +51,54 @@ namespace CompilerDotNet
             this.ExtName = ExtName;
             this.ncproblem = ncproblem;
             this.Entity = new lpojEntities();
+            this.DirectoryPath = DirectoryPath;
         }
-        public void run()
+        public int run()
         {
+            int ans = 0;
             string output;
+            
             if(isContest == true)
             {
+                IEnumerable<lpoj_verdict> query = from g in Entity.lpoj_verdict
+                                                  where g.PROBLEM_ID == submission.PROBLEM_ID && g.CONTESTANT_ID == submission.CONTESTANT_ID && g.TESTCASE_ID == testcase.TESTCASE_ID
+                                                  select g;
+                for(int i = 0;i < query.Count();i++)
+                {
+                    Entity.lpoj_verdict.DeleteObject(query.ElementAt(i));
+                }
+                Entity.SaveChanges();
+
+                string inputpath = DirectoryPath + @"\Testcase\" + testcase.TESTCASE_INPUT;
                 //Compile Error
                 if (!File.Exists(filename))
                 {
                     lpoj_verdict news = lpoj_verdict.Createlpoj_verdict(submission.PROBLEM_ID, submission.CONTESTANT_ID, testcase.TESTCASE_ID, COMPILE_ERROR);
                     Entity.lpoj_verdict.AddObject(news);
                     MessageQueue.Enqueue("Testing " + filename + " with Testcase#" + testcase.TESTCASE_ID.ToString() + " Result : Compile Error\n");
-                    return;
+                    return 0;
                 }
   
                 System.Diagnostics.Process process = new System.Diagnostics.Process();
                 System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
                 startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
                 startInfo.FileName = "cmd.exe";
-                output = @"D:\dotnet\output-" + submission.CONTESTANT_ID + "-" + submission.PROBLEM_ID + "-" + testcase.TESTCASE_ID + "-c.out";
+                output = DirectoryPath + @"\Execute\" + "output-" + submission.CONTESTANT_ID + "-" + submission.PROBLEM_ID + "-" + testcase.TESTCASE_ID + "-c.out";
                 if (ExtName == "cpp" || ExtName == "c" || ExtName == "pas")
                 {
-                    startInfo.Arguments = "/C " + filename + " < " + testcase.TESTCASE_INPUT + " > " + output;
+                    startInfo.Arguments = "/C \"" + filename + " < " + inputpath + " > " + output + "\"";
                 }
                 else if (ExtName == "java")
                 {
-                    startInfo.Arguments = "/C java " + filename + " < " + testcase.TESTCASE_INPUT + " > " + output;
+                    startInfo.Arguments = "/C java \"" + filename + " < " + inputpath + " > " + output + "\"";
                 }
                 else if (ExtName == "py")
                 {
-                    startInfo.Arguments = "/C python " + filename + " < " + testcase.TESTCASE_INPUT + " > " + output; 
+                    startInfo.Arguments = "/C python \"" + filename + " < " + inputpath + " > " + output + "\""; 
                 }
                 process.StartInfo = startInfo;
                 process.Start();
-                Thread.Sleep(problem.PROBLEM_TIMELIMIT);
+                process.WaitForExit(problem.PROBLEM_TIMELIMIT);
                 // Time Limit
                 if (!process.HasExited)
                 {
@@ -95,6 +110,7 @@ namespace CompilerDotNet
                 else
                 {
                     // Runtime Error
+                    MessageQueue.Enqueue(output);
                     if (!File.Exists(output))
                     {
                         lpoj_verdict news = lpoj_verdict.Createlpoj_verdict(submission.PROBLEM_ID, submission.CONTESTANT_ID, testcase.TESTCASE_ID, RUNTIME_ERROR);
@@ -117,7 +133,7 @@ namespace CompilerDotNet
                                     col1.AddRange(kata);
                                 }
                             }
-                            using (StreamReader sr2 = new StreamReader(testcase.TESTCASE_OUTPUT))
+                            using (StreamReader sr2 = new StreamReader(DirectoryPath + @"\Testcase\" + testcase.TESTCASE_OUTPUT))
                             {
                                 String line;
                                 while ((line = sr2.ReadLine()) != null)
@@ -145,7 +161,7 @@ namespace CompilerDotNet
                             {
                                 lpoj_verdict news = lpoj_verdict.Createlpoj_verdict(submission.PROBLEM_ID, submission.CONTESTANT_ID, testcase.TESTCASE_ID, ACCEPTED);
                                 Entity.lpoj_verdict.AddObject(news);
-                                submission.SUBMISSION_SCORE += 1;
+                                ans = 1;
                                 MessageQueue.Enqueue("Testing " + filename + " with Testcase#" + testcase.TESTCASE_ID.ToString() + " Result : Accepted\n");
                             }
                             else
@@ -159,6 +175,7 @@ namespace CompilerDotNet
                         {
                             lpoj_verdict news = lpoj_verdict.Createlpoj_verdict(submission.PROBLEM_ID, submission.CONTESTANT_ID, testcase.TESTCASE_ID, RUNTIME_ERROR);
                             Entity.lpoj_verdict.AddObject(news);
+                            MessageQueue.Enqueue(e.ToString());
                             MessageQueue.Enqueue("Testing " + filename + " with Testcase#" + testcase.TESTCASE_ID.ToString() + " Result : Runtime Error\n");
                         }
                     }
@@ -167,26 +184,40 @@ namespace CompilerDotNet
             // Here for NC problem
             else
             {
+                IEnumerable<lpoj_ncverdict> query = from g in Entity.lpoj_ncverdict
+                                                  where g.NCPROBLEM_ID == ncsubmission.NCPROBLEM_ID && g.NCTESTCASE_ID == nctestcase.NCTESTCASE_ID && g.USERS_ID == ncsubmission.USERS_ID
+                                                  select g;
+                for (int i = 0; i < query.Count(); i++)
+                {
+                    Entity.lpoj_ncverdict.DeleteObject(query.ElementAt(i));
+                }
+                Entity.SaveChanges();
+
+                string inputpath = DirectoryPath + @"\Testcase\" + nctestcase.NCTESTCASE_INPUT;
                 //Compile Error
                 if (!File.Exists(filename))
                 {
-                    lpoj_ncverdict news = lpoj_ncverdict.Createlpoj_ncverdict(ncsubmission.NCPROBLEM_ID, nctestcase.NCTESTCASE_ID, COMPILE_ERROR, ncsubmission.NCPROBLEM_ID);
+                    lpoj_ncverdict news = lpoj_ncverdict.Createlpoj_ncverdict(ncsubmission.USERS_ID, nctestcase.NCTESTCASE_ID, COMPILE_ERROR, ncsubmission.NCPROBLEM_ID);
                     Entity.lpoj_ncverdict.AddObject(news);
-                    MessageQueue.Enqueue("Testing " + filename + " with Testcase#" + testcase.TESTCASE_ID.ToString() + " Result : Compile Error\n");
-                    return;
+                    MessageQueue.Enqueue("Testing " + filename + " with Testcase#" + nctestcase.NCTESTCASE_ID.ToString() + " Result : Compile Error\n");
+                    return 0;
                 }
                 System.Diagnostics.Process process = new System.Diagnostics.Process();
                 System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
                 startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
                 startInfo.FileName = "cmd.exe";
-                output = @"D:\dotnet\output-" + ncsubmission.USERS_ID + "-" + ncsubmission.NCPROBLEM_ID + "-" + nctestcase.NCTESTCASE_ID + "-c.out"; 
-                if (ExtName == "cpp")
+                output = DirectoryPath + @"\Execute\" + "output-" + ncsubmission.USERS_ID + "-" + ncsubmission.NCPROBLEM_ID + "-" + nctestcase.NCTESTCASE_ID + "-c.out";
+                if (ExtName == "cpp" || ExtName == "c" || ExtName == "pas")
                 {
-                    startInfo.Arguments = "/C " + filename + " < " + nctestcase.NCTESTCASE_INPUT + " > " + output;
+                    startInfo.Arguments = "/C \"" + filename + " < " + inputpath + " > " + output + "\"";
                 }
                 else if (ExtName == "java")
                 {
-                    startInfo.Arguments = "/C java " + filename + " < " + nctestcase.NCTESTCASE_INPUT + " > " + output;
+                    startInfo.Arguments = "/C java \"" + filename + " < " + inputpath + " > " + output + "\"";
+                }
+                else if (ExtName == "py")
+                {
+                    startInfo.Arguments = "/C python \"" + filename + " < " + inputpath + " > " + output + "\"";
                 }
                 process.StartInfo = startInfo;
                 process.Start();
@@ -195,18 +226,18 @@ namespace CompilerDotNet
                 if (!process.HasExited)
                 {
                     process.Kill();
-                    lpoj_ncverdict news = lpoj_ncverdict.Createlpoj_ncverdict(ncsubmission.NCPROBLEM_ID, nctestcase.NCTESTCASE_ID, TIME_LIMIT, ncsubmission.NCPROBLEM_ID);
+                    lpoj_ncverdict news = lpoj_ncverdict.Createlpoj_ncverdict(ncsubmission.USERS_ID, nctestcase.NCTESTCASE_ID, TIME_LIMIT, ncsubmission.NCPROBLEM_ID);
                     Entity.lpoj_ncverdict.AddObject(news);
-                    MessageQueue.Enqueue("Testing " + filename + " with Testcase#" + testcase.TESTCASE_ID.ToString() + " Result : Time Limit\n");
+                    MessageQueue.Enqueue("Testing " + filename + " with Testcase#" + nctestcase.NCTESTCASE_ID.ToString() + " Result : Time Limit\n");
                 }
                 else
                 {
                     // Runtime Error
                     if (!File.Exists(output))
                     {
-                        lpoj_ncverdict news = lpoj_ncverdict.Createlpoj_ncverdict(ncsubmission.NCPROBLEM_ID, nctestcase.NCTESTCASE_ID, RUNTIME_ERROR, ncsubmission.NCPROBLEM_ID);
+                        lpoj_ncverdict news = lpoj_ncverdict.Createlpoj_ncverdict(ncsubmission.USERS_ID, nctestcase.NCTESTCASE_ID, RUNTIME_ERROR, ncsubmission.NCPROBLEM_ID);
                         Entity.lpoj_ncverdict.AddObject(news);
-                        MessageQueue.Enqueue("Testing " + filename + " with Testcase#" + testcase.TESTCASE_ID.ToString() + " Result : Runtime Error\n");
+                        MessageQueue.Enqueue("Testing " + filename + " with Testcase#" + nctestcase.NCTESTCASE_ID.ToString() + " Result : Runtime Error\n");
                     }
                     else
                     {
@@ -250,31 +281,37 @@ namespace CompilerDotNet
                             //Accepted
                             if (isAccepted)
                             {
-                                lpoj_ncverdict news = lpoj_ncverdict.Createlpoj_ncverdict(ncsubmission.NCPROBLEM_ID, nctestcase.NCTESTCASE_ID, ACCEPTED, ncsubmission.NCPROBLEM_ID);
-                                Entity.lpoj_ncverdict.AddObject(news);                                
-                                ncsubmission.NCSUBMISSION_SCORE += 1;
-                                MessageQueue.Enqueue("Testing " + filename + " with Testcase#" + testcase.TESTCASE_ID.ToString() + " Result : Accepted\n");
+                                lpoj_ncverdict news = lpoj_ncverdict.Createlpoj_ncverdict(ncsubmission.USERS_ID, nctestcase.NCTESTCASE_ID, ACCEPTED, ncsubmission.NCPROBLEM_ID);
+                                Entity.lpoj_ncverdict.AddObject(news);
+                                ans = 1;
+                                MessageQueue.Enqueue("Testing " + filename + " with Testcase#" + nctestcase.NCTESTCASE_ID.ToString() + " Result : Accepted\n");
                             }
                             else
                             {
-                                lpoj_ncverdict news = lpoj_ncverdict.Createlpoj_ncverdict(ncsubmission.NCPROBLEM_ID, nctestcase.NCTESTCASE_ID, WRONG_ANSWER, ncsubmission.NCPROBLEM_ID);
+                                lpoj_ncverdict news = lpoj_ncverdict.Createlpoj_ncverdict(ncsubmission.USERS_ID, nctestcase.NCTESTCASE_ID, WRONG_ANSWER, ncsubmission.NCPROBLEM_ID);
                                 Entity.lpoj_ncverdict.AddObject(news);
-                                MessageQueue.Enqueue("Testing " + filename + " with Testcase#" + testcase.TESTCASE_ID.ToString() + " Result : Wrong Answer\n");
+                                MessageQueue.Enqueue("Testing " + filename + " with Testcase#" + nctestcase.NCTESTCASE_ID.ToString() + " Result : Wrong Answer\n");
                             }
                         }
                         catch (Exception e)
                         {
-                            lpoj_ncverdict news = lpoj_ncverdict.Createlpoj_ncverdict(ncsubmission.NCPROBLEM_ID, nctestcase.NCTESTCASE_ID, RUNTIME_ERROR, ncsubmission.NCPROBLEM_ID);
+                            lpoj_ncverdict news = lpoj_ncverdict.Createlpoj_ncverdict(ncsubmission.USERS_ID, nctestcase.NCTESTCASE_ID, RUNTIME_ERROR, ncsubmission.NCPROBLEM_ID);
                             Entity.lpoj_ncverdict.AddObject(news);
-                            MessageQueue.Enqueue("Testing " + filename + " with Testcase#" + testcase.TESTCASE_ID.ToString() + " Result : Runtime Error\n");
+                            MessageQueue.Enqueue("Testing " + filename + " with Testcase#" + nctestcase.NCTESTCASE_ID.ToString() + " Result : Runtime Error\n");
                         }
                     }
                 }
             }
-            if (!File.Exists(output))
+            try
             {
-                File.Delete(output);
+                if (File.Exists(output))
+                {
+                    File.Delete(output);
+                }
             }
+            catch {  }
+            Entity.SaveChanges();
+            return ans;
         }
     }
 }
