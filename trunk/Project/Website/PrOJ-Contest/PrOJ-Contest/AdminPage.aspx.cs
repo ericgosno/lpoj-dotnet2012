@@ -60,7 +60,13 @@ namespace PrOJ_Contest
                 //}
                 
             }
+            
             refreshListBanned();
+            clarContestAdd.Visible = true;
+            
+            if (IsPostBack) return;
+            clarContestAdd.Visible = false;
+
            
         }
         protected void initialUserActive()
@@ -179,12 +185,19 @@ namespace PrOJ_Contest
         protected void addContest_Click(object sender, EventArgs e)
         {
             lpoj_contest myNewContest = new lpoj_contest();
+            if (contestName.Text == "" || contestName.Text == null)
+            {
+                clarContestAdd.Text = "**Not Submitted";
+                return;
+            }
             myNewContest.CONTEST_TITLE = contestName.Text;
             
             myNewContest.CONTEST_BEGIN = myNewContest.CONTEST_CREATE = myNewContest.CONTEST_END = myNewContest.CONTEST_FREEZE =(DateTime.Now);
             entity.lpoj_contest.AddObject(myNewContest);
             entity.SaveChanges();
+            clarContestAdd.Text = "**Submitted!";
             Response.Redirect("AdminPage.aspx");
+
 
         }
 
@@ -203,6 +216,8 @@ namespace PrOJ_Contest
             Session["contestActive"] = c;
             Response.Redirect("AdminContestManagementPage.aspx?Id=" + c.CONTEST_ID.ToString());
         }
+
+
 
     }
 }
