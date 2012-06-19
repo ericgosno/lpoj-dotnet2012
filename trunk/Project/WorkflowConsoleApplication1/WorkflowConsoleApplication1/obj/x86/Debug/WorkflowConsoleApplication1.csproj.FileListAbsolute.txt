@@ -1,0 +1,28 @@
+c:\users\administrator\documents\visual studio 2010\Projects\WorkflowConsoleApplication1\WorkflowConsoleApplication1\bin\Debug\WorkflowConsoleApplication1.exe.config
+c:\users\administrator\documents\visual studio 2010\Projects\WorkflowConsoleApplication1\WorkflowConsoleApplication1\bin\Debug\WorkflowConsoleApplication1.exe
+c:\users\administrator\documents\visual studio 2010\Projects\WorkflowConsoleApplication1\WorkflowConsoleApplication1\bin\Debug\WorkflowConsoleApplication1.pdb
+c:\users\administrator\documents\visual studio 2010\Projects\WorkflowConsoleApplication1\WorkflowConsoleApplication1\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\administrator\documents\visual studio 2010\Projects\WorkflowConsoleApplication1\WorkflowConsoleApplication1\obj\x86\Debug\Workflow1.g.xaml
+c:\users\administrator\documents\visual studio 2010\Projects\WorkflowConsoleApplication1\WorkflowConsoleApplication1\obj\x86\Debug\_WorkflowConsoleApplication1.g.cs
+c:\users\administrator\documents\visual studio 2010\Projects\WorkflowConsoleApplication1\WorkflowConsoleApplication1\obj\x86\Debug\Workflow1.g.cs
+c:\users\administrator\documents\visual studio 2010\Projects\WorkflowConsoleApplication1\WorkflowConsoleApplication1\obj\x86\Debug\WorkflowConsoleApplication1.csproj.XamlGeneratedCodeFileListAbsolute.txt
+c:\users\administrator\documents\visual studio 2010\Projects\WorkflowConsoleApplication1\WorkflowConsoleApplication1\obj\x86\Debug\WorkflowConsoleApplication1.csproj.XamlGeneratedXamlFileListAbsolute.txt
+c:\users\administrator\documents\visual studio 2010\Projects\WorkflowConsoleApplication1\WorkflowConsoleApplication1\obj\x86\Debug\InProcessTempFiles\Workflow1.g.cs
+c:\users\administrator\documents\visual studio 2010\Projects\WorkflowConsoleApplication1\WorkflowConsoleApplication1\obj\x86\Debug\InProcessTempFiles\Workflow1.g.xaml
+c:\users\administrator\documents\visual studio 2010\Projects\WorkflowConsoleApplication1\WorkflowConsoleApplication1\obj\x86\Debug\InProcessTempFiles\_WorkflowConsoleApplication1.g.cs
+c:\users\administrator\documents\visual studio 2010\Projects\WorkflowConsoleApplication1\WorkflowConsoleApplication1\obj\x86\Debug\WorkflowConsoleApplication1.exe
+c:\users\administrator\documents\visual studio 2010\Projects\WorkflowConsoleApplication1\WorkflowConsoleApplication1\obj\x86\Debug\WorkflowConsoleApplication1.pdb
+D:\User\FELIX 5109100121\Kuliah\Pemrogaman .Net\TUGAS WF\WorkflowConsoleApplication1\WorkflowConsoleApplication1\bin\Debug\WorkflowConsoleApplication1.exe.config
+D:\User\FELIX 5109100121\Kuliah\Pemrogaman .Net\TUGAS WF\WorkflowConsoleApplication1\WorkflowConsoleApplication1\obj\x86\Debug\WorkflowConsoleApplication1.exe
+D:\User\FELIX 5109100121\Kuliah\Pemrogaman .Net\TUGAS WF\WorkflowConsoleApplication1\WorkflowConsoleApplication1\obj\x86\Debug\WorkflowConsoleApplication1.pdb
+D:\User\FELIX 5109100121\Kuliah\Pemrogaman .Net\TUGAS WF\WorkflowConsoleApplication1\WorkflowConsoleApplication1\bin\Debug\WorkflowConsoleApplication1.exe
+D:\User\FELIX 5109100121\Kuliah\Pemrogaman .Net\TUGAS WF\WorkflowConsoleApplication1\WorkflowConsoleApplication1\bin\Debug\WorkflowConsoleApplication1.pdb
+D:\User\FELIX 5109100121\Kuliah\Pemrogaman .Net\TUGAS WF\WorkflowConsoleApplication1\WorkflowConsoleApplication1\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\User\FELIX 5109100121\Kuliah\Pemrogaman .Net\TUGAS WF\WorkflowConsoleApplication1\WorkflowConsoleApplication1\obj\x86\Debug\Workflow1.g.xaml
+D:\User\FELIX 5109100121\Kuliah\Pemrogaman .Net\TUGAS WF\WorkflowConsoleApplication1\WorkflowConsoleApplication1\obj\x86\Debug\_WorkflowConsoleApplication1.g.cs
+D:\User\FELIX 5109100121\Kuliah\Pemrogaman .Net\TUGAS WF\WorkflowConsoleApplication1\WorkflowConsoleApplication1\obj\x86\Debug\Workflow1.g.cs
+D:\User\FELIX 5109100121\Kuliah\Pemrogaman .Net\TUGAS WF\WorkflowConsoleApplication1\WorkflowConsoleApplication1\obj\x86\Debug\WorkflowConsoleApplication1.csproj.XamlGeneratedCodeFileListAbsolute.txt
+D:\User\FELIX 5109100121\Kuliah\Pemrogaman .Net\TUGAS WF\WorkflowConsoleApplication1\WorkflowConsoleApplication1\obj\x86\Debug\WorkflowConsoleApplication1.csproj.XamlGeneratedXamlFileListAbsolute.txt
+D:\User\FELIX 5109100121\Kuliah\Pemrogaman .Net\TUGAS WF\WorkflowConsoleApplication1\WorkflowConsoleApplication1\obj\x86\Debug\InProcessTempFiles\Workflow1.g.cs
+D:\User\FELIX 5109100121\Kuliah\Pemrogaman .Net\TUGAS WF\WorkflowConsoleApplication1\WorkflowConsoleApplication1\obj\x86\Debug\InProcessTempFiles\Workflow1.g.xaml
+D:\User\FELIX 5109100121\Kuliah\Pemrogaman .Net\TUGAS WF\WorkflowConsoleApplication1\WorkflowConsoleApplication1\obj\x86\Debug\InProcessTempFiles\_WorkflowConsoleApplication1.g.cs
