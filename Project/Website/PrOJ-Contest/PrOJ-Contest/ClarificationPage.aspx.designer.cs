@@ -49,30 +49,48 @@ namespace PrOJ_Contest {
         protected global::System.Web.UI.WebControls.Button askButton;
         
         /// <summary>
-        /// usernameAsker control.
+        /// clarificationList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label usernameAsker;
+        protected global::System.Web.UI.WebControls.ListBox clarificationList;
         
         /// <summary>
-        /// question control.
+        /// Asker control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label question;
+        protected global::System.Web.UI.WebControls.Label Asker;
         
         /// <summary>
-        /// answer control.
+        /// idAsker control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label answer;
+        protected global::System.Web.UI.WebControls.Label idAsker;
+        
+        /// <summary>
+        /// Question control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Question;
+        
+        /// <summary>
+        /// answerText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label answerText;
     }
 }
