@@ -112,7 +112,7 @@
                         onclick="addContest_Click" /> </td>
             </tr>
             <tr>
-                <td></td>
+                <td> <asp:Label ID="clarContestAdd" runat="server" Text="Submitted" Visible="false" Font-Italic="true" Font-Bold="true" /></td>
             </tr>
             <tr>
                 <td style="font-style:italic"> Edit contest </td>

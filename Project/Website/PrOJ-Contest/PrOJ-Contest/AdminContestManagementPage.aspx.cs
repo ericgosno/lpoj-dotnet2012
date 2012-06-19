@@ -63,7 +63,9 @@ namespace PrOJ_Contest
                 contestDetail = con.ElementAt<lpoj_contest>(0);
                 if (IsPostBack) return;
                 lb_contestActive.Text = contestDetail.CONTEST_TITLE.ToString();
-                contestDescription.Text = contestDetail.CONTEST_DESCRIPTION.ToString();
+                if (contestDetail.CONTEST_DESCRIPTION == null)
+                    contestDescription.Text = "<No Description>";
+                else contestDescription.Text = contestDetail.CONTEST_DESCRIPTION.ToString();
                 startTime.Text = contestDetail.CONTEST_BEGIN.ToString();
                 finishTime.Text = contestDetail.CONTEST_END.ToString();
                 freezeTime.Text = contestDetail.CONTEST_FREEZE.ToString();
