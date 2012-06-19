@@ -17,6 +17,28 @@
     <h3>Submission</h3>
     <br />
     <form id="form1" runat="server">
+        <table>
+            <tr>
+                <td> Select Problem </td>
+            </tr>
+            <tr>
+                <td> <asp:DropDownList ID="problemList" runat="server" Height="20px" Width="150px" AutoPostBack="true" /> </td>
+            </tr>
+            <tr>
+                <td> Upload Source File (auto-detect extension) </td>
+            </tr>
+            <tr>
+                <td> <asp:FileUpload ID="sourceFile" runat="server" /> </td>
+            </tr>
+            <tr>
+                <td> <asp:Button ID="submit" Text="Submit" runat="server" onclick="submit_Click" /> </td>
+            </tr>
+        </table>
+        <br />
+        <br />
+        <br />
+        <h4> Submitted Solutions </h4>
+        <br />
         <asp:DataGrid ID="contestSubmission" runat="server" />
     </form>
 </asp:Content>
