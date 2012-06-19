@@ -17,6 +17,19 @@ namespace PrOJ_Contest
         {
             initialUserActive();
             contest_id = Convert.ToInt32(Request.QueryString["Id"]);
+            if (IsPostBack) return;
+
+            clarificationList.Items.Clear();
+            Entity = new lpojEntities();
+            IEnumerable<lpoj_clarification> clarifications = from c in Entity.lpoj_clarification
+                                                             where c.CONTEST_ID == contest_id
+                                                             select c;
+            foreach (lpoj_clarification clarification in clarifications)
+            {
+                clarificationList.Items.Add(clarification.CLARIFICATION_ID.ToString() + " - " + clarification.CLARIFICATION_TITLE);
+            }
+            idAsker.Text = "0";
+            refreshClarificationForm(null);
         }
 
         protected void initialUserActive()
@@ -30,6 +43,61 @@ namespace PrOJ_Contest
             {
                 activeUser = (lpoj_users)Session["userActive"];
             }
+        }
+
+        private void refreshClarificationForm(lpoj_clarification clarification)
+        {
+
+            if (clarification == null)
+            {
+                Asker.Text = "-";
+                Question.Text = "-";
+                answerText.Enabled = false;
+                
+                return;
+            }
+            Entity = new lpojEntities();
+            IEnumerable<int> userID = from c in Entity.lpoj_contestant
+                                      where c.CONTESTANT_ID == clarification.CONTESTANT_ID
+                                      select c.USERS_ID;
+            int UID = userID.First<int>();
+            IEnumerable<string> username = from c in Entity.lpoj_users
+                                           where c.USERS_ID == UID
+                                           select c.USERS_USERNAME;
+            Asker.Text = username.First<string>();
+            Question.Text = clarification.CLARIFICATION_DESCRIPTION;
+            if (clarification.CLARIFICATION_ANSWER == null)
+            {
+                answerText.Enabled = true;
+                answerText.Text = "<< unknown answer >>";
+            }
+            else
+            {
+                answerText.Text = clarification.CLARIFICATION_ANSWER;
+            }
+
+            
+        }
+        protected void clarificationList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Entity = new lpojEntities();
+            string clarificationTitle = clarificationList.SelectedValue;
+            string clarificationID = "";
+            foreach (char ch in clarificationTitle)
+            {
+                if (ch == ' ') break;
+                clarificationID += ch.ToString();
+            }
+            int CID = Convert.ToInt32(clarificationID);
+            IEnumerable<lpoj_clarification> clarifications = from c in Entity.lpoj_clarification
+                                                             where c.CLARIFICATION_ID == CID
+                                                             select c;
+
+
+            idAsker.Text = CID.ToString();
+
+            refreshClarificationForm(clarifications.First<lpoj_clarification>());
+
         }
 
         protected void askButton_Click(object sender, EventArgs e)

@@ -41,9 +41,33 @@
         <br />
         <br />
         <h4>All Asked Clarification</h4>
-        <asp:Table runat="server">
-            <asp:TableRow>
-                <asp:TableCell> From : </asp:TableCell>
-                <asp:TableCell> <asp:Label runat="server" ID="usernameAsker" Text="Penanya" /> </asp:TableCell></asp:TableRow><asp:TableRow>
-                <asp:TableCell ColumnSpan="2"> <asp:Label runat="server" ID="question" Text="tempat pertanyaan" /> </asp:TableCell></asp:TableRow><asp:TableRow>
-                <asp:TableCell ColumnSpan="2"> <asp:Label runat="server" ID="answer" Text="tempat jawaban" /> </asp:TableCell></asp:TableRow></asp:Table></form></asp:Content>
+        <br />
+        <h4> Clarification List : </h4>
+        <asp:ListBox ID="clarificationList" runat="server" Height="170px" Width="280px" 
+            onselectedindexchanged="clarificationList_SelectedIndexChanged" AutoPostBack="true" />
+        <br />
+        <br />
+        <table>
+            <tr>
+                <td> From : </td>
+                <td> 
+                <asp:Label ID="Asker" Text="username yang nanya" runat="server" /> 
+                <asp:Label ID="idAsker" Text="" runat = "server" Visible ="false"/>
+                </td>
+            </tr>
+            <tr>
+                <td> 
+                    <b> Question : </b> <asp:Label ID="Question" Text="isi pertanyaan" runat="server" /> 
+                </td>
+            </tr>
+            
+        </table>
+        <table>
+            <tr>
+                <td> 
+                <b> Answer : </b><asp:Label ID ="answerText" runat="server" Text="<wew>" /> 
+                </td>
+            </tr>
+        </table>
+ 
+ </form></asp:Content>
