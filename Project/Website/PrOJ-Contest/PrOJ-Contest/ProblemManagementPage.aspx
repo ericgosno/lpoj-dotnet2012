@@ -106,7 +106,7 @@
                 </td>
             </tr>
             <tr>
-                <td> Remove TestCase </td>
+                <td> Remove TestCases </td>
             </tr>
             <tr>
                 <td> <asp:Button ID="removeTestCase" text="Remove" runat="server" 

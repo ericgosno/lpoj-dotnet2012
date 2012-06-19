@@ -17,8 +17,34 @@
     <h3>Contest Rank</h3>
     <br />
     <form id="form1" runat="server">
-        <asp:DataGrid ID="contestRank" runat="server" />
+        Active contest : <asp:Label ID="activeContestLabel" Text="<contestName>" runat="server" />
+        <asp:Table runat="server">
+            <asp:TableHeaderRow>
+                <asp:TableCell>
+                    Username
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:Label ID="problemName" Text="<problem1>" runat="server" />
+                </asp:TableCell>
+                <asp:TableCell>
+                    Total score
+                </asp:TableCell>
+            </asp:TableHeaderRow>
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:Label ID="userName" Text="<username1>" runat="server" />
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:Label ID="submissionStatus" Text="<user1problem1score>" runat="server" />
+                    <br />
+                    <asp:Label ID="time" Text="<user1problem1time>" runat="server" />
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:Label ID="scoretotal" Text="<user1contestscore>" runat="server" />
+                    <br />
+                    <asp:Label ID="timetotal" Text="<user1contesttime>" runat="server" />
+                </asp:TableCell>
+            </asp:TableRow>
+        </asp:Table>
     </form>
-
-
 </asp:Content>
