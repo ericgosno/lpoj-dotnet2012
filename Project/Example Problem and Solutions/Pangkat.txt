@@ -1,0 +1,19 @@
+Terdapat dua buah integer A dan B (1<=A,B<=10^9). Hitung A pangkat B modulo 1000.
+
+Format input :
+Baris pertama berisi integer T (1<=T<=10), banyaknya test-case.
+Setiap test-case berisi dua buah integer A dan B.
+
+Format output :
+Untuk setiap test-case, cetak A pangkat B dalam satu baris.
+
+Contoh input :
+3
+2 4
+5 3
+1 1000
+
+Contoh output :
+16
+125
+1
