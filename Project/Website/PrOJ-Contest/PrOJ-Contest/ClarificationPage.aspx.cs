@@ -52,7 +52,7 @@ namespace PrOJ_Contest
             {
                 Asker.Text = "-";
                 Question.Text = "-";
-                answerText.Enabled = false;
+                answerText.Text = "-";
                 
                 return;
             }
@@ -69,7 +69,7 @@ namespace PrOJ_Contest
             if (clarification.CLARIFICATION_ANSWER == null)
             {
                 answerText.Enabled = true;
-                answerText.Text = "<< unknown answer >>";
+                answerText.Text = "-";
             }
             else
             {

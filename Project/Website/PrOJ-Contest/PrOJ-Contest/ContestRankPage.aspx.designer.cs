@@ -31,13 +31,13 @@ namespace PrOJ_Contest {
         protected global::System.Web.UI.WebControls.Label activeContestLabel;
         
         /// <summary>
-        /// wew control.
+        /// maxScore control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table wew;
+        protected global::System.Web.UI.WebControls.Label maxScore;
         
         /// <summary>
         /// TblScore control.

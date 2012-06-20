@@ -59,7 +59,7 @@
                 <td></td>
             </tr>
             <tr>
-                <td> Time Limit (Byte) </td>
+                <td> Memory Limit (Byte) </td>
             </tr>
             <tr>
                 <td> <asp:TextBox ID="memoryLimit" runat="server" /> </td>

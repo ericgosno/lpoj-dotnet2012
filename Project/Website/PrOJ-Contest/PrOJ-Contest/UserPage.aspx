@@ -4,7 +4,7 @@
 
 <asp:Content ID="Menu" ContentPlaceHolderID="MenuContentPlaceHolder" runat="server">
     <ul class="art-hmenu">
-        <li><a href="UserPage.aspx" class="active"><span class="l"></span><span class="r"></span><span class="t">Deskripi Lomba</span></a></li>
+        <li><a href="UserPage.aspx" class="active"><span class="l"></span><span class="r"></span><span class="t">Deskripsi Lomba</span></a></li>
         <li><a href="UserManagement.aspx"><span class="l"></span><span class="r"></span><span class="t"> Managemen User </span> </a></li>
         <li><a href="Default.aspx"><span class="l"></span><span class="r"></span><span class="t"> Logout </span> </a></li>
     </ul>

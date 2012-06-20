@@ -18,9 +18,10 @@
     <h3>Contest Rank</h3>
     <br />
     <form id="form1" runat="server">
-        Active contest : <asp:Label ID="activeContestLabel" Text="contestName" runat="server" />
-            
-        <asp:Table ID="TblScore" runat="server">
+        Active contest : <asp:Label ID="activeContestLabel" Text="contestName" runat="server" /><br />
+        Maximum score  : <asp:Label ID="maxScore" Text="0" runat="server" /><br />
+        <br />   
+        <asp:Table ID="TblScore" runat="server" CssClass="table">
             <asp:TableHeaderRow>
                 <asp:TableHeaderCell>Username</asp:TableHeaderCell>
                 <asp:TableHeaderCell>TotalScore</asp:TableHeaderCell>
