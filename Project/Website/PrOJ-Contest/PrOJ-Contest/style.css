@@ -214,15 +214,12 @@ html, body
 
 body
 {
-   padding: 0;
-   margin:0;
-   min-width: 700px;
-   color: #303B21;
-   background-color: #E2E9D7;
-   background-image: url('images/Bottom_texture.jpg');
-   background-repeat: repeat-x;
-   background-attachment: fixed;
-   background-position: top left;
+   background: #E2E9D7 url('images/Bottom_texture.jpg') repeat-x fixed left top;
+    padding: 0;
+    margin: 0;
+    min-width: 700px;
+    color: #303B21;
+    text-align: center;
 }
 
 .cleared

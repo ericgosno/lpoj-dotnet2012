@@ -14,9 +14,15 @@
 
 <asp:Content ID="SheetContent" runat="server" ContentPlaceHolderID="SheetContentPlaceHolder">
 
-    <h3>Dibuat oleh</h3>
+    <h3>Credits</h3>
     <br />
-    <br />
+    &nbsp;<strong>Felix Handani(PM)<br />
+    Gracius Cagar<br />
+    Eric Budiman<br />
+    Adrianus Yoza<br />
+    Bethari Berlianti<br />
+    Rani Shesasiwi H<br />
+    </strong>
     <br />
 
 </asp:Content>
