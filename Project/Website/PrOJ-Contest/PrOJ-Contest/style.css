@@ -219,7 +219,7 @@ body
     margin: 0;
     min-width: 700px;
     color: #303B21;
-    text-align: center;
+    /*text-align: center;*/
 }
 
 .cleared
