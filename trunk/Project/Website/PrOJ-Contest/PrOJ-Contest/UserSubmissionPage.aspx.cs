@@ -52,19 +52,67 @@ namespace PrOJ_Contest
             {
                 Response.Redirect("UserPage.aspx");
             }
-            if (IsPostBack) return;
+            
+            
             problems = from c in Entity.lpoj_problem
                         where c.CONTEST_ID == contestID && c.PROBLEM_STATUS == 0
                         select c;
+            refreshSubmissionList();
+            if (IsPostBack) return;
             problemList.Items.Clear();
             foreach (lpoj_problem problem in problems)
                 problemList.Items.Add(problem.PROBLEM_ID.ToString() + " - " + problem.PROBLEM_TITLE);
             
-            refreshSubmissionList();
+            
         }
 
         private void refreshSubmissionList()
         {
+            Entity = new lpojEntities();
+            TblSubmissions.Rows.Clear();
+            TableHeaderRow Row0 = new TableHeaderRow();
+            TableHeaderCell Cell0 = new TableHeaderCell();
+            TableHeaderCell Cell1 = new TableHeaderCell();
+            TableHeaderCell Cell2 = new TableHeaderCell();
+            Cell0.Text = "Problem ID";
+            Cell1.Text = "Problem Name";
+            Cell2.Text = "Score";
+            Row0.Cells.Add(Cell0);
+            Row0.Cells.Add(Cell1);
+            Row0.Cells.Add(Cell2);
+            TblSubmissions.Rows.Add(Row0);
+
+            foreach (lpoj_problem problem in problems)
+            {
+                IEnumerable <lpoj_submission> USubmissions = from c in Entity.lpoj_submission
+                                   where c.CONTESTANT_ID == contestant.CONTESTANT_ID && c.PROBLEM_ID == problem.PROBLEM_ID
+                                   select c;
+
+               
+                TableRow Subm = new TableRow();
+                TableCell Cs0 = new TableCell();
+                TableCell Cs1 = new TableCell();
+                TableCell Cs2 = new TableCell();
+                Cs0.Text = problem.PROBLEM_ID.ToString();
+                Cs1.Text = problem.PROBLEM_TITLE;
+
+                if (USubmissions.Count() > 0)
+                {
+                    lpoj_submission mboh = USubmissions.First();
+                    Cs2.Text = mboh.SUBMISSION_SCORE!=-1?mboh.SUBMISSION_SCORE.ToString():"Judging on Progress";
+                }
+                else
+                {
+                    Cs2.Text = "No Submission(s)".ToString();
+                }
+                Subm.Cells.Add(Cs0);
+                Subm.Cells.Add(Cs1);
+                Subm.Cells.Add(Cs2);
+                TblSubmissions.Rows.Add(Subm);
+            }
+
+            
+            
         }
 
         protected void initialUserActive()
@@ -106,7 +154,7 @@ namespace PrOJ_Contest
                         CONTESTANT_ID = contestant.CONTESTANT_ID,
                         PROBLEM_ID = problemID,
                         SUBMISSION_TIME = deltaS,
-                        SUBMISSION_SCORE = 0
+                        SUBMISSION_SCORE = -1
                     });
                     Entity.SaveChanges();
                 }

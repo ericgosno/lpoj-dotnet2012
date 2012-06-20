@@ -24,20 +24,22 @@
         <br />
         <table>
             <tr>
-                <td> From : </td>
+                <td>From</td>
+                <td>:</td>
                 <td> 
                 <asp:Label ID="Asker" Text="username yang nanya" runat="server" /> 
                 <asp:Label ID="idAsker" Text="" runat = "server" Visible ="false"/>
                 </td>
             </tr>
             <tr>
-                <td> Question : </td>
-            </tr>
-            <tr>
-                <td> <asp:Label ID="Question" Text="isi pertanyaan" runat="server" /> </td>
+                <td>Question</td>
+                <td>:</td>
             </tr>
         </table>
         <table>
+            <tr>
+                <td> <asp:Label ID="Question" Text="isi pertanyaan" runat="server" /> </td>
+            </tr>
             <tr>
                 <td> <asp:TextBox ID="answerText" text="Jawaban tulis di sini!" 
                         TextMode="MultiLine" runat="server" Height="51px" Width="305px" /> </td>

@@ -60,7 +60,7 @@
                 <td></td>
             </tr>
             <tr>
-                <td> Time Limit (Byte) </td>
+                <td> Memory Limit (Byte) </td>
             </tr>
             <tr>
                 <td> <asp:label ID="memoryLimit" runat="server"/> </td>

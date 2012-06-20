@@ -22,6 +22,15 @@ namespace PrOJ_Contest
                 contestid = 1;
             }
             generate(contestid);
+            lpojEntities Ent = new lpojEntities();
+            IEnumerable<lpoj_contest> contests = from c in Ent.lpoj_contest
+                                                 where c.CONTEST_ID == contestid
+                                                 select c;
+            activeContestLabel.Text = contests.First<lpoj_contest>().CONTEST_TITLE;
+            IEnumerable<lpoj_problem> problems = from c in Ent.lpoj_problem
+                                                 where (c.CONTEST_ID == contestid) && (c.PROBLEM_STATUS == 0)
+                                                 select c;
+            maxScore.Text = (problems.Count<lpoj_problem>() * 100).ToString();
         }
 
         private class mboh : IComparable<mboh>
@@ -93,7 +102,7 @@ namespace PrOJ_Contest
                                                         select c;
             foreach (lpoj_submission ls in contestCheck)
             {
-                totScore += ls.SUBMISSION_SCORE;
+                totScore += ls.SUBMISSION_SCORE<0?0:ls.SUBMISSION_SCORE;
                 totTime += ls.SUBMISSION_TIME;
             }
 

@@ -1789,7 +1789,7 @@ table.table
    table-layout:fixed;
    text-align:left;
    vertical-align:top;
-   border:none;
+   border:1px solid black;
    margin:0;
    padding:0;
    background-color:Transparent;
@@ -1797,10 +1797,19 @@ table.table
 
 table.table tr, table.table td
 {
-   border:none;
+   border:2px solid #458d1f;
    margin:0;
    padding:0;
    background-color:Transparent;
+}
+
+table.table th
+{
+   border:2px solid #458d1f;
+   margin:0;
+   padding:0;
+   background-color:#458d1f;
+   color:White;
 }
 
 img.image

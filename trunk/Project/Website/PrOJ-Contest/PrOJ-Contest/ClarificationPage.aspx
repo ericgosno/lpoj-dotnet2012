@@ -49,23 +49,37 @@
         <br />
         <table>
             <tr>
-                <td> From : </td>
                 <td> 
-                <asp:Label ID="Asker" Text="username yang nanya" runat="server" /> 
-                <asp:Label ID="idAsker" Text="" runat = "server" Visible ="false"/>
+                    <b>From</b>
+                </td>
+                <td> 
+                    <b>:</b>
+                </td>
+                <td> 
+                    <asp:Label ID="Asker" Text="username yang nanya" runat="server" /> 
+                    <asp:Label ID="idAsker" Text="" runat = "server" Visible ="false"/>
                 </td>
             </tr>
             <tr>
                 <td> 
-                    <b> Question : </b> <asp:Label ID="Question" Text="isi pertanyaan" runat="server" /> 
+                    <b>Question</b>  
+                </td>
+                 <td> 
+                    <b>:</b>  
+                </td>
+                <td>
+                    <asp:Label ID="Question" Text="isi pertanyaan" runat="server" />
                 </td>
             </tr>
-            
-        </table>
-        <table>
             <tr>
                 <td> 
-                <b> Answer : </b><asp:Label ID ="answerText" runat="server" Text="<wew>" /> 
+                    <b>Answer</b> 
+                </td>
+                <td> 
+                    <b>:</b> 
+                </td>
+                <td>
+                    <asp:Label ID ="answerText" runat="server" Text="<wew>" />
                 </td>
             </tr>
         </table>

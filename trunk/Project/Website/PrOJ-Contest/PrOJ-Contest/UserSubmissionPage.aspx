@@ -40,6 +40,12 @@
         <br />
         <h4> Submitted Solutions </h4>
         <br />
-        <asp:DataGrid ID="contestSubmission" runat="server" />
+         <asp:Table ID="TblSubmissions" runat="server" CssClass="table">
+            <asp:TableHeaderRow>
+                <asp:TableHeaderCell>Problem ID</asp:TableHeaderCell>
+                <asp:TableHeaderCell>Problem Name</asp:TableHeaderCell>
+                <asp:TableHeaderCell>Score</asp:TableHeaderCell>
+            </asp:TableHeaderRow>
+       </asp:Table>
     </form>
 </asp:Content>
